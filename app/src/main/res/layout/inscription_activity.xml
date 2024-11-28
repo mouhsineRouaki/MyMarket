@@ -1,7 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/frameInscription"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/shape"
+        android:alpha="0.5"
+        />
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="INSCRIPTION"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:layout_marginBottom="30dp"/>
+        <EditText
+            android:id="@+id/nomUser"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="Entrer Votre Nom"
+            android:background="@drawable/edittext"
+            android:gravity="center"/>
+        <EditText
+            android:id="@+id/PrenomUser"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="Entrer Votre Prenom"
+            android:background="@drawable/edittext"
+            android:gravity="center"/>
+        <EditText
+            android:id="@+id/dateNaissance"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="Entrer Votre Date Naissance"
+            android:inputType="date"
+            android:background="@drawable/edittext"
+            android:gravity="center"/>
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="Entrer Votre Email"
+            android:background="@drawable/edittext"
+            android:gravity="center"/>
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="Entrer Votre Password"
+            android:background="@drawable/edittext"
+            android:gravity="center"/>
+        <RadioGroup
+            android:id="@+id/RadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/homme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:text="homme"/>
+            <RadioButton
+                android:id="@+id/femme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="femme"/>
+        </RadioGroup>
+        <CheckBox
+            android:id="@+id/condition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vous acceptez les présentes conditions générales d'utilisation"/>
 
 
-</LinearLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonInscription"
+            android:layout_width="182dp"
+            android:layout_height="44dp"
+            android:text="INSCRI"
+            android:background="@drawable/button"
+            />
+
+    </LinearLayout>
+</FrameLayout>
