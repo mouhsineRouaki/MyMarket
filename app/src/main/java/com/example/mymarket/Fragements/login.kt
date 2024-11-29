@@ -12,7 +12,6 @@ class login : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Lier le layout fragment_signup
         return inflater.inflate(R.layout.login_activity, container, false)
     }
 }
