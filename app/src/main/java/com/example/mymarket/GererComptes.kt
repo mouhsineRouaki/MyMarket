@@ -29,8 +29,7 @@ class GererComptes: AppCompatActivity() {
         val btnLogin = findViewById<TextView>(R.id.btnLogin)
         val btnInscription = findViewById<TextView>(R.id.btnInscription)
 
-
-        supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, login()).commit()
+     supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, login()).commit()
 
         findViewById<TextView>(R.id.btnLogin).setOnClickListener {
             btnLogin.setBackgroundResource(R.drawable.toggle_selected)

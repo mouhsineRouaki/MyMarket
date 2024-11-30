@@ -14,5 +14,4 @@
         android:id="@+id/logo"
         android:layout_width="400dp"
         android:layout_height="400dp" />
-
 </LinearLayout>
