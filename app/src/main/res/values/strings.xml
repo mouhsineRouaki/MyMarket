@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">MyMarket</string>
-
+    <string name="search">Rechercher... </string>
 </resources>

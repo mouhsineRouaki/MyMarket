@@ -6,4 +6,7 @@
     <color name="secondary">#FFB129</color>
     <color name="light_blue">#E2DCDC</color>
     <color name="dark_blue">#FFB129</color>
+    <color name="colorLogo">#38b6ff</color>
+    <color name="colorBackground">#E3F2FD</color>
+    <color name="colorAccent">#1976D2</color>
 </resources>
