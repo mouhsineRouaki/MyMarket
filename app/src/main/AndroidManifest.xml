@@ -21,6 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity
             android:name=".GererComptes"
             android:exported="true">
@@ -37,6 +38,8 @@
             android:name=".AcceuilActivity"
             android:exported="true">
         </activity>
+=======
+>>>>>>> 8fb32b5a486a16a9f4d272a477d3d4793f6c2735
     </application>
 
 </manifest>

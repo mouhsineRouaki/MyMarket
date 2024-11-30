@@ -10,9 +10,12 @@
     android:gravity="center"
     tools:context=".SplashActivity">
 
+<<<<<<< HEAD
     <ImageView
         android:id="@+id/logo"
         android:layout_width="400dp"
         android:layout_height="400dp" />
+=======
+>>>>>>> 8fb32b5a486a16a9f4d272a477d3d4793f6c2735
 
 </LinearLayout>

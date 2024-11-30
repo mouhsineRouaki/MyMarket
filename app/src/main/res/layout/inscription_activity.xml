@@ -71,7 +71,10 @@
             android:background="@drawable/edittext"
             android:gravity="center"/>
         <RadioGroup
+<<<<<<< HEAD
             android:id="@+id/RadioGroup"
+=======
+>>>>>>> 8fb32b5a486a16a9f4d272a477d3d4793f6c2735
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -85,7 +88,11 @@
                 android:id="@+id/femme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+<<<<<<< HEAD
                 android:text="femme"/>
+=======
+                android:text="homme"/>
+>>>>>>> 8fb32b5a486a16a9f4d272a477d3d4793f6c2735
         </RadioGroup>
         <CheckBox
             android:id="@+id/condition"
@@ -95,7 +102,10 @@
 
 
         <androidx.appcompat.widget.AppCompatButton
+<<<<<<< HEAD
             android:id="@+id/buttonInscription"
+=======
+>>>>>>> 8fb32b5a486a16a9f4d272a477d3d4793f6c2735
             android:layout_width="182dp"
             android:layout_height="44dp"
             android:text="INSCRI"
