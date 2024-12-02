@@ -4,15 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-<<<<<<< HEAD
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Toast
-=======
->>>>>>> 8fb32b5a486a16a9f4d272a477d3d4793f6c2735
 import androidx.fragment.app.Fragment
 import com.example.mymarket.R
 
@@ -21,7 +18,6 @@ class Inscription : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-<<<<<<< HEAD
         return inflater.inflate(R.layout.inscription_activity, container, false)
     }
 
@@ -62,9 +58,4 @@ class Inscription : Fragment() {
 
         }
     }
-=======
-        // Lier le layout fragment_signup
-        return inflater.inflate(R.layout.inscription_activity, container, false)
-    }
->>>>>>> 8fb32b5a486a16a9f4d272a477d3d4793f6c2735
 }

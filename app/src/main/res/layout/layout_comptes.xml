@@ -11,11 +11,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-<<<<<<< HEAD
     android:layout_marginTop="38dp"
-=======
-    android:layout_marginTop="37dp"
->>>>>>> 8fb32b5a486a16a9f4d272a477d3d4793f6c2735
     android:orientation="horizontal"
     android:id="@+id/layoutSelect"
     android:background="@drawable/toggle_background"
