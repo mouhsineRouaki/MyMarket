@@ -13,7 +13,7 @@
         android:theme="@style/Theme.MyMarket"
         tools:targetApi="31">
         <activity
-            android:name=".SplashActivity"
+            android:name=".activity.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,25 +21,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
         <activity
-            android:name=".GererComptes"
+            android:name=".activity.GererComptes"
             android:exported="true">
         </activity>
         <activity
-            android:name=".Inscription"
+            android:name=".activity.MainActivity"
             android:exported="true">
         </activity>
         <activity
-            android:name=".Login"
+            android:name=".Fragements.HomeActivity"
             android:exported="true">
         </activity>
-        <activity
-            android:name=".AcceuilActivity"
-            android:exported="true">
-        </activity>
-=======
->>>>>>> 8fb32b5a486a16a9f4d272a477d3d4793f6c2735
     </application>
 
 </manifest>

@@ -6,10 +6,8 @@
     <color name="secondary">#FFB129</color>
     <color name="light_blue">#E2DCDC</color>
     <color name="dark_blue">#FFB129</color>
-<<<<<<< HEAD
     <color name="colorLogo">#38b6ff</color>
     <color name="colorBackground">#E3F2FD</color>
     <color name="colorAccent">#1976D2</color>
-=======
->>>>>>> 8fb32b5a486a16a9f4d272a477d3d4793f6c2735
+    <color name="colorMenu">#EEF0F2</color>
 </resources>

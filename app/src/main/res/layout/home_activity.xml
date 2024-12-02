@@ -18,7 +18,7 @@
 
         <ImageView
             android:id="@+id/icUser"
-            android:layout_width="@dimen/icon_size"
+            android:layout_width="35dp"
             android:layout_height="@dimen/icon_size"
             android:src="@drawable/baseline_account_circle_24" />
 
@@ -32,7 +32,7 @@
 
         <ImageView
             android:id="@+id/user_icon"
-            android:layout_width="@dimen/icon_size"
+            android:layout_width="35dp"
             android:layout_height="@dimen/icon_size"
             android:layout_gravity="end"
             android:src="@drawable/baseline_support_agent_24" />
@@ -86,6 +86,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="voir plus"
+                android:textSize="20dp"
                 android:layout_marginRight="10dp"
                 android:textColor="@color/colorLogo"
                 android:gravity="end"
@@ -327,6 +328,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="voir plus"
+                android:textSize="20dp"
                 android:layout_marginRight="10dp"
                 android:textColor="@color/colorLogo"
                 android:gravity="end"
@@ -355,6 +357,7 @@
             android:layout_height="wrap_content"
             android:gravity="start"
             android:textSize="20dp"
+            android:textStyle="bold"
             android:textColor="@color/black"
             android:text="Voir tous les produits"/>
 
