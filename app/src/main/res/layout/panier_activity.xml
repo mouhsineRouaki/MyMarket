@@ -63,7 +63,7 @@
                     android:layout_width="400dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_height="wrap_content"
-                    android:text="Commandes" />
+                    android:text="Commandess" />
             </LinearLayout>
     </FrameLayout>
 
