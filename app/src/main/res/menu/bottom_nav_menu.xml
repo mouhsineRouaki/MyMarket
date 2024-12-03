@@ -4,6 +4,10 @@
         android:icon="@drawable/ic_home"
         android:title="Home" />
     <item
+        android:id="@+id/category"
+        android:icon="@drawable/ic_category"
+        android:title="Category" />
+    <item
         android:id="@+id/panier"
         android:icon="@drawable/ic_panier"
         android:title="Panier" />

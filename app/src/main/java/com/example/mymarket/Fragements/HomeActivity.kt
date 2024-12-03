@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,7 +20,7 @@ class HomeActivity: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,true)
+
         val listProduit= listOf(
             Produit("produit","hgdhed",45.0,"udgj",45),
             Produit("produit","hgdhed",45.0,"udgj",45),
@@ -30,10 +31,14 @@ class HomeActivity: Fragment() {
             Produit("produit","hgdhed",45.0,"udgj",45),
             Produit("produit","hgdhed",45.0,"udgj",45)
         )
+
+        recyclerView.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,true)
+
+
         val adapter = adapterCartProduit(listProduit) { produit ->
             Toast.makeText(requireContext(), "${produit.nomP} ajouté au panier !", Toast.LENGTH_SHORT).show()
         }
-
         recyclerView.adapter = adapter
+
     }
 }

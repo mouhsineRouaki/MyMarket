@@ -16,11 +16,13 @@
         android:paddingTop="20dp"
         app:title="">
 
-        <ImageView
-            android:id="@+id/icUser"
-            android:layout_width="35dp"
-            android:layout_height="@dimen/icon_size"
-            android:src="@drawable/baseline_account_circle_24" />
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="start"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/image_button_cercle"
+            android:src="@drawable/ic_user"/>
 
         <ImageView
             android:id="@+id/logo"
@@ -30,12 +32,13 @@
             android:layout_marginStart="16dp"
             android:src="@drawable/logo" />
 
-        <ImageView
-            android:id="@+id/user_icon"
-            android:layout_width="35dp"
-            android:layout_height="@dimen/icon_size"
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_gravity="end"
-            android:src="@drawable/baseline_support_agent_24" />
+            android:layout_marginRight="10dp"
+            android:background="@drawable/image_button_cercle"
+            android:src="@drawable/ic_support"/>
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -56,7 +59,9 @@
             android:drawableStart="@drawable/baseline_search_24"
             android:drawablePadding="8dp"
             android:hint="Recherche..."
-            android:textColorHint="@color/black"
+            android:focusable="false"
+            android:clickable="true"
+            android:inputType="none"
             android:padding="16dp"
             android:textColor="#000000"
             android:textSize="16sp"/>

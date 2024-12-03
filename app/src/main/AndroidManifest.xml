@@ -29,10 +29,6 @@
             android:name=".activity.MainActivity"
             android:exported="true">
         </activity>
-        <activity
-            android:name=".Fragements.HomeActivity"
-            android:exported="true">
-        </activity>
     </application>
 
 </manifest>
