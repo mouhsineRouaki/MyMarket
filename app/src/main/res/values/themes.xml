@@ -6,4 +6,5 @@
     </style>
 
     <style name="Theme.MyMarket" parent="Base.Theme.MyMarket" />
+
 </resources>
