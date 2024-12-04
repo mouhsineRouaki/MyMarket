@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">سوقي</string>
+    <string name="search">بحث...</string>
+    <string name="Fruits">فواكه</string>
+    <string name="Légumes">خضروات</string>
+    <string name="Poissons">أسماك</string>
+    <string name="Categories">الفئات</string>
+    <string name="Promotions">العروض</string>
+    <string name="voirPlus">المزيد</string>
+    <string name="voirLesProduits">عرض جميع المنتجات</string>
+    <string name="MonPanier">سلتي</string>
+    <string name="Commander">الطلبات</string>
+    <string name="Enattente">في الانتظار</string>
+    <string name="Annulé">ملغى</string>
+    <string name="Encours">قيد التنفيذ</string>
+    <string name="Livré">تم التوصيل</string>
+    <string name="All">الكل</string>
+    <string name="Home">الرئيسية</string>
+    <string name="Search">بحث</string>
+    <string name="Category">الفئة</string>
+    <string name="Panier">السلة</string>
+    <string name="Commandes">الطلبات</string>
+    <string name="Droittimbre">رسم الطابع 0.29 درهم</string>
+    <string name="toolbar">شريط الأدوات</string>
+    <string name="search_edittext">حقل البحث</string>
+    <string name="back_button">زر العودة</string>
+    <string name="btn_arabic">زر عربي</string>
+    <string name="btn_Francais">زر فرنسي</string>
+    <string name="MesInformations">معلوماتي</string>
+    <string name="aide">هل تحتاج مساعدة؟</string>
+    <string name="Partager">مشاركة مع أصدقائك</string>
+    <string name="Tousproduits">جميع المنتجات</string>
+</resources>

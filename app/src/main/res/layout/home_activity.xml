@@ -17,6 +17,7 @@
         app:title="">
 
         <ImageButton
+            android:id="@+id/user"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="start"
@@ -58,7 +59,7 @@
             android:background="@drawable/edittext"
             android:drawableStart="@drawable/baseline_search_24"
             android:drawablePadding="8dp"
-            android:hint="Recherche..."
+            android:hint="@string/search"
             android:focusable="false"
             android:clickable="true"
             android:inputType="none"
@@ -80,18 +81,20 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Categories"
+                android:text="@string/Categories"
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 android:layout_marginLeft="10dp"
                 android:gravity="start"
                 android:textStyle="bold"  />
             <TextView
+                android:id="@+id/Lien_category"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="voir plus"
+                android:text="@string/voirPlus"
                 android:textSize="20dp"
+                android:clickable="true"
                 android:layout_marginRight="10dp"
                 android:textColor="@color/colorLogo"
                 android:gravity="end"
@@ -322,7 +325,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Promotions"
+                android:text="@string/Promotions"
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 android:layout_marginLeft="10dp"
@@ -332,7 +335,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="voir plus"
+                android:text="@string/voirPlus"
                 android:textSize="20dp"
                 android:layout_marginRight="10dp"
                 android:textColor="@color/colorLogo"
@@ -349,6 +352,7 @@
 
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/TousProduits"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -356,7 +360,7 @@
         android:clickable="true"
         android:orientation="horizontal"
         android:background="@drawable/edittext"
-        android:gravity="center_vertical">
+        >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -364,15 +368,15 @@
             android:textSize="20dp"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:text="Voir tous les produits"/>
+            android:text="@string/voirLesProduits"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="end"
             android:textSize="20dp"
             android:textColor="@color/black"
-            android:layout_marginLeft="200dp"
+            android:layout_gravity="end"
             android:textStyle="bold"
             android:text=">" />
     </LinearLayout>

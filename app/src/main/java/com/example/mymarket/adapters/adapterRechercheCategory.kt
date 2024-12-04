@@ -24,7 +24,7 @@ class adapterRechercheCategory(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_category_recherche, parent, false)
+            .inflate(R.layout.item_recherche, parent, false)
         return ProductViewHolder(view)
     }
 

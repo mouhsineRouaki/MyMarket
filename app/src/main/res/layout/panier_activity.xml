@@ -57,7 +57,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginRight="20dp"
-                    android:text="Droit de timbre 0.29 dh"
+                    android:text="@string/Droittimbre"
                     android:textStyle="italic"
                     android:gravity="end"
                     android:textSize="15sp" />
@@ -67,7 +67,7 @@
                     android:layout_width="400dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_height="wrap_content"
-                    android:text="Commandess" />
+                    android:text="@string/Commander" />
             </LinearLayout>
     </FrameLayout>
 
