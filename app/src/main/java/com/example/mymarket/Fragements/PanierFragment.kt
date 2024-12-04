@@ -19,9 +19,10 @@ class PanierFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val recyclerView: RecyclerView = view.findViewById(R.id.RecyclePanier)
+
         recyclerView.layoutManager = LinearLayoutManager(requireContext(),
             LinearLayoutManager.VERTICAL,true)
-        val listProduit= listOf(
+        val listProduit= mutableListOf(
             Produit("produit","hgdhed",45.0,"udgj",45),
             Produit("produit","hgdhed",45.0,"udgj",45),
             Produit("produit","hgdhed",45.0,"udgj",45),

@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mymarket.DATA.Produit
 import com.example.mymarket.R
 import com.example.mymarket.adapters.adapterCartProduit
+import com.example.mymarket.adapters.adapterCartProduit2
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeFragement: Fragment() {
@@ -24,6 +25,7 @@ class HomeFragement: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
+        val recyclerPlusVente: RecyclerView = view.findViewById(R.id.recycle_plusVente)
         val buttonUser = view.findViewById<ImageButton>(R.id.user)
         val search = view.findViewById<EditText>(R.id.searchEditText)
         val buttonTousproduits = view.findViewById<LinearLayout>(R.id.TousProduits)
@@ -45,9 +47,9 @@ class HomeFragement: Fragment() {
 
         search.setOnClickListener {
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, RechercheFragement())
+                .replace(R.id.fragment_container, CategoryFragment())
                 .commit()
-            bottomNavigation?.selectedItemId = R.id.search
+            bottomNavigation?.selectedItemId = R.id.category
         }
 
         buttonUser.setOnClickListener {
@@ -67,13 +69,17 @@ class HomeFragement: Fragment() {
             Produit("produit","hgdhed",45.0,"udgj",45)
         )
 
-        recyclerView.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,true)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+        recyclerPlusVente.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
 
 
         val adapter = adapterCartProduit(listProduit) { produit ->
             Toast.makeText(requireContext(), "${produit.nomP} ajouté au panier !", Toast.LENGTH_SHORT).show()
         }
         recyclerView.adapter = adapter
+        
+        val adapter1 = adapterCartProduit2(listProduit,parentFragmentManager)
+        recyclerPlusVente.adapter = adapter1
 
     }
 }
