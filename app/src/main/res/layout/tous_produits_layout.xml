@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarRecherche"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="@color/white"
+        app:title=""
+        android:layoutDirection="locale"
+        android:contentDescription="@string/toolbar">
+
+        <ImageButton
+            android:id="@+id/retour"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:layoutDirection="ltr"
+            android:src="@drawable/baseline_arrow_back_24"
+            android:contentDescription="@string/back_button"/>
+
+        <EditText
+            android:id="@+id/searchEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/edittext"
+            android:drawableStart="@drawable/baseline_search_24"
+            android:drawablePadding="8dp"
+            android:hint="@string/search"
+            android:focusable="false"
+            android:clickable="true"
+            android:inputType="none"
+            android:padding="16dp"
+            android:textColor="#000000"
+            android:textSize="16sp"/>
+    </androidx.appcompat.widget.Toolbar>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Tousproduits"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textSize="18dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle_tous_produits"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

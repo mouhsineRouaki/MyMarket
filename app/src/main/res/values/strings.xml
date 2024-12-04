@@ -1,4 +1,34 @@
 <resources>
     <string name="app_name">MyMarket</string>
     <string name="search">Rechercher... </string>
+    <string name="Fruits">Fruits</string>
+    <string name="Légumes">Légumes</string>
+    <string name="Poissons">Poissons</string>
+    <string name="Categories">Plus Vente</string>
+    <string name="Promotions">Promotions</string>
+    <string name="voirLesProduits">Voir tous les produits</string>
+    <string name="voirPlus">Voir Plus</string>
+    <string name="MonPanier">Mon Panier</string>
+    <string name="Commander">Commandes</string>
+    <string name="Enattente">En attente</string>
+    <string name="Annulé">Annulé</string>
+    <string name="Encours">En cours</string>
+    <string name="Livré">Livré</string>
+    <string name="All">All</string>
+    <string name="Home">Home</string>
+    <string name="Search">Search</string>
+    <string name="Category">Category</string>
+    <string name="Panier">Panier</string>
+    <string name="Commandes">Commandes</string>
+    <string name="Droittimbre">Droit de timbre 0.29 dh</string>
+    <string name="toolbar">toolbar</string>
+    <string name="search_edittext">search edittext</string>
+    <string name="back_button">back button</string>
+    <string name="btn_arabic">Button arabic</string>
+    <string name="btn_Francais">Button francais</string>
+    <string name="MesInformations">Mes informations</string>
+    <string name="aide">Besoin d aide?</string>
+    <string name="Partager">Partager avec votre amis</string>
+    <string name="Tousproduits">Tous les produits</string>
+
 </resources>

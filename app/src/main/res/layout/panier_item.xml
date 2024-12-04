@@ -1,6 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp">
 
-</LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="12dp"
+            android:layout_marginEnd="40dp">
+
+            <RelativeLayout
+                android:layout_width="80dp"
+                android:layout_height="80dp">
+
+                <ImageView
+                    android:id="@+id/image_produitP"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop" />
+
+                <TextView
+                    android:id="@+id/label_reduction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/image_button_cercle"
+                    android:padding="4dp"
+                    android:text="-20%"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp">
+
+                <TextView
+                    android:id="@+id/nom_produitP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DURACELL Piles C2 PLUSP x 10U"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:maxLines="2"
+                    android:ellipsize="end" />
+
+                <TextView
+                    android:id="@+id/description_produit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vendu à l’unité"
+                    android:textColor="#757575"
+                    android:textSize="14sp"
+                    android:layout_marginTop="4dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/prix_original"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="47.84 dh"
+                        android:textColor="#757575"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/prix_reduit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="• 38.26 dh"
+                        android:textColor="#FF5722"
+                        android:textSize="14sp"
+                        android:layout_marginStart="8dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/total_produit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="76.51 dh"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_image"
+                    android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/btn_decrement"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/image_button_cercle"
+                    android:src="@drawable/ic_min"
+                    android:paddingBottom="15dp"
+                    android:contentDescription="Diminuer la quantité"
+                    app:tint="#000000" />
+
+                <TextView
+                    android:id="@+id/text_quantite"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:text="1"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!-- Bouton d'augmentation -->
+                <ImageButton
+                    android:id="@+id/btn_increment"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/image_button_cercle"
+                    android:src="@drawable/ic_add"
+                    android:contentDescription="Augmenter la quantité"
+                    app:tint="#000000" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Bouton "X" pour supprimer -->
+        <ImageButton
+            android:id="@+id/btn_remove_item"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="8dp"
+            android:background="@drawable/image_button_cercle"
+            android:src="@drawable/ic_close"
+            android:contentDescription="Supprimer l'article"
+            app:tint="#757575" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

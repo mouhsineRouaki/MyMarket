@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="@color/white"
+        app:title=""
+        android:layoutDirection="ltr"
+        android:contentDescription="@string/toolbar">
+
+        <ImageButton
+            android:id="@+id/retour"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:src="@drawable/baseline_arrow_back_24"
+            android:layoutDirection="ltr"
+            android:contentDescription="@string/back_button"/>
+
+        <EditText
+            android:id="@+id/searchEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/edittext"
+            android:drawableStart="@drawable/baseline_search_24"
+            android:drawablePadding="8dp"
+            android:hint="@string/search"
+            android:padding="16dp"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:layoutDirection="ltr"
+            android:contentDescription="@string/search_edittext"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="16dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:background="@color/white"
+            android:text="@string/All"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:background="@color/white"
+            android:text="@string/Encours"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:background="@color/white"
+            android:text="@string/Enattente"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:background="@color/white"
+            android:text="@string/Livré"
+            android:layout_marginEnd="8dp"/>
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:background="@color/white"
+            android:text="@string/Annulé"
+            android:layout_marginEnd="8dp"/>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_commandes"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

@@ -2,13 +2,17 @@
     <item
         android:id="@+id/home"
         android:icon="@drawable/ic_home"
-        android:title="Home" />
+        android:title="@string/Home" />
+    <item
+        android:id="@+id/category"
+        android:icon="@drawable/ic_category"
+        android:title="@string/Category" />
     <item
         android:id="@+id/panier"
         android:icon="@drawable/ic_panier"
-        android:title="Panier" />
+        android:title="@string/Panier" />
     <item
         android:id="@+id/commandes"
         android:icon="@drawable/ic_commandes"
-        android:title="Commandes" />
+        android:title="@string/Commandes" />
 </menu>
