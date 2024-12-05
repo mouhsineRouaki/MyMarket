@@ -17,5 +17,5 @@
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_nav_menu"
         app:labelVisibilityMode="labeled"
-        app:backgroundTint="@color/colorMenu" />
+        android:background="@drawable/gardient_menu" />
 </RelativeLayout>
