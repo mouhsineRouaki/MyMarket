@@ -25,15 +25,14 @@ class ProduitsFragement: Fragment() {
         val recyclerViewProduit: RecyclerView = view.findViewById(R.id.recycle_tous_produits)
         val backButton: ImageButton = view.findViewById(R.id.retour)
         val search = view.findViewById<EditText>(R.id.searchEditText)
+        val bottomNavigation = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
         recyclerViewProduit.layoutManager = GridLayoutManager(requireContext(), 2)
 
         search.setOnClickListener {
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, RechercheFragement())
+                .replace(R.id.fragment_container, CategoryFragment())
                 .commit()
-            val bottomNavigation = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
-            bottomNavigation?.selectedItemId = R.id.search
         }
 
 
@@ -41,7 +40,6 @@ class ProduitsFragement: Fragment() {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, HomeFragement())
                 .commit()
-            val bottomNavigation = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
             bottomNavigation?.selectedItemId = R.id.home
         }
 

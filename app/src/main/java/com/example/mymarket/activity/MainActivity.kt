@@ -9,7 +9,6 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.mymarket.Fragements.CategoryFragment
 import com.example.mymarket.Fragements.CommandeFragment
-import com.example.mymarket.Fragements.RechercheFragement
 import com.example.mymarket.Fragements.HomeFragement
 import com.example.mymarket.Fragements.PanierFragment
 import com.example.mymarket.R
@@ -32,7 +31,6 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.home -> loadFragment(HomeFragement())
                 R.id.panier -> loadFragment(PanierFragment())
-                R.id.search -> loadFragment(RechercheFragement())
                 R.id.commandes -> loadFragment(CommandeFragment())
                 R.id.category -> loadFragment(CategoryFragment())
             }

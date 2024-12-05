@@ -4,10 +4,6 @@
         android:icon="@drawable/ic_home"
         android:title="@string/Home" />
     <item
-        android:id="@+id/search"
-        android:icon="@drawable/baseline_search_24"
-        android:title="@string/search" />
-    <item
         android:id="@+id/category"
         android:icon="@drawable/ic_category"
         android:title="@string/Category" />
