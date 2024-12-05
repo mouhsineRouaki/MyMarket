@@ -4,63 +4,67 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center">
-    <FrameLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center"
+    android:background="@drawable/bg">
+
+    <!-- This View acts as a spacer above the FrameLayout -->
+    <View
         android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- FrameLayout taking the rest of the space -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
         android:id="@+id/frameLogin"
-        android:layout_height="match_parent"
-        android:background="@color/white">
+        android:background="@drawable/drawable_login"
+        android:backgroundTint="@color/white">
 
         <LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="center">
-            <LinearLayout
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="LOGIN"
-                    android:textStyle="bold"
-                    android:textSize="30dp"
-                    android:layout_marginBottom="30dp"
-                    android:textColor="@color/titleColor"/>
-                <EditText
-                    android:id="@+id/email"
-                    android:layout_width="330dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:hint="Entrer Votre Email"
-                    android:textColorHint="@color/inputTextColor"
-                    android:background="@drawable/edittext"
-                    android:gravity="center"/>
-                <EditText
-                    android:id="@+id/password"
-                    android:layout_width="330sp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:hint="Entrer Votre Password"
-                    android:textColorHint="@color/inputTextColor"
-                    android:background="@drawable/edittext"
-                    android:gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LOGIN"
+                android:textStyle="bold"
+                android:textSize="30dp"
+                android:layout_marginBottom="30dp"
+                android:textColor="@color/titleColor" />
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/buttonLogin"
-                    android:layout_width="182sp"
-                    android:layout_height="54sp"
-                    android:text="LOGIN"
-                    android:textColor="@color/Buttontext"
-                    android:background="@drawable/button" />
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:hint="Entrer Votre Email"
+                android:textColorHint="@color/inputTextColor"
+                android:background="@drawable/edittext"
+                android:gravity="center" />
 
-            </LinearLayout>
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="330sp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:hint="Entrer Votre Password"
+                android:textColorHint="@color/inputTextColor"
+                android:background="@drawable/edittext"
+                android:gravity="center" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonLogin"
+                android:layout_width="182sp"
+                android:layout_height="54sp"
+                android:text="LOGIN"
+                android:textColor="@color/Buttontext"
+                android:background="@drawable/button" />
+
         </LinearLayout>
     </FrameLayout>
 </LinearLayout>
