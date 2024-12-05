@@ -9,6 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
 import com.example.mymarket.Fragements.Inscriptionfragment
+import com.example.mymarket.Fragements.WelcomePage
 import com.example.mymarket.Fragements.loginFragment
 
 class GererComptes: AppCompatActivity() {
@@ -18,23 +19,11 @@ class GererComptes: AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.layout_comptes)
 
-        val btnLogin = findViewById<TextView>(R.id.btnLogin)
-        val btnInscription = findViewById<TextView>(R.id.btnInscription)
+        val btnLogin = findViewById<TextView>(R.id.tologin)
+        val btnInscription = findViewById<TextView>(R.id.tosignup)
 
-        supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, loginFragment()).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, WelcomePage()).commit()
 
-        findViewById<TextView>(R.id.btnLogin).setOnClickListener {
-            btnLogin.setBackgroundResource(R.drawable.toggle_selected)
-            btnInscription.setBackgroundResource(R.drawable.toggle_unselected)
-            supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, loginFragment())
-                .commit()
-        }
-        findViewById<TextView>(R.id.btnInscription).setOnClickListener {
-            btnInscription.setBackgroundResource(R.drawable.toggle_selected)
-            btnLogin.setBackgroundResource(R.drawable.toggle_unselected)
-            supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, Inscriptionfragment())
-                .commit()
-        }
 
     }
 }

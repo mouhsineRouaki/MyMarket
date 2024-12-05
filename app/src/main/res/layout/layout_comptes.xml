@@ -1,55 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@+id/fragmentContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bg"
     android:padding="4dp"
-    android:gravity="center_horizontal">
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="38dp"
-    android:orientation="horizontal"
-    android:id="@+id/layoutSelect"
-    android:background="@drawable/toggle_background"
-    android:padding="4dp"
-    android:gravity="center_horizontal">
+    android:gravity="center_horizontal"
+    android:background="@drawable/bg">
 
-    <!-- Bouton Français -->
     <TextView
-        android:id="@+id/btnLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="      Login    "
-        android:gravity="center"
-        android:padding="10dp"
-        android:background="@drawable/toggle_selected"
-        android:textColor="@color/white"
-        android:fontFamily="sans-serif-medium"
-        android:clickable="true"
-        android:focusable="true" />
-
-    <!-- Bouton Arabe -->
-    <TextView
-        android:id="@+id/btnInscription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="inscription"
-        android:gravity="center"
-        android:padding="10dp"
-        android:background="@drawable/toggle_unselected"
-        android:textColor="@color/black"
-        android:fontFamily="sans-serif-medium"
-        android:clickable="true"
-        android:focusable="true" />
-</LinearLayout>
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/fragmentContainer"
+        android:layout_marginHorizontal="10sp"
+        android:layout_marginTop="80sp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:text="WELCOME TO MY MARKET!!"
+        android:textColor="@color/white"
+        android:textSize="70sp"
+        android:textStyle="bold" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_marginTop="150sp"
+        android:layout_marginHorizontal="10sp"
+        android:id="@+id/tologin"
+        android:layout_width="match_parent"
+        android:layout_height="54sp"
+        android:text="LOGIN"
+        android:textColor="@color/Buttontext"
+        android:background="@drawable/button" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_marginTop="15sp"
+        android:layout_marginHorizontal="10sp"
+        android:id="@+id/tosignup"
+        android:layout_width="match_parent"
+        android:layout_height="54sp"
+        android:text="Signup"
+        android:textColor="@color/buttoncolor"
+        android:background="@drawable/button"
+        android:backgroundTint="@color/white"/>
+
 </LinearLayout>
+    </FrameLayout>
