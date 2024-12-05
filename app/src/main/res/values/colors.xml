@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="titleColor">#1a4929</color>
+    <color name="inputColor">#ecf2f0</color>
+    <color name="inputTextColor">#689b8a</color>
+    <color name="buttoncolor">#006a42</color>
+    <color name="Buttontext">#f0fffe</color>
+    <color name="textcolor">#7aa393</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="primary">#FC8822</color>
     <color name="secondary">#FFB129</color>
     <color name="light_blue">#E2DCDC</color>
-    <color name="dark_blue">#FFB129</color>
+    <color name="dark_blue">#051962</color>
     <color name="colorLogo">#38b6ff</color>
     <color name="colorBackground">#E3F2FD</color>
     <color name="colorAccent">#1976D2</color>
-    <color name="colorMenu">#EEF0F2</color>
+    <color name="colorMenu">#BCEFDC</color>
+    <color name="grey">#CECECE</color>
 </resources>

@@ -11,12 +11,6 @@
         android:id="@+id/frameLogin"
         android:layout_height="match_parent"
         android:background="@color/white">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/shape"
-            android:alpha="0.5" />
 
         <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
@@ -37,29 +31,33 @@
                     android:text="LOGIN"
                     android:textStyle="bold"
                     android:textSize="30dp"
-                    android:layout_marginBottom="30dp"/>
+                    android:layout_marginBottom="30dp"
+                    android:textColor="@color/titleColor"/>
                 <EditText
                     android:id="@+id/email"
                     android:layout_width="330dp"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
                     android:hint="Entrer Votre Email"
+                    android:textColorHint="@color/inputTextColor"
                     android:background="@drawable/edittext"
                     android:gravity="center"/>
                 <EditText
                     android:id="@+id/password"
-                    android:layout_width="330dp"
+                    android:layout_width="330sp"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
                     android:hint="Entrer Votre Password"
+                    android:textColorHint="@color/inputTextColor"
                     android:background="@drawable/edittext"
                     android:gravity="center"/>
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/buttonLogin"
-                    android:layout_width="182dp"
-                    android:layout_height="54dp"
+                    android:layout_width="182sp"
+                    android:layout_height="54sp"
                     android:text="LOGIN"
+                    android:textColor="@color/Buttontext"
                     android:background="@drawable/button" />
 
             </LinearLayout>

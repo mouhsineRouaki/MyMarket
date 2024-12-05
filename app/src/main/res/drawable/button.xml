@@ -5,8 +5,8 @@
     <gradient
         android:angle="45"
         android:centerX="35%"
-        android:startColor="@color/colorBackground"
-        android:endColor="@color/colorLogo"
+        android:startColor="@color/buttoncolor"
+        android:endColor="@color/buttoncolor"
         android:type="linear" />
     <size
         android:width="182dp"
