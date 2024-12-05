@@ -7,13 +7,11 @@
     android:gravity="center"
     android:background="@drawable/bg">
 
-    <!-- This View acts as a spacer above the FrameLayout -->
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <!-- FrameLayout taking the rest of the space -->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
