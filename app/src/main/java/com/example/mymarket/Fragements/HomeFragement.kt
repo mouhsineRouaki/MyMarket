@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mymarket.DATA.Produit
 import com.example.mymarket.R
+import com.example.mymarket.Service.PanierService
 import com.example.mymarket.adapters.adapterCartProduit
 import com.example.mymarket.adapters.adapterCartProduit2
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -68,14 +69,19 @@ class HomeFragement: Fragment() {
             Produit("produit","hgdhed",45.0,"udgj",45),
             Produit("produit","hgdhed",45.0,"udgj",45)
         )
+        val listProduitPromotions= listOf(
+            Produit("produit","hgdhed",45.0,"udgj",45,10),
+            Produit("produit","hgdhed",45.0,"udgj",45,10),            Produit("produit","hgdhed",45.0,"udgj",45),
+            Produit("produit","hgdhed",45.0,"udgj",45,10),            Produit("produit","hgdhed",45.0,"udgj",45),
+            Produit("produit","hgdhed",45.0,"udgj",45,10),            Produit("produit","hgdhed",45.0,"udgj",45),
+            Produit("produit","hgdhed",45.0,"udgj",45,10)
+        )
 
         recyclerView.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
         recyclerPlusVente.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
 
 
-        val adapter = adapterCartProduit(listProduit) { produit ->
-            Toast.makeText(requireContext(), "${produit.nomP} ajouté au panier !", Toast.LENGTH_SHORT).show()
-        }
+        val adapter = adapterCartProduit(listProduitPromotions)
         recyclerView.adapter = adapter
         
         val adapter1 = adapterCartProduit2(listProduit,parentFragmentManager)

@@ -8,9 +8,7 @@ import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
-import com.example.mymarket.Fragements.Inscriptionfragment
-import com.example.mymarket.Fragements.WelcomePage
-import com.example.mymarket.Fragements.loginFragment
+import com.example.mymarket.Fragements.WelcomeFragment
 
 class GererComptes: AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -22,7 +20,7 @@ class GererComptes: AppCompatActivity() {
         val btnLogin = findViewById<TextView>(R.id.tologin)
         val btnInscription = findViewById<TextView>(R.id.tosignup)
 
-        supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, WelcomePage()).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, WelcomeFragment()).commit()
 
 
     }

@@ -9,7 +9,8 @@ class Produit(
     val prix : Double,
     var category: String,
     val image : Int,
-    var quantite : Int
+    var quantite : Int,
+    var Promo:Int = 0
 ){
     companion object {
         private var cmp = 0
@@ -21,5 +22,8 @@ class Produit(
     }
     constructor(nomP: String,description: String,prix: Double,category: String,quantite: Int):this(
         incrementer(),nomP,description,prix,category, R.drawable.logo,quantite
+    )
+    constructor(nomP: String,description: String,prix: Double,category: String,quantite: Int,Promo: Int):this(
+        incrementer(),nomP,description,prix,category, R.drawable.logo,quantite,Promo
     )
 }

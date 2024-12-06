@@ -7,58 +7,108 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mymarket.DATA.Produit
+import com.example.mymarket.Fragements.PanierFragment
 import com.example.mymarket.R
+import com.example.mymarket.Service.PanierService
 
 class adapterPanier(
     private val productList: MutableList<Produit>,
+    val fragment: PanierFragment,
     private val onAddToCartClick: (Produit) -> Unit
-) : RecyclerView.Adapter<adapterPanier.ProductViewHolder>() {
+) : RecyclerView.Adapter<adapterPanier.ViewHolder>() {
 
-    class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val productImage: ImageView = itemView.findViewById(R.id.image_produitP)
         val productName: TextView = itemView.findViewById(R.id.nom_produitP)
         val productPrice: TextView = itemView.findViewById(R.id.prix_original)
-        val btnIncrement:ImageView = itemView.findViewById(R.id.btn_increment)
-        val btnDecrement:ImageView = itemView.findViewById(R.id.btn_decrement)
-        val text_quantite:TextView = itemView.findViewById(R.id.text_quantite)
-        val btnRemove:ImageButton = itemView.findViewById(R.id.btn_remove_item)
+        val productReduit: TextView = itemView.findViewById(R.id.prix_reduit)
+        val prixTotal: TextView = itemView.findViewById(R.id.total_produit)
+        val btnIncrement: ImageView = itemView.findViewById(R.id.btn_increment)
+        val btnDecrement: ImageView = itemView.findViewById(R.id.btn_decrement)
+        val textQuantite: TextView = itemView.findViewById(R.id.text_quantite)
+        val btnRemove: ImageButton = itemView.findViewById(R.id.btn_remove_item)
+        val reduction: TextView = itemView.findViewById(R.id.label_reduction)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.panier_item, parent, false)
-        return ProductViewHolder(view)
+        return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val produit = productList[position]
 
         holder.productImage.setImageResource(produit.image)
-        holder.productName.text = produit.nomP.toUpperCase()
+        holder.productName.text = produit.nomP.uppercase()
         holder.productPrice.text = "Prix : ${produit.prix} DH"
 
-        holder.btnIncrement.setOnClickListener {
-            val getQuantite:Int = holder.text_quantite.text.toString().toInt()
-            holder.text_quantite.text = "${getQuantite + 1}"
+        val prixReduit = produit.prix * (1 - produit.Promo / 100.0)
+        holder.productReduit.text = String.format("%.2f", prixReduit)
+
+        if (produit.Promo <= 0) {
+            holder.reduction.visibility = View.GONE
+            holder.productReduit.visibility = View.GONE
+        } else {
+            holder.reduction.visibility = View.VISIBLE
+            holder.reduction.text = "-${produit.Promo}%"
+            holder.productReduit.visibility = View.VISIBLE
         }
-        holder.btnDecrement.setOnClickListener {
-            val getQuantite:Int = holder.text_quantite.text.toString().toInt()
-            if (getQuantite>1){
-                holder.text_quantite.text = "${getQuantite - 1}"
-            }else {
-                holder.text_quantite.text = "1"
+
+        holder.btnIncrement.setOnClickListener {
+            if (produit.quantite > 0) {
+                holder.textQuantite.text= "${holder.textQuantite.text.toString().toInt()+ 1}"
+                updateTotalPrix(holder, produit)
+                fragment.updateTotal()
+            } else {
+                Toast.makeText(it.context, "Stock insuffisant pour ${produit.nomP}", Toast.LENGTH_SHORT).show()
             }
         }
-        holder.btnRemove.setOnClickListener {
-            productList.removeAt(position)
-            notifyItemRemoved(position)
-            notifyItemRangeChanged(position, productList.size)
+
+        holder.btnDecrement.setOnClickListener {
+            if (holder.textQuantite.text.toString().toInt() > 1) {
+                holder.textQuantite.text= "${holder.textQuantite.text.toString().toInt()- 1}"
+                updateTotalPrix(holder, produit)
+                fragment.updateTotal()
+            } else {
+                val dialog = AlertDialog.Builder(it.context)
+                dialog.setMessage("Voulez-vous supprimer ${produit.nomP} du panier ?")
+                dialog.setPositiveButton("OK") { _, _ ->
+                    PanierService.deleteByPosition(position)
+                    notifyItemRemoved(position)
+                }
+                dialog.setNegativeButton("Annuler", null)
+                dialog.create().show()
+            }
         }
+
+        holder.btnRemove.setOnClickListener {
+            PanierService.deleteByPosition(position)
+            PanierService.remove(holder.prixTotal.text.toString().toDouble())
+            notifyItemRemoved(position)
+            fragment.updateTotal()
+            PanierService.remove(holder.prixTotal.text.toString().toDouble())
+        }
+
+        updateTotalPrix(holder, produit)
+        PanierService.add(holder.prixTotal.text.toString().toDouble())
     }
 
-    override fun getItemCount(): Int {
-        return productList.size
+    fun updateTotalPrix(holder: ViewHolder, produit: Produit) {
+        val prix = if (produit.Promo <= 0) {
+            produit.prix
+        } else {
+            produit.prix * (1 - produit.Promo / 100.0)
+        }
+        val total = holder.textQuantite.text.toString().toInt() * prix
+        holder.prixTotal.text = total.toString()
     }
+
+
+
+    override fun getItemCount(): Int = productList.size
 }

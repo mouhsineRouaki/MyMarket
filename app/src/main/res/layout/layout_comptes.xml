@@ -13,13 +13,19 @@
 
     <TextView
         android:layout_marginHorizontal="10sp"
-        android:layout_marginTop="80sp"
+        android:layout_marginTop="200sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="WELCOME TO MY MARKET!!"
         android:textColor="@color/white"
-        android:textSize="70sp"
+        android:textSize="80sp"
         android:textStyle="bold" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_gravity="bottom"
+        android:gravity="bottom"
+        android:layout_height="match_parent">
     <androidx.appcompat.widget.AppCompatButton
         android:layout_marginTop="150sp"
         android:layout_marginHorizontal="10sp"
@@ -31,15 +37,17 @@
         android:background="@drawable/button" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:layout_marginTop="15sp"
+        android:layout_marginTop="20sp"
         android:layout_marginHorizontal="10sp"
         android:id="@+id/tosignup"
+        android:layout_marginBottom="30dp"
         android:layout_width="match_parent"
         android:layout_height="54sp"
         android:text="Signup"
         android:textColor="@color/buttoncolor"
         android:background="@drawable/button"
         android:backgroundTint="@color/white"/>
+    </LinearLayout>
 
 </LinearLayout>
     </FrameLayout>

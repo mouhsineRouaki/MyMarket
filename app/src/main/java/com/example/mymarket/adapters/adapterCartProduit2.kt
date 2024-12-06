@@ -5,12 +5,15 @@ import com.example.mymarket.DATA.Produit
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mymarket.Fragements.DetailsFragment
 import com.example.mymarket.R
+import com.example.mymarket.Service.PanierService
 
 
 class adapterCartProduit2(
@@ -23,6 +26,7 @@ class adapterCartProduit2(
         val productName: TextView = itemView.findViewById(R.id.product_name)
         val productDetails: TextView = itemView.findViewById(R.id.product_details)
         val productPrice: TextView = itemView.findViewById(R.id.prix)
+        val add: ImageButton = itemView.findViewById(R.id.add)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -42,6 +46,12 @@ class adapterCartProduit2(
             childFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, DetailsFragment())
                 .commit()
+        }
+        holder.add.setOnClickListener {
+            object{
+                var panier = PanierService.create(produit)
+            }
+            Toast.makeText(it.context, "${produit.nomP} ajouté au panier !", Toast.LENGTH_SHORT).show()
         }
 
     }

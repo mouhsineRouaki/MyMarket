@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Toast
@@ -29,10 +30,22 @@ class Inscriptionfragment : Fragment() {
         val dateNaissance = view.findViewById<EditText>(R.id.dateNaissance)
         val email = view.findViewById<EditText>(R.id.email)
         val password = view.findViewById<EditText>(R.id.password)
+        val retour = view.findViewById<ImageButton>(R.id.retour)
 
         val radioGroup = view.findViewById<RadioGroup>(R.id.RadioGroup)
         val checkBoxConditions = view.findViewById<CheckBox>(R.id.condition)
         val buttonInscription = view.findViewById<Button>(R.id.buttonInscription)
+        retour.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .setCustomAnimations(
+                    R.anim.sortie_animations,
+                    R.anim.sortie_animations,
+                    R.anim.pop_enter_animations,
+                    R.anim.pop_sortie_animations
+                )
+                .replace(R.id.fragmentContainer, WelcomeFragment())
+                .commit()
+        }
 
         buttonInscription.setOnClickListener {
             val nom = nomUser.text.toString()

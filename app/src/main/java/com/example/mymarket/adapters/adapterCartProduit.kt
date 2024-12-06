@@ -8,13 +8,15 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mymarket.R
+import com.example.mymarket.Service.PanierService
 
 
 class adapterCartProduit(
     private val productList: List<Produit>,
-    private val onAddToCartClick: (Produit) -> Unit
 ) : RecyclerView.Adapter<adapterCartProduit.ProductViewHolder>() {
 
     class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -38,7 +40,10 @@ class adapterCartProduit(
         holder.productPrice.text = "Prix : ${produit.prix} DH"
 
         holder.addToCartButton.setOnClickListener {
-            onAddToCartClick(produit)
+            object{
+                var panier = PanierService.create(produit)
+            }
+            Toast.makeText(it.context, "${produit.nomP} ajouté au panier !", Toast.LENGTH_SHORT).show()
         }
     }
 

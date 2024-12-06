@@ -1,8 +1,13 @@
 package com.example.mymarket.DATA
 
+import com.example.mymarket.Service.PanierService
 import java.util.Date
 
-class Commandes(val Num:Int = incrementer(), val dateCmd : Date, val status : String, val prixTotal : Double, val TotalCategory : Int){
+class Commandes(val Num:Int = incrementer(), val dateCmd : Date, val status : String, var prixTotal : Double, var TotalCategory : Int){
+    var totalprix = 0.0
+    var totalcat= 0
+    var list:Double = PanierService.findAll().sumOf{ it.prix }
+    val listCat:Int = totalcat+PanierService.findAll().map{it.category}.toSet().size
     companion object {
         private var cmp = 0
 
@@ -11,4 +16,5 @@ class Commandes(val Num:Int = incrementer(), val dateCmd : Date, val status : St
             return cmp
         }
     }
+    constructor():this(incrementer(),Date(),"EN Cours",PanierService.findAll().sumOf{ it.prix },PanierService.findAll().map{it.category}.toSet().size)
 }

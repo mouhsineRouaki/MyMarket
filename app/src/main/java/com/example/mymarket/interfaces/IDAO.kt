@@ -6,6 +6,6 @@ interface IDAO<T> {
     fun create(p:T):Boolean
     fun update(p:T,q :Int):Boolean
     fun delete(p:T):Boolean
-    fun findById(id:Int): Produit?
+    fun findById(id:Int): T?
     fun findAll():List<T>
 }
