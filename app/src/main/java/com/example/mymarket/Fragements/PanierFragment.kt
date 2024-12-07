@@ -1,5 +1,6 @@
 package com.example.mymarket.Fragements
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +19,7 @@ import com.example.mymarket.adapters.adapterPanier
 
 class PanierFragment: Fragment() {
     lateinit var totalPanier:TextView
+    lateinit var adapter:adapterPanier
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.panier_activity, container, false)
     }
@@ -31,7 +33,7 @@ class PanierFragment: Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext(),
             LinearLayoutManager.VERTICAL,false)
         val list =PanierService.findAll()
-        val adapter = adapterPanier(list,this) { produit ->
+        adapter = adapterPanier(list,this) { produit ->
             Toast.makeText(requireContext(), "${produit.nomP} ajouté au panier !", Toast.LENGTH_SHORT).show()
         }
         btnCommande.setOnClickListener {
@@ -39,17 +41,18 @@ class PanierFragment: Fragment() {
         }
 
         recyclerView.adapter = adapter
-
         updateTotal()
+
     }
+    @SuppressLint("DefaultLocale")
     fun updateTotal(){
         var total=0.0
         val service = PanierService.findAll()
         for(e in service){
             if(e.Promo <=0){
-                total+=e.prix
+                total+=e.prix * e.quantitePanier
             }else {
-                total += e.prix - e.prix*e.Promo/100
+                total += (e.prix * (1 - e.Promo / 100.0)) * e.quantitePanier
             }
             total -=0.29
         }

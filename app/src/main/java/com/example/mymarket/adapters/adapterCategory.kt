@@ -3,9 +3,11 @@ package com.example.mymarket.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.compose.ui.graphics.findFirstRoot
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mymarket.DATA.Category
 import com.example.mymarket.DATA.Commandes
@@ -28,12 +30,24 @@ class adapterCategory(
     }
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
-        val categories = CommandesList[position]
+        val category = CommandesList[position]
 
-        holder.texte.text = categories.nom
-        holder.image.setImageResource(categories.image)
+        holder.texte.text = category.nom
+        holder.image.setImageResource(category.image)
+        val background = if (category.Select) {
+            R.drawable.stroke_black
+        } else {
+            R.drawable.cercle
+        }
+        holder.image.setBackgroundResource(background)
 
-    }
+        holder.itemView.setOnClickListener {
+            category.Select = !category.Select
+            notifyItemChanged(position)
+        }
+
+
+        }
 
     override fun getItemCount(): Int {
         return CommandesList.size

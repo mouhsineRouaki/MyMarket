@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mymarket.DATA.Produit
+import com.example.mymarket.DATA.ProduitPanier
 import com.example.mymarket.Fragements.PanierFragment
 import com.example.mymarket.R
 import com.example.mymarket.Service.PanierService
@@ -46,6 +47,7 @@ class adapterPanier(
         holder.productImage.setImageResource(produit.image)
         holder.productName.text = produit.nomP.uppercase()
         holder.productPrice.text = "Prix : ${produit.prix} DH"
+        holder.textQuantite.text = "${produit.quantitePanier}"
 
         val prixReduit = produit.prix * (1 - produit.Promo / 100.0)
         holder.productReduit.text = String.format("%.2f", prixReduit)
@@ -61,7 +63,8 @@ class adapterPanier(
 
         holder.btnIncrement.setOnClickListener {
             if (produit.quantite > 0) {
-                holder.textQuantite.text= "${holder.textQuantite.text.toString().toInt()+ 1}"
+                produit.quantitePanier = holder.textQuantite.text.toString().toInt()+ 1
+                holder.textQuantite.text= produit.quantitePanier.toString()
                 updateTotalPrix(holder, produit)
                 fragment.updateTotal()
             } else {
@@ -71,14 +74,17 @@ class adapterPanier(
 
         holder.btnDecrement.setOnClickListener {
             if (holder.textQuantite.text.toString().toInt() > 1) {
-                holder.textQuantite.text= "${holder.textQuantite.text.toString().toInt()- 1}"
+                produit.quantitePanier = holder.textQuantite.text.toString().toInt()- 1
+                holder.textQuantite.text= produit.quantitePanier.toString()
                 updateTotalPrix(holder, produit)
                 fragment.updateTotal()
+
             } else {
                 val dialog = AlertDialog.Builder(it.context)
                 dialog.setMessage("Voulez-vous supprimer ${produit.nomP} du panier ?")
                 dialog.setPositiveButton("OK") { _, _ ->
                     PanierService.deleteByPosition(position)
+                    fragment.updateTotal()
                     notifyItemRemoved(position)
                 }
                 dialog.setNegativeButton("Annuler", null)
@@ -88,14 +94,11 @@ class adapterPanier(
 
         holder.btnRemove.setOnClickListener {
             PanierService.deleteByPosition(position)
-            PanierService.remove(holder.prixTotal.text.toString().toDouble())
             notifyItemRemoved(position)
+            notifyDataSetChanged()
             fragment.updateTotal()
-            PanierService.remove(holder.prixTotal.text.toString().toDouble())
         }
-
         updateTotalPrix(holder, produit)
-        PanierService.add(holder.prixTotal.text.toString().toDouble())
     }
 
     fun updateTotalPrix(holder: ViewHolder, produit: Produit) {
@@ -105,7 +108,7 @@ class adapterPanier(
             produit.prix * (1 - produit.Promo / 100.0)
         }
         val total = holder.textQuantite.text.toString().toInt() * prix
-        holder.prixTotal.text = total.toString()
+        holder.prixTotal.text = String.format("%.2f", total)
     }
 
 

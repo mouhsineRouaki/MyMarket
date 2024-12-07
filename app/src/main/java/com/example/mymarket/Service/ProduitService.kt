@@ -3,7 +3,7 @@ package com.example.mymarket.Service
 import com.example.mymarket.DATA.Produit
 import com.example.mymarket.interfaces.IDAO
 
-class ProduitService : IDAO<Produit> {
+object ProduitService : IDAO<Produit> {
     private val listPanier= mutableListOf<Produit>()
     override fun create(p: Produit): Boolean {
         return listPanier.add(p)

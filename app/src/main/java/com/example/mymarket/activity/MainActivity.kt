@@ -3,6 +3,9 @@ package com.example.mymarket.activity
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationSet
+import android.view.animation.ScaleAnimation
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -34,8 +37,12 @@ class MainActivity : AppCompatActivity() {
                 R.id.commandes -> loadFragment(CommandeFragment())
                 R.id.category -> loadFragment(CategoryFragment())
             }
+
+
             true
         }
+
+
     }
     fun loadFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
