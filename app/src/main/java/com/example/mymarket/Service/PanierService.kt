@@ -1,6 +1,7 @@
 package com.example.mymarket.Service
 
 import com.example.mymarket.DATA.Produit
+import com.example.mymarket.DATA.ProduitPanier
 import com.example.mymarket.adapters.adapterPanier
 import com.example.mymarket.interfaces.IDAO
 
@@ -36,16 +37,6 @@ object PanierService: IDAO<Produit> {
             listPanier.removeAt(P)
 
         }
-        val listTotal = mutableListOf<Double>()
 
-        fun add(i:Double): Boolean {
-            return listTotal.add(i)
-        }
-        fun remove(i:Double): Boolean {
-            return listTotal.remove(i)
-        }
-        fun getTotal():Double{
-            return listTotal.sumOf { it }
-        }
 
 }

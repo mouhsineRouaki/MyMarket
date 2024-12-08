@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mymarket.DATA.Commandes
 import com.example.mymarket.R
@@ -29,11 +30,21 @@ class adapterCommandes(
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val commande = CommandesList[position]
 
-        holder.num.text = "Commande # ${commande.Num}"
-        holder.status.text =commande.status
-        holder.date.text = commande.dateCmd.date.toString()
-        holder.prix.text = commande.prixTotal.toString()
-        holder.TotalCategory.text = commande.TotalCategory.toString()
+        holder.num.text = "Commande #${commande.Num}"
+        holder.status.text ="Status :${commande.status}"
+        holder.date.text = "${commande.dateCmd}"
+        holder.prix.text = "Total :${commande.prixTotal.toString()} DH"
+        holder.TotalCategory.text = "Total Category :${commande.TotalCategory.toString()}"
+        holder.itemView.setOnClickListener{
+                val d= AlertDialog.Builder(holder.itemView.context)
+                d.setTitle("Info Commande")
+                d.setMessage("QuantiteCategory :${commande.TotalCategory}\nTotal : ${commande.totalprix} Dh\nProduits : \n${commande.ListProduits.joinToString("\n"){"- ${it.nomP}"}}")
+                d.setPositiveButton("OK"){dialog,_ ->
+                    dialog.cancel()
+                }
+                d.create().show()
+
+        }
 
     }
 

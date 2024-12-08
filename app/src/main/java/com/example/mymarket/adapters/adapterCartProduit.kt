@@ -11,12 +11,13 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mymarket.Fragements.PanierFragment
 import com.example.mymarket.R
 import com.example.mymarket.Service.PanierService
 
 
 class adapterCartProduit(
-    private val productList: List<Produit>,
+    private var productList: List<Produit>,
 ) : RecyclerView.Adapter<adapterCartProduit.ProductViewHolder>() {
 
     class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -30,6 +31,19 @@ class adapterCartProduit(
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_produit_cart, parent, false)
         return ProductViewHolder(view)
+    }
+    class CarouselEffect : RecyclerView.ItemDecoration() {
+        override fun onDrawOver(c: android.graphics.Canvas, parent: RecyclerView, state: RecyclerView.State) {
+            val centerX = parent.width / 2
+            val scaleFactor = 0.8f
+            for (i in 0 until parent.childCount) {
+                val child = parent.getChildAt(i)
+                val childCenterX = (child.left + child.right) / 2
+                val scale = 1 - Math.abs(childCenterX - centerX) / centerX.toFloat() * (1 - scaleFactor)
+                child.scaleX = scale
+                child.scaleY = scale
+            }
+        }
     }
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
