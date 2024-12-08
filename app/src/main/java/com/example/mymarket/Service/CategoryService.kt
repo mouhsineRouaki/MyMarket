@@ -32,5 +32,15 @@ object CategoryService: IDAO<Category> {
     override fun findAll(): MutableList<Category> {
         return listCategory.toMutableList()
     }
+    fun ChangeSelect(p: Category): Boolean {
+        val index = listCategory.indexOfFirst { it.nom ==p.nom }
+        return if(index!=-1){
+            p.Select = !p.Select
+            listCategory[index]=p
+            true
+        }else {
+            false
+        }
+    }
 
 }

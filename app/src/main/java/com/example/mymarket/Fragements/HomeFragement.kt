@@ -285,7 +285,6 @@ class HomeFragement: Fragment() {
         ProduitService.create(Produit("Barres de céréales", "Barres de céréales aux fruits, idéales pour un snack rapide et sain.", 4.6, "Céréales", 50))
 
 
-        CategoryService.create(Category("All",true))
         CategoryService.create(Category("Fruits"))
         CategoryService.create(Category("Légumes"))
         CategoryService.create(Category("Poissons"))
@@ -314,6 +313,7 @@ class HomeFragement: Fragment() {
 
         adapter = adapterCartProduit(listProduitPromotions)
         recyclerView.adapter = adapter
+
         recyclerView.addItemDecoration(adapterCartProduit.CarouselEffect())
         
         val adapter1 = adapterCartProduit2(ProduitService.findAll(),parentFragmentManager)

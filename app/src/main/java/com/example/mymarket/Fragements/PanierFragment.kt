@@ -37,7 +37,13 @@ class PanierFragment: Fragment() {
             Toast.makeText(requireContext(), "${produit.nomP} ajouté au panier !", Toast.LENGTH_SHORT).show()
         }
         btnCommande.setOnClickListener {
-            val c= CommandesService.create(Commandes())
+            val total = list.sumOf { it.prix * it.quantitePanier } - 0.29
+            if (total > 0) {
+                CommandesService.create(Commandes(total))
+                Toast.makeText(requireContext(), "Commande Ajouter", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(requireContext(), "Panier et vide ,commande refuser.", Toast.LENGTH_SHORT).show()
+            }
         }
 
         recyclerView.adapter = adapter
@@ -46,7 +52,7 @@ class PanierFragment: Fragment() {
     }
     @SuppressLint("DefaultLocale")
     fun updateTotal(){
-        var total=0.0
+        var total=-0.29
         val service = PanierService.findAll()
         for(e in service){
             if(e.Promo <=0){
@@ -54,7 +60,6 @@ class PanierFragment: Fragment() {
             }else {
                 total += (e.prix * (1 - e.Promo / 100.0)) * e.quantitePanier
             }
-            total -=0.29
         }
         totalPanier.text = String.format("%.2f", total)
     }

@@ -31,4 +31,7 @@ object ProduitService : IDAO<Produit> {
     override fun findAll(): MutableList<Produit> {
         return listPanier.toMutableList()
     }
+    fun Clear(){
+        listPanier.clear()
+    }
 }

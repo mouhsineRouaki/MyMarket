@@ -17,7 +17,7 @@ import com.example.mymarket.Service.PanierService
 
 
 class adapterCartProduit(
-    private val productList: List<Produit>,
+    private var productList: List<Produit>,
 ) : RecyclerView.Adapter<adapterCartProduit.ProductViewHolder>() {
 
     class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

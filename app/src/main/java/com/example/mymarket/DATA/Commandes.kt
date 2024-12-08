@@ -16,5 +16,5 @@ class Commandes(val Num:Int = incrementer(), val dateCmd : Date, val status : St
             return cmp
         }
     }
-    constructor():this(incrementer(),Date(),"EN Cours",PanierService.findAll().sumOf{ it.prix },PanierService.findAll().map{it.category}.toSet().size)
+    constructor(prixTotal: Double):this(incrementer(),Date(),"EN Cours",prixTotal,PanierService.findAll().map{it.category}.toSet().size)
 }

@@ -12,9 +12,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mymarket.DATA.Category
 import com.example.mymarket.DATA.Commandes
 import com.example.mymarket.R
+import com.example.mymarket.Service.CategoryService
+import com.example.mymarket.Service.ProduitService
 
 class adapterCategory(
-    private val CommandesList: List<Category>
+    val CommandesList: MutableList<Category>,
+    val onCategoryClick: (Category) -> Unit
 ) : RecyclerView.Adapter<adapterCategory.ProductViewHolder>() {
 
     class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -42,8 +45,10 @@ class adapterCategory(
         holder.image.setBackgroundResource(background)
 
         holder.itemView.setOnClickListener {
-            category.Select = !category.Select
+            onCategoryClick(category)
             notifyItemChanged(position)
+            notifyDataSetChanged()
+            notifyItemRemoved(position)
         }
 
 
