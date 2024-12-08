@@ -39,7 +39,7 @@ class PanierFragment: Fragment() {
         btnCommande.setOnClickListener {
             val total = list.sumOf { it.prix * it.quantitePanier } - 0.29
             if (total > 0) {
-                CommandesService.create(Commandes(total))
+                CommandesService.create(Commandes(total,list))
                 Toast.makeText(requireContext(), "Commande Ajouter", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(requireContext(), "Panier et vide ,commande refuser.", Toast.LENGTH_SHORT).show()
@@ -52,13 +52,13 @@ class PanierFragment: Fragment() {
     }
     @SuppressLint("DefaultLocale")
     fun updateTotal(){
-        var total=-0.29
+        var total=0.0
         val service = PanierService.findAll()
         for(e in service){
             if(e.Promo <=0){
-                total+=e.prix * e.quantitePanier
+                total+=e.prix * e.quantitePanier - 0.29
             }else {
-                total += (e.prix * (1 - e.Promo / 100.0)) * e.quantitePanier
+                total += (e.prix * (1 - e.Promo / 100.0)) * e.quantitePanier - 0.29
             }
         }
         totalPanier.text = String.format("%.2f", total)
