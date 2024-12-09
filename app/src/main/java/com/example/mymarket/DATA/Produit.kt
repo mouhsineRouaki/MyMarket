@@ -24,6 +24,9 @@ class Produit(
     constructor(nomP: String,description: String,prix: Double,category: String,quantite: Int):this(
         incrementer(),nomP,description,prix,category, R.drawable.logo,quantite
     )
+    constructor(image:Int,nomP: String,description: String,prix: Double,category: String,quantite: Int):this(
+        incrementer(),nomP,description,prix,category, image,quantite
+    )
     constructor(nomP: String,description: String,prix: Double,category: String,quantite: Int,Promo: Int):this(
         incrementer(),nomP,description,prix,category, R.drawable.logo,quantite,Promo
     )

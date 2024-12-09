@@ -67,14 +67,14 @@ class CategoryFragment : Fragment() {
     private fun filterProduitsByCategory() {
         val selectedCategories = categoryList.filter { it.Select }.map { it.nom }
         if (selectedCategories.isEmpty()) {
-            produitsFiltrer=produitList.toMutableList()
+            produitsFiltrer=produitList.toSet().toMutableList()
         } else {
-            produitsFiltrer=produitList.filter { it.category in selectedCategories }.toMutableList()
+            produitsFiltrer=produitList.filter { it.category in selectedCategories }.toSet().toMutableList()
         }
     }
 
     private fun filterProduitsBySearch(query: String) {
-        produitsFiltrer = produitList.filter { it.nomP.uppercase().startsWith(query) }.toMutableList()
+        produitsFiltrer = produitList.filter { it.nomP.uppercase().startsWith(query) }.toSet().toMutableList()
     }
 
     private fun updateProduitRecyclerView(recyclerView: RecyclerView) {
