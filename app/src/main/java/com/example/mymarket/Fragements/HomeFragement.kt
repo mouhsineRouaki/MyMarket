@@ -11,6 +11,7 @@ import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -39,7 +40,7 @@ class HomeFragement: Fragment() {
         val recyclerPlusVente: RecyclerView = view.findViewById(R.id.recycle_plusVente)
         val buttonUser = view.findViewById<ImageButton>(R.id.user)
         val search = view.findViewById<EditText>(R.id.searchEditText)
-        val buttonTousproduits = view.findViewById<LinearLayout>(R.id.TousProduits)
+        val buttonTousproduits = view.findViewById<CardView>(R.id.TousProduits)
         val category_btn = view.findViewById<TextView>(R.id.Lien_category)
         val bottomNavigation = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
@@ -70,10 +71,10 @@ class HomeFragement: Fragment() {
         }
 
         ProduitService.create(Produit(R.drawable.pomme_fuji,"Pommes Fuji", "Pommes sucrées et croquantes, parfaites pour les collations.", 4.8, "Fruits", 40))
-        ProduitService.create(Produit(R.drawable.bananes,"Bananes", "Bananes mûres et sucrées, riches en potassium.", 4.7, "Fruits", 50))
+        ProduitService.create(Produit(R.drawable.bananes,10,"Bananes", "Bananes mûres et sucrées, riches en potassium.", 4.7, "Fruits", 50))
         ProduitService.create(Produit(R.drawable.oranges,"Oranges", "Oranges juteuses et sucrées, idéales pour un jus frais.", 4.9, "Fruits", 60))
         ProduitService.create(Produit(R.drawable.raisins,"Raisins", "Raisins frais, parfaits pour une collation rapide.", 4.6, "Fruits", 45))
-        ProduitService.create(Produit(R.drawable.poires,"Poires", "Poires juteuses et sucrées, parfaites en dessert.", 4.7, "Fruits", 55))
+        ProduitService.create(Produit(R.drawable.poires,10,"Poires", "Poires juteuses et sucrées, parfaites en dessert.", 4.7, "Fruits", 55))
         ProduitService.create(Produit(R.drawable.fraises,"Fraises", "Fraises fraîches et sucrées, parfaites pour les salades de fruits.", 4.8, "Fruits", 60))
         ProduitService.create(Produit(R.drawable.kiwi,"Kiwi", "Kiwi acidulé, riche en vitamine C.", 4.5, "Fruits", 40))
         ProduitService.create(Produit(R.drawable.ananas,"Ananas", "Ananas frais, délicieux et sucré.", 4.7, "Fruits", 50))
@@ -95,7 +96,7 @@ class HomeFragement: Fragment() {
         ProduitService.create(Produit(R.drawable.poivrons, "Poivrons", "Poivrons colorés, idéals pour les salades ou les plats sautés.", 4.8, "Légumes", 45))
         ProduitService.create(Produit(R.drawable.pommes_de_terre, "Pommes de terre", "Pommes de terre fraîches, idéales pour tous les types de plats.", 4.5, "Légumes", 60))
         ProduitService.create(Produit(R.drawable.tomates, "Tomates", "Tomates fraîches et juteuses, parfaites pour les salades.", 4.7, "Légumes", 50))
-        ProduitService.create(Produit(R.drawable.cho_fleur, "Chou-fleur", "Chou-fleur frais, parfait pour les gratins.", 4.6, "Légumes", 55))
+        ProduitService.create(Produit(R.drawable.cho_fleur,10, "Chou-fleur", "Chou-fleur frais, parfait pour les gratins.", 4.6, "Légumes", 55))
         ProduitService.create(Produit(R.drawable.haricots_verts, "Haricots verts", "Haricots verts frais, parfaits pour un plat d'accompagnement.", 4.5, "Légumes", 45))
         ProduitService.create(Produit(R.drawable.petits_pois, "Petits pois", "Petits pois frais, délicieux dans les soupes ou salades.", 4.6, "Légumes", 35))
         ProduitService.create(Produit(R.drawable.aubergines, "Aubergines", "Aubergines fraîches, idéales pour les plats méditerranéens.", 4.4, "Légumes", 40))
@@ -127,21 +128,21 @@ class HomeFragement: Fragment() {
         ProduitService.create( Produit(R.drawable.filet_de_porc, "Filet de porc", "Filet de porc maigre, parfait pour les plats rôtis.", 4.6, "Viandes", 40))
         ProduitService.create( Produit(R.drawable.escalopes_de_dinde, "Escalopes de dinde", "Escalopes de dinde tendres et légères, parfaites pour les sautés.", 4.5, "Viandes", 50))
         ProduitService.create( Produit(R.drawable.saucisses_de_toulouse, "Saucisses de Toulouse", "Saucisses de Toulouse traditionnelles, idéales pour un cassoulet.", 4.6, "Viandes", 60))
-        ProduitService.create( Produit(R.drawable.bacon_fume, "Bacon fumé", "Bacon fumé, parfait pour le petit déjeuner ou les salades.", 4.7, "Viandes", 55))
+        ProduitService.create( Produit(R.drawable.bacon_fume,"Bacon fumé", "Bacon fumé, parfait pour le petit déjeuner ou les salades.", 4.7, "Viandes", 55))
         ProduitService.create( Produit(R.drawable.roti_de_boeuf, "Rôti de bœuf", "Rôti de bœuf tendre, idéal pour les repas de famille.", 4.8, "Viandes", 45))
-        ProduitService.create( Produit(R.drawable.jarret_de_porc, "Jarret de porc", "Jarret de porc, parfait pour un plat mijoté ou une choucroute.", 4.6, "Viandes", 50))
+        ProduitService.create( Produit(R.drawable.jarret_de_porc,30, "Jarret de porc", "Jarret de porc, parfait pour un plat mijoté ou une choucroute.", 4.6, "Viandes", 50))
         ProduitService.create( Produit(R.drawable.poulet_roti, "Poulet rôti", "Poulet rôti prêt à déguster, idéal pour les repas rapides.", 4.7, "Viandes", 60))
         ProduitService.create( Produit(R.drawable.cotelettes_de_porc, "Côtelettes de porc", "Côtelettes de porc savoureuses, idéales pour les grillades.", 4.5, "Viandes", 45))
-        ProduitService.create( Produit(R.drawable.lait_entier, "Lait entier", "Lait entier crémeux, parfait pour les petits déjeuners.", 4.8, "Laitiers", 60))
+        ProduitService.create( Produit(R.drawable.lait_entier,10, "Lait entier", "Lait entier crémeux, parfait pour les petits déjeuners.", 4.8, "Laitiers", 60))
         ProduitService.create( Produit(R.drawable.fromage_rape, "Fromage râpé", "Fromage râpé mélangé, idéal pour les gratins ou les pizzas.", 4.7, "Laitiers", 45))
         ProduitService.create( Produit(R.drawable.yaourt_nature, "Yaourt nature", "Yaourt nature crémeux et frais, parfait pour le dessert.", 4.6, "Laitiers", 50))
         ProduitService.create( Produit(R.drawable.beurre_doux, "Beurre doux", "Beurre doux frais, idéal pour la pâtisserie ou les tartines.", 4.9, "Laitiers", 40))
         ProduitService.create( Produit(R.drawable.creme_fraiche, "Crème fraîche", "Crème fraîche épaisse, idéale pour les sauces ou les desserts.", 4.8, "Laitiers", 45))
         ProduitService.create( Produit(R.drawable.fromage_blanc, "Fromage blanc", "Fromage blanc onctueux, parfait pour un dessert léger.", 4.7, "Laitiers", 55))
         ProduitService.create( Produit(R.drawable.lait_de_chevre, "Lait de chèvre", "Lait de chèvre frais, riche en goût et en nutriments.", 4.6, "Laitiers", 50))
-        ProduitService.create( Produit(R.drawable.fromage_de_chevre, "Fromage de chèvre", "Fromage de chèvre crémeux, parfait pour les salades.", 4.8, "Laitiers", 40))
+        ProduitService.create( Produit(R.drawable.fromage_de_chevre,10, "Fromage de chèvre", "Fromage de chèvre crémeux, parfait pour les salades.", 4.8, "Laitiers", 40))
         ProduitService.create( Produit(R.drawable.lait_de_soja, "Lait de soja", "Lait de soja nature, idéal pour les personnes intolérantes au lactose.", 4.5, "Laitiers", 60))
-        ProduitService.create( Produit(R.drawable.fromage_comte, "Fromage Comté", "Fromage Comté affiné, riche et savoureux.", 4.9, "Laitiers", 50))
+        ProduitService.create( Produit(R.drawable.fromage_comte,10, "Fromage Comté", "Fromage Comté affiné, riche et savoureux.", 4.9, "Laitiers", 50))
         ProduitService.create( Produit(R.drawable.croissants, "Croissants", "Croissants au beurre frais, parfaits pour le petit-déjeuner.", 4.9, "Pâtisseries", 50))
         ProduitService.create( Produit(R.drawable.eclairs_au_chocolat, "Éclairs au chocolat", "Éclairs au chocolat fondants, parfaits pour les gourmands.", 4.8, "Pâtisseries", 45))
         ProduitService.create( Produit(R.drawable.tarte_aux_pommes, "Tarte aux pommes", "Tarte aux pommes maison, délicieuse et sucrée.", 4.7, "Pâtisseries", 40))
@@ -197,16 +198,7 @@ class HomeFragement: Fragment() {
         CategoryService.create(Category(R.drawable.epicess,"Épices"))
         CategoryService.create(Category(R.drawable.cereables,"Céréales"))
 
-        val listProduitPromotions= listOf(
-            Produit("produit","hgdhed",45.0,"udgj",45,10),
-            Produit("produit","hgdhed",45.0,"udgj",45,10),
-            Produit("produit","hgdhed",45.0,"udgj",45,10),
-            Produit("produit","hgdhed",45.0,"udgj",45,10),
-            Produit("produit","hgdhed",45.0,"udgj",45,10),
-            Produit("produit","hgdhed",45.0,"udgj",45,10),
-            Produit("produit","hgdhed",45.0,"udgj",45,10),
-            Produit("produit","hgdhed",45.0,"udgj",45,10)
-        )
+        val listProduitPromotions=ProduitService.findAll().filter { it.Promo > 0 }.toMutableList()
 
         recyclerView.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
         recyclerPlusVente.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
@@ -228,7 +220,7 @@ class HomeFragement: Fragment() {
             override fun run() {
                 val itemCount = adapter.itemCount
                 if (currentPosition == itemCount - 1) {
-                    // Quand nous arrivons au dernier élément, faire défiler au premier élément
+
                     recyclerView.smoothScrollToPosition(0)
                     currentPosition = 1
                 } else {
@@ -236,7 +228,7 @@ class HomeFragement: Fragment() {
                     currentPosition++
                 }
 
-                handler?.postDelayed(this, 2000)
+                handler?.postDelayed(this, 4000)
             }
         }
         handler?.postDelayed(runnable!!, 3000)

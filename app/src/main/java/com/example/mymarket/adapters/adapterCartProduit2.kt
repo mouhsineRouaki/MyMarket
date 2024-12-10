@@ -1,5 +1,6 @@
 package com.example.mymarket.adapters
 
+import android.os.Bundle
 import com.example.mymarket.DATA.Produit
 
 import android.view.LayoutInflater
@@ -43,8 +44,19 @@ class adapterCartProduit2(
         holder.productDetails.text = produit.description
         holder.productPrice.text = "${produit.prix} DH"
         holder.itemView.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("nomP", produit.nomP)
+            bundle.putString("cat", produit.category)
+            bundle.putString("desc", produit.description)
+            bundle.putDouble("prix", produit.prix)
+            bundle.putInt("quantite", produit.quantite)
+            bundle.putInt("img", produit.image)
+
+            val fragment = DetailsFragment()
+            fragment.arguments = bundle
             childFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, DetailsFragment())
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
                 .commit()
         }
         holder.add.setOnClickListener {

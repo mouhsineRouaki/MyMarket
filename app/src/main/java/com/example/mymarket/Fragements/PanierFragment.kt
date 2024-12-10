@@ -33,10 +33,13 @@ class PanierFragment: Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext(),
             LinearLayoutManager.VERTICAL,false)
         val list =PanierService.findAll()
-        adapter = adapterPanier(list,this) { produit ->
+        adapter = adapterPanier(list,this,true) { produit ->
             Toast.makeText(requireContext(), "${produit.nomP} ajouté au panier !", Toast.LENGTH_SHORT).show()
         }
         btnCommande.setOnClickListener {
+            val bottomSheetFragment = bottomLayoutFragement()
+            bottomSheetFragment.show(parentFragmentManager, bottomSheetFragment.tag)
+
             val total = list.sumOf { it.prix * it.quantitePanier } - 0.29
             if (total > 0) {
                 CommandesService.create(Commandes(total,list))

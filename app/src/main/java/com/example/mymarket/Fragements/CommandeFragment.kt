@@ -23,7 +23,7 @@ class CommandeFragment: Fragment() {
         val recyclerView: RecyclerView = view.findViewById(R.id.recycler_commandes)
          recyclerView.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
         val commandes =CommandesService.findAll()
-        val adapter = adapterCommandes(commandes)
+        val adapter = adapterCommandes(commandes,parentFragmentManager)
         recyclerView.adapter = adapter
 
     }

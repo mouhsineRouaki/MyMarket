@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -19,6 +20,7 @@ import com.example.mymarket.Service.PanierService
 class adapterPanier(
     private val productList: MutableList<Produit>,
     val fragment: PanierFragment,
+    val quantite :Boolean,
     private val onAddToCartClick: (Produit) -> Unit
 ) : RecyclerView.Adapter<adapterPanier.ViewHolder>() {
 
@@ -33,6 +35,8 @@ class adapterPanier(
         val textQuantite: TextView = itemView.findViewById(R.id.text_quantite)
         val btnRemove: ImageButton = itemView.findViewById(R.id.btn_remove_item)
         val reduction: TextView = itemView.findViewById(R.id.label_reduction)
+        val linearLayout = itemView.findViewById<LinearLayout>(R.id.linearLayout)
+        val desc: TextView = itemView.findViewById(R.id.description_produit)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -43,6 +47,20 @@ class adapterPanier(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val produit = productList[position]
+        for (i in 0 until holder.linearLayout.childCount) {
+            val child = holder.linearLayout.getChildAt(i)
+             if(quantite){
+                 child.visibility = View.VISIBLE
+            }else{
+                 child.visibility = View.GONE
+            }
+        }
+        if(quantite){
+            holder.btnRemove.visibility = View.VISIBLE
+        }else{
+            holder.btnRemove.visibility = View.GONE
+            holder.desc.text = "Quantite : ${produit.quantitePanier}"
+        }
 
         holder.productImage.setImageResource(produit.image)
         holder.productName.text = produit.nomP.uppercase()
@@ -50,7 +68,7 @@ class adapterPanier(
         holder.textQuantite.text = "${produit.quantitePanier}"
 
         val prixReduit = produit.prix * (1 - produit.Promo / 100.0)
-        holder.productReduit.text = String.format("%.2f", prixReduit)
+        holder.productReduit.text = String.format("%.2f DH", prixReduit)
 
         if (produit.Promo <= 0) {
             holder.reduction.visibility = View.GONE

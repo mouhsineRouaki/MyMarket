@@ -60,6 +60,13 @@
             android:textColor="@android:color/black" />
 
         <TextView
+            android:id="@+id/quantiteDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="13.72 dh"
+            android:textSize="16sp" />
+        <TextView
             android:id="@+id/prixDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -67,7 +74,6 @@
             android:text="13.72 dh"
             android:textSize="16sp"
             android:textColor="@android:color/holo_red_dark" />
-
         <Button
             android:id="@+id/add_to_cart_button"
             android:layout_width="match_parent"

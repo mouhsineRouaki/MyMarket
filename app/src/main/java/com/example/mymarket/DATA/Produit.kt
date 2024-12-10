@@ -6,7 +6,7 @@ class Produit(
     val id : Int,
     val nomP : String,
     val description : String,
-    val prix : Double,
+    var prix : Double,
     var category: String,
     val image : Int,
     var quantite : Int,
@@ -33,4 +33,12 @@ class Produit(
     constructor(nomP: String,description: String,prix: Double,category: String,quantite: Int,Promo: Int,quantitePanier: Int):this(
         incrementer(),nomP,description,prix,category, R.drawable.logo,quantite,Promo,quantitePanier
     )
+    constructor(image:Int,Promo: Int,nomP: String,description: String,prix: Double,category: String,quantite: Int):this(
+        incrementer(),nomP,description,prix,category, image,quantite,Promo
+    ) {
+        if (Promo > 0) {
+            this.prix = this.prix * (1 - this.Promo / 100.0)
+        }
+    }
+
 }
