@@ -60,10 +60,18 @@ class adapterCartProduit2(
                 .commit()
         }
         holder.add.setOnClickListener {
-            object{
-                var panier = PanierService.create(produit)
-            }
-            Toast.makeText(it.context, "${produit.nomP} ajouté au panier !", Toast.LENGTH_SHORT).show()
+            val p = PanierService.findAll().map { it.nomP }
+                if(produit.quantite == 0){
+                    Toast.makeText(holder.itemView.context, "Stock insuffisant pour ${produit.nomP}", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+                if(!p.contains(produit.nomP)) {
+                    PanierService.create(produit)
+                    Toast.makeText(it.context, "${produit.nomP} ajouté au panier !", Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(it.context, "${produit.nomP} Produit deja en panier", Toast.LENGTH_SHORT).show()
+                }
+
         }
 
     }

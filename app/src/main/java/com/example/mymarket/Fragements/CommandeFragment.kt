@@ -25,6 +25,7 @@ class CommandeFragment: Fragment() {
         val commandes =CommandesService.findAll()
         val adapter = adapterCommandes(commandes,parentFragmentManager)
         recyclerView.adapter = adapter
+        adapter.notifyDataSetChanged()
 
     }
 }

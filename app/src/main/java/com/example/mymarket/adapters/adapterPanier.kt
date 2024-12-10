@@ -80,7 +80,7 @@ class adapterPanier(
         }
 
         holder.btnIncrement.setOnClickListener {
-            if (produit.quantite > 0) {
+            if (produit.quantite > holder.textQuantite.text.toString().toInt()) {
                 produit.quantitePanier = holder.textQuantite.text.toString().toInt()+ 1
                 holder.textQuantite.text= produit.quantitePanier.toString()
                 updateTotalPrix(holder, produit)

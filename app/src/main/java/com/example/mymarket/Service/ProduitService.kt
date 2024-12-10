@@ -34,4 +34,11 @@ object ProduitService : IDAO<Produit> {
     fun Clear(){
         listPanier.clear()
     }
+    fun updateQantite(p: Produit, q:Int){
+        val index = listPanier.indexOfFirst { it.nomP ==p.nomP }
+        if(index!=-1){
+            p.quantite = q
+            listPanier[index]=p
+        }
+    }
 }

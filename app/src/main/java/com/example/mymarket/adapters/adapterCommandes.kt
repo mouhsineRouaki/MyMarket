@@ -9,9 +9,12 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mymarket.DATA.Commandes
+import com.example.mymarket.DATA.Produit
 import com.example.mymarket.Fragements.DetailsHisoriqueCommandes
 import com.example.mymarket.Fragements.bottomLayoutFragement
 import com.example.mymarket.R
+import com.example.mymarket.Service.PanierService
+import com.example.mymarket.Service.ProduitService
 
 class adapterCommandes(
     private val CommandesList: List<Commandes>,
@@ -38,8 +41,8 @@ class adapterCommandes(
         holder.num.text = "Commande #${commande.Num}"
         holder.status.text ="Status :${commande.status}"
         holder.date.text = "${commande.dateCmd}"
-        holder.prix.text = "Total :${commande.prixTotal.toString()} DH"
-        holder.TotalCategory.text = "Total Category :${commande.TotalCategory.toString()}"
+        holder.prix.text = String.format("Prix :%.2f DH", commande.prixTotal)
+        holder.TotalCategory.text = "Total Category :${commande.TotalCategory}"
         holder.itemView.setOnClickListener{
             val fragmentDestination = DetailsHisoriqueCommandes()
             val bundle = Bundle()

@@ -33,14 +33,15 @@ class DetailsHisoriqueCommandes: BottomSheetDialogFragment() {
         if (data != null) {
             val commandeFinded = CommandesService.findById(data)
             if (commandeFinded != null) {
-                total.text = commandeFinded.prixTotal.toString()
-                date.text = commandeFinded.dateCmd
-                totalCat.text = commandeFinded.TotalCategory.toString()
-                status.text = commandeFinded.status
+                total.text = "${commandeFinded.prixTotal} dh"
+                date.text = "${commandeFinded.dateCmd} "
+                totalCat.text = "${commandeFinded.TotalCategory} "
+                status.text = "${commandeFinded.status} "
                 recycleView.adapter= adapterPanier(commandeFinded.ListProduits.toMutableList(),PanierFragment(),false){produit ->
                     Toast.makeText(requireContext(),"${produit.nomP}",Toast.LENGTH_SHORT).show()
                 }
-
+            }else{
+                Toast.makeText(requireContext(), "commande null ", Toast.LENGTH_SHORT).show()
             }
 
         }
@@ -52,7 +53,6 @@ class DetailsHisoriqueCommandes: BottomSheetDialogFragment() {
 
         val dialog = dialog
         if (dialog != null) {
-            val height = resources.displayMetrics.heightPixels / 1
             dialog.window?.setLayout(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT

@@ -7,11 +7,13 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mymarket.DATA.Produit
 import com.example.mymarket.R
+import com.example.mymarket.Service.PanierService
 import com.example.mymarket.Service.ProduitService
 import com.example.mymarket.adapters.adapterSimilaireProduit
 
@@ -46,6 +48,16 @@ class DetailsFragment: Fragment() {
             prixDetails.text = "Prix :$prix dh"
             quantiteDetails.text = "Quantité : $quantite"
             imageDetails.setImageResource(image)
+            val produit= Produit(image,nomP.toString(),description.toString(),prix,category.toString(),quantite)
+            addToCartButton.setOnClickListener {
+                val p = PanierService.findAll().map { it.nomP }
+                if(!p.contains(nomP)) {
+                    PanierService.create(produit)
+                    Toast.makeText(it.context, "${produit.nomP} ajouté au panier !", Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(it.context, "${produit.nomP} Produit deja en panier", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
 
 

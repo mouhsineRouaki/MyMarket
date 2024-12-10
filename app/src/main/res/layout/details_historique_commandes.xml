@@ -38,7 +38,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Total :"
+                    android:text=" Total :"
                     android:gravity="center" />
 
                 <TextView
@@ -57,7 +57,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Statu :"
+                android:text=" Statu :"
                 android:gravity="start" />
             <TextView
                 android:id="@+id/status"
@@ -75,7 +75,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Date :"
+                android:text=" Date :"
                 android:gravity="start" />
             <TextView
                 android:id="@+id/Time_commande"
@@ -93,7 +93,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Total Category :"
+                android:text=" Total Category :"
                 android:gravity="start" />
             <TextView
                 android:id="@+id/Total_category"

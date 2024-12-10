@@ -70,7 +70,7 @@ class HomeFragement: Fragment() {
                 .commit()
         }
 
-        ProduitService.create(Produit(R.drawable.pomme_fuji,"Pommes Fuji", "Pommes sucrées et croquantes, parfaites pour les collations.", 4.8, "Fruits", 40))
+        ProduitService.create(Produit(R.drawable.pomme_fuji,"Pommes Fuji", "Pommes sucrées et croquantes, parfaites pour les collations.", 4.8, "Fruits", 2))
         ProduitService.create(Produit(R.drawable.bananes,10,"Bananes", "Bananes mûres et sucrées, riches en potassium.", 4.7, "Fruits", 50))
         ProduitService.create(Produit(R.drawable.oranges,"Oranges", "Oranges juteuses et sucrées, idéales pour un jus frais.", 4.9, "Fruits", 60))
         ProduitService.create(Produit(R.drawable.raisins,"Raisins", "Raisins frais, parfaits pour une collation rapide.", 4.6, "Fruits", 45))

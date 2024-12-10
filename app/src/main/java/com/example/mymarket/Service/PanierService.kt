@@ -12,7 +12,7 @@ object PanierService: IDAO<Produit> {
         }
 
         override fun update(p: Produit, q:Int): Boolean {
-            val index = listPanier.indexOfFirst { it.nomP ==p.nomP }
+            val index = listPanier.indexOfFirst { it.id ==p.id }
             return if(index!=-1){
                 p.quantite = q
                 listPanier[index]=p
@@ -37,6 +37,10 @@ object PanierService: IDAO<Produit> {
             listPanier.removeAt(P)
 
         }
+    fun findPosition(p:Produit):Int{
+        return listPanier.indexOfFirst { it.nomP ==p.nomP }
+
+    }
 
 
 }
