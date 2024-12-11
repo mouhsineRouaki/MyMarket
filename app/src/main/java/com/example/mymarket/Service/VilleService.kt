@@ -24,7 +24,7 @@ object VilleService : IDAO<ville> {
     }
 
     override fun findById(id: Int): ville? {
-        TODO()
+        return  produitCommande.find { it.id ==id }
     }
 
     override fun findAll(): MutableList<ville> {

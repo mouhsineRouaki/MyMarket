@@ -52,7 +52,7 @@ class ProfilFragment : Fragment() {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, HomeFragement())
                 .commit()
-            bottomNavigation?.selectedItemId = R.id.category
+            bottomNavigation?.selectedItemId = R.id.home
         }
 
         fun changeLanguage(locale: Locale) {

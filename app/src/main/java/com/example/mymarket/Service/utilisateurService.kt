@@ -6,7 +6,7 @@ import com.example.mymarket.interfaces.IDAO
 
 object utilisateurService: IDAO<utilisateur> {
     private val produitCommande= mutableListOf<utilisateur>(
-        utilisateur("mouhsine","rouaki","27/12/2004","Homme","houtm27@gmail.com","123456", Uri.parse("C:\\Users\\poste\\OneDrive\\Images\\html\\icon.webp"))
+        utilisateur("mouhsine","rouaki","27/12/2004","Homme","1","1", Uri.parse("C:\\Users\\poste\\OneDrive\\Images\\html\\icon.webp"))
     )
     override fun create(p: utilisateur): Boolean {
         return produitCommande.add(p)

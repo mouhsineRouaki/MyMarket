@@ -28,11 +28,11 @@
         android:text="Ajouter l'adresse de votre magasin"
         android:layout_marginTop="16dp" />
 
-    <EditText
+    <Spinner
         android:id="@+id/addressInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="أدخل العنوان" />
+        android:hint="donner votre localisation" />
 
     <Button
         android:id="@+id/saveButton"

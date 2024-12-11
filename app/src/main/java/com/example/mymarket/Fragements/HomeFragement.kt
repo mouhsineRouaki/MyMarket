@@ -220,10 +220,10 @@ class HomeFragement: Fragment() {
         CategoryService.create(Category(R.drawable.epicess,"Épices"))
         CategoryService.create(Category(R.drawable.cereables,"Céréales"))
 
-        VilleService.create(ville(villeType.Safi,1.0))
-        VilleService.create(ville(villeType.CasaBlanca,2.0))
-        VilleService.create(ville(villeType.Agadir,1.0))
-        VilleService.create(ville(villeType.Tanger,0.5))
+        VilleService.create(ville(villeType.Safi,1))
+        VilleService.create(ville(villeType.CasaBlanca,2))
+        VilleService.create(ville(villeType.Agadir,1))
+        VilleService.create(ville(villeType.Tanger,1))
 
         val listProduitPromotions=ProduitService.findAll().filter { it.Promo > 0 }.toMutableList()
 

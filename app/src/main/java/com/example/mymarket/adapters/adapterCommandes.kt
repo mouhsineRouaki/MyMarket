@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mymarket.DATA.Commandes
 import com.example.mymarket.DATA.Produit
 import com.example.mymarket.Fragements.DetailsHisoriqueCommandes
-import com.example.mymarket.Fragements.bottomLayoutFragement
 import com.example.mymarket.R
 import com.example.mymarket.Service.PanierService
 import com.example.mymarket.Service.ProduitService

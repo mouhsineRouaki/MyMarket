@@ -16,6 +16,7 @@ import com.example.mymarket.R
 import com.example.mymarket.Service.PanierService
 import com.example.mymarket.Service.ProduitService
 import com.example.mymarket.adapters.adapterSimilaireProduit
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class DetailsFragment: Fragment() {
     override fun onCreateView(
@@ -34,6 +35,14 @@ class DetailsFragment: Fragment() {
         val prixDetails = view.findViewById<TextView>(R.id.prixDetails)
         val quantiteDetails = view.findViewById<TextView>(R.id.quantiteDetails)
         val addToCartButton = view.findViewById<Button>(R.id.add_to_cart_button)
+        val bottomNavigation = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        val retour = view.findViewById<ImageView>(R.id.retour)
+        retour.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, HomeFragement())
+                .commit()
+            bottomNavigation?.selectedItemId = R.id.home
+        }
         var category :String?=""
         val bundle = arguments
         if (bundle != null) {

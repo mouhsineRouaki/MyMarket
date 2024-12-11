@@ -1,6 +1,8 @@
 package com.example.mymarket.Fragements
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,6 +23,8 @@ class CommandeFragment : Fragment() {
     private lateinit var selectedTextView: TextView
     private lateinit var selectedView: View
     private lateinit var adapter: adapterCommandes
+    private val handler = Handler(Looper.getMainLooper())
+    private val refreshInterval = 10L
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.commande_layout, container, false)
@@ -39,7 +43,6 @@ class CommandeFragment : Fragment() {
         val enattentsTextView = view.findViewById<TextView>(R.id.enattents)
         val livreTextView = view.findViewById<TextView>(R.id.livre)
 
-        // Configuration initiale
         recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
         commandes = CommandesService.findAll()
@@ -59,7 +62,7 @@ class CommandeFragment : Fragment() {
 
         encoursTextView.setOnClickListener {
             commandes.clear()
-            commandes.addAll(CommandesService.findAll().filter { it.status == "EN Cours" }.toMutableList())
+            commandes.addAll(CommandesService.findAll().filter { it.status == "En cours" }.toMutableList())
             updateSelection(encoursTextView, underEncoursView, listOf(underAllView, underEnattentsView, underLivreView))
         }
 
@@ -71,9 +74,10 @@ class CommandeFragment : Fragment() {
 
         livreTextView.setOnClickListener {
             commandes.clear()
-            commandes.addAll(CommandesService.findAll().filter { it.status == "Livré" }.toMutableList())
+            commandes.addAll(CommandesService.findAll().filter { it.status == "Livre" }.toMutableList())
             updateSelection(livreTextView, underLivreView, listOf(underAllView, underEncoursView, underEnattentsView))
         }
+        startAutoRefresh()
     }
 
     private fun updateSelection(
@@ -81,18 +85,23 @@ class CommandeFragment : Fragment() {
         newSelectedView: View,
         otherViews: List<View>
     ) {
-        // Réinitialiser la vue et couleur précédente
         selectedView.setBackgroundColor(ContextCompat.getColor(requireContext(), android.R.color.transparent))
 
-        // Mettre à jour la nouvelle sélection
         newSelectedView.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.black))
         selectedTextView = newSelectedTextView
         selectedView = newSelectedView
 
-        // Réinitialiser les autres vues
         otherViews.forEach { it.setBackgroundColor(ContextCompat.getColor(requireContext(), android.R.color.transparent)) }
 
-        // Mise à jour de l'adaptateur
         adapter.notifyDataSetChanged()
+    }
+    fun startAutoRefresh() {
+        handler.postDelayed(object : Runnable {
+            override fun run() {
+                commandes = commandes
+                adapter.notifyDataSetChanged()
+                handler.postDelayed(this, refreshInterval)
+            }
+        }, refreshInterval)
     }
 }
