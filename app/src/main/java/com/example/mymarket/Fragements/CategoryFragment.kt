@@ -44,7 +44,7 @@ class CategoryFragment : Fragment() {
 
         categoryAdapter = adapterCategory(categoryList) { category ->
             category.Select = !category.Select
-            filterProduitsByCategory()
+            filterProduits()
             updateProduitRecyclerView(recyclerViewProduit)
         }
 
@@ -54,27 +54,21 @@ class CategoryFragment : Fragment() {
         recyclerViewProduit.layoutManager = GridLayoutManager(requireContext(), 2)
         updateProduitRecyclerView(recyclerViewProduit)
 
-        editTextSearch.doAfterTextChanged { text ->
-            if (text.isNullOrEmpty()) {
-                filterProduitsByCategory()
-            } else {
-                filterProduitsBySearch(text.toString().uppercase())
-            }
+        editTextSearch.doAfterTextChanged {
+            filterProduits()
             updateProduitRecyclerView(recyclerViewProduit)
         }
     }
 
-    private fun filterProduitsByCategory() {
+    private fun filterProduits() {
         val selectedCategories = categoryList.filter { it.Select }.map { it.nom }
-        if (selectedCategories.isEmpty()) {
-            produitsFiltrer=produitList.toSet().toMutableList()
-        } else {
-            produitsFiltrer=produitList.filter { it.category in selectedCategories }.toSet().toMutableList()
-        }
-    }
+        val query = view?.findViewById<EditText>(R.id.searchEditText)?.text.toString().uppercase()
 
-    private fun filterProduitsBySearch(query: String) {
-        produitsFiltrer = produitList.filter { it.nomP.uppercase().startsWith(query) }.toSet().toMutableList()
+        produitsFiltrer = produitList.filter { produit ->
+            val matchCategory = selectedCategories.isEmpty() || produit.category in selectedCategories
+            val matchSearch = query.isEmpty() || produit.nomP.uppercase().startsWith(query)
+            matchCategory && matchSearch
+        }.toMutableList()
     }
 
     private fun updateProduitRecyclerView(recyclerView: RecyclerView) {

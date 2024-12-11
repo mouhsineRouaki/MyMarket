@@ -1,11 +1,13 @@
 package com.example.mymarket.Fragements
 
+import android.graphics.Outline
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewOutlineProvider
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.LinearLayout
@@ -17,10 +19,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mymarket.DATA.Category
 import com.example.mymarket.DATA.Produit
+import com.example.mymarket.DATA.ville
+import com.example.mymarket.DATA.villeType
 import com.example.mymarket.R
 import com.example.mymarket.Service.CategoryService
 import com.example.mymarket.Service.PanierService
 import com.example.mymarket.Service.ProduitService
+import com.example.mymarket.Service.VilleService
+import com.example.mymarket.Service.utilisateurService
 import com.example.mymarket.adapters.adapterCartProduit
 import com.example.mymarket.adapters.adapterCartProduit2
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -42,7 +48,23 @@ class HomeFragement: Fragment() {
         val search = view.findViewById<EditText>(R.id.searchEditText)
         val buttonTousproduits = view.findViewById<CardView>(R.id.TousProduits)
         val category_btn = view.findViewById<TextView>(R.id.Lien_category)
+        val nom = view.findViewById<TextView>(R.id.nom)
+        val prenom = view.findViewById<TextView>(R.id.prenom)
         val bottomNavigation = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        utilisateurService.findAll().forEach { u ->
+            buttonUser.setImageURI(u.image)
+            nom.text = u.nom
+            prenom.text = u.prenom
+            buttonUser.apply {
+                clipToOutline = true
+                outlineProvider = object : ViewOutlineProvider() {
+                    override fun getOutline(view: View, outline: Outline) {
+                        outline.setOval(0, 0, view.width, view.height)
+                    }
+                }
+            }
+        }
+
 
         category_btn.setOnClickListener{
             parentFragmentManager.beginTransaction()
@@ -197,6 +219,11 @@ class HomeFragement: Fragment() {
         CategoryService.create(Category(R.drawable.boissons,"Boissons"))
         CategoryService.create(Category(R.drawable.epicess,"Épices"))
         CategoryService.create(Category(R.drawable.cereables,"Céréales"))
+
+        VilleService.create(ville(villeType.Safi,1.0))
+        VilleService.create(ville(villeType.CasaBlanca,2.0))
+        VilleService.create(ville(villeType.Agadir,1.0))
+        VilleService.create(ville(villeType.Tanger,0.5))
 
         val listProduitPromotions=ProduitService.findAll().filter { it.Promo > 0 }.toMutableList()
 

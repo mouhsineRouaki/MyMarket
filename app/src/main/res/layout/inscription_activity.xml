@@ -76,6 +76,16 @@
             android:background="@drawable/edittext"
             android:gravity="center"
             android:textColorHint="@color/inputTextColor"/>
+        <Spinner
+            android:id="@+id/ville"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="Entrer Votre Date Naissance"
+            android:inputType="date"
+            android:background="@drawable/edittext"
+            android:gravity="center"
+            android:textColorHint="@color/inputTextColor"/>
         <EditText
             android:id="@+id/email"
             android:layout_width="330dp"
@@ -92,6 +102,17 @@
             android:layout_marginBottom="20dp"
             android:hint="Entrer Votre Password"
             android:background="@drawable/edittext"
+            android:gravity="center"
+            android:textColorHint="@color/inputTextColor"/>
+        <EditText
+            android:id="@+id/image"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="Clicker pour ajouter image"
+            android:background="@drawable/edittext"
+            android:clickable="true"
+            android:focusable="false"
             android:gravity="center"
             android:textColorHint="@color/inputTextColor"/>
         <RadioGroup

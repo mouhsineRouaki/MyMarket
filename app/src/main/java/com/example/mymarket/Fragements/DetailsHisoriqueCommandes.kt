@@ -33,7 +33,7 @@ class DetailsHisoriqueCommandes: BottomSheetDialogFragment() {
         if (data != null) {
             val commandeFinded = CommandesService.findById(data)
             if (commandeFinded != null) {
-                total.text = "${commandeFinded.prixTotal} dh"
+                total.text = String.format("%.2f DH", commandeFinded.prixTotal)
                 date.text = "${commandeFinded.dateCmd} "
                 totalCat.text = "${commandeFinded.TotalCategory} "
                 status.text = "${commandeFinded.status} "
