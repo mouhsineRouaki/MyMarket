@@ -74,7 +74,7 @@
                 android:layout_height="54sp"
                 android:text="LOGIN"
                 android:textColor="@color/Buttontext"
-                android:background="@drawable/button" />
+                android:background="@drawable/button"/>
         </LinearLayout>
     </FrameLayout>
 </LinearLayout>
