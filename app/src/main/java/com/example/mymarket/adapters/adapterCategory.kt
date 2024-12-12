@@ -1,8 +1,10 @@
 package com.example.mymarket.adapters
 
+import android.graphics.Outline
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewOutlineProvider
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
@@ -37,6 +39,14 @@ class adapterCategory(
 
         holder.texte.text = category.nom
         holder.image.setImageResource(category.image)
+        holder.image.apply {
+            clipToOutline = true
+            outlineProvider = object : ViewOutlineProvider() {
+                override fun getOutline(view: View, outline: Outline) {
+                    outline.setOval(0, 0, view.width, view.height)
+                }
+            }
+        }
         val background = if (category.Select) {
             R.drawable.stroke_black
         } else {

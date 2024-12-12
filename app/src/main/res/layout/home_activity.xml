@@ -21,14 +21,44 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="start"
+            android:scaleType="centerCrop"
             android:layout_marginRight="10dp"
             android:background="@drawable/image_button_cercle"
             android:src="@drawable/ic_user"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="start">
+            <TextView
+                android:id="@+id/nom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="ghgdwh"
+                android:textSize="15dp"
+                android:layout_marginRight="2dp"
+                android:textColor="@color/black"
+                android:gravity="end"
+                android:textStyle="italic" />
+            <TextView
+                android:id="@+id/prenom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:text="ghgdwh"
+                android:layout_marginRight="2dp"
+                android:textColor="@color/black"
+                android:gravity="end"
+                android:textStyle="italic" />
+        </LinearLayout>
+
 
         <ImageView
             android:id="@+id/logo"
             android:layout_width="@dimen/logo_size"
             android:layout_height="@dimen/logo_size"
+            android:scaleType="centerCrop"
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="16dp"
             android:src="@drawable/logo" />
@@ -37,6 +67,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="end"
+            android:scaleType="centerCrop"
             android:layout_marginRight="10dp"
             android:background="@drawable/image_button_cercle"
             android:src="@drawable/ic_support"/>
@@ -149,37 +180,47 @@
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:background="@color/white"
+        android:gravity="center"
         android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:id="@+id/TousProduits"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:padding="20dp"
-        android:clickable="true"
-        android:orientation="horizontal"
-        android:background="@drawable/edittext"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="start"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:text="@string/voirLesProduits"/>
-
-        <TextView
+        <androidx.cardview.widget.CardView
+            android:id="@+id/TousProduits"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="end"
-            android:textSize="20dp"
-            android:textColor="@color/black"
-            android:layout_gravity="end"
-            android:textStyle="bold"
-            android:text=">" />
-    </LinearLayout>
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="500dp"
+            app:cardElevation="4dp"
+            android:clickable="true"
+            android:backgroundTint="@android:color/transparent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/edittext_image">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true"
+                    android:textSize="23sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorLogo"
+                    android:text="@string/voirLesProduits" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:text=">" />
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
 
 </LinearLayout>
 </LinearLayout>

@@ -3,7 +3,7 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/gardient_promo"
+    android:background="@drawable/linear_radius"
     android:orientation="horizontal"
     android:layout_margin="8dp"
     card_view:cardCornerRadius="8dp"
@@ -35,14 +35,14 @@
             android:textColor="@android:color/black"
             android:textSize="16sp" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <Button
             android:id="@+id/addToCartButton"
-            android:layout_marginTop="70dp"
             android:layout_width="match_parent"
-            android:layout_height="45sp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="@android:color/holo_blue_light"
             android:text="Ajouter au panier"
-            android:textColor="@color/Buttontext"
-            android:background="@drawable/button" />
+            android:textColor="@android:color/white" />
     </LinearLayout>
     <FrameLayout
         android:layout_width="match_parent"
@@ -51,7 +51,7 @@
 
         <ImageView
             android:id="@+id/productImage"
-            android:layout_width="150dp"
+            android:layout_width="match_parent"
             android:layout_height="200dp"
             android:scaleType="centerCrop" />
 

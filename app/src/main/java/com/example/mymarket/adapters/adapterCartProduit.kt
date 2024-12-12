@@ -51,7 +51,7 @@ class adapterCartProduit(
 
         holder.productImage.setImageResource(produit.image)
         holder.productName.text = produit.nomP.toUpperCase()
-        holder.productPrice.text = "Prix : ${produit.prix} DH"
+        holder.productPrice.text = String.format(" Prix: %.2f DH", produit.prix)
 
         holder.addToCartButton.setOnClickListener {
             object{

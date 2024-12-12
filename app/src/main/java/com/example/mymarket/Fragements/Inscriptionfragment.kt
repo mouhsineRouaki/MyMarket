@@ -1,20 +1,26 @@
 package com.example.mymarket.Fragements
 
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.Toast
+import android.widget.*
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.example.mymarket.DATA.utilisateur
+import com.example.mymarket.DATA.villeType
 import com.example.mymarket.R
+import com.example.mymarket.Service.utilisateurService
 
 class Inscriptionfragment : Fragment() {
+
+    private val PICK_IMAGE_REQUEST = 1
+    private lateinit var imageSelected: Uri
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,10 +37,50 @@ class Inscriptionfragment : Fragment() {
         val email = view.findViewById<EditText>(R.id.email)
         val password = view.findViewById<EditText>(R.id.password)
         val retour = view.findViewById<ImageButton>(R.id.retour)
-
         val radioGroup = view.findViewById<RadioGroup>(R.id.RadioGroup)
         val checkBoxConditions = view.findViewById<CheckBox>(R.id.condition)
         val buttonInscription = view.findViewById<Button>(R.id.buttonInscription)
+        val ville = view.findViewById<Spinner>(R.id.ville)
+        val image = view.findViewById<TextView>(R.id.image)
+
+        image.setOnClickListener {
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = "image/*"
+            startActivityForResult(intent, PICK_IMAGE_REQUEST)
+        }
+
+        val villesList = listOf(
+            villeType.Safi, villeType.CasaBlanca,
+            villeType.Tanger, villeType.Agadir
+        )
+
+        val adapter = object : ArrayAdapter<villeType>(
+            requireContext(), android.R.layout.simple_spinner_item, villesList
+        ) {
+            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+                val view = super.getView(position, convertView, parent)
+                val textView = view.findViewById<TextView>(android.R.id.text1)
+                textView.gravity = Gravity.CENTER
+                textView.setTextColor(
+                    ContextCompat.getColor(requireContext(), R.color.inputTextColor)
+                )
+                return view
+            }
+
+            override fun getDropDownView(
+                position: Int, convertView: View?, parent: ViewGroup
+            ): View {
+                val view = super.getDropDownView(position, convertView, parent)
+                val textView = view.findViewById<TextView>(android.R.id.text1)
+                textView.gravity = Gravity.CENTER
+                textView.setTextColor(
+                    ContextCompat.getColor(requireContext(), R.color.inputTextColor)
+                )
+                return view
+            }
+        }
+        ville.adapter = adapter
+
         retour.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .setCustomAnimations(
@@ -48,27 +94,74 @@ class Inscriptionfragment : Fragment() {
         }
 
         buttonInscription.setOnClickListener {
-            val nom = nomUser.text.toString()
-            val prenom = prenomUser.text.toString()
-            val date = dateNaissance.text.toString()
-            val emailValue = email.text.toString()
-            val passwordValue = password.text.toString()
-
-            val selectedSexeId = radioGroup.checkedRadioButtonId
-            val sexe = if (selectedSexeId != -1) {
-                view.findViewById<RadioButton>(selectedSexeId).text.toString()
-            } else {
-                "Non spécifié"
+            if (validateForm(
+                    nomUser.text.toString(),
+                    prenomUser.text.toString(),
+                    dateNaissance.text.toString(),
+                    email.text.toString(),
+                    password.text.toString(),
+                    radioGroup,
+                    checkBoxConditions
+                )
+            ) {
+                val villeSelectionnee = ville.selectedItem.toString()
+                showToast("Inscription réussie pour ${nomUser.text} ${prenomUser.text}")
             }
+        }
+    }
 
-            val conditionsAcceptees = checkBoxConditions.isChecked
+    private fun validateForm(
+        nom: String,
+        prenom: String,
+        date: String,
+        emailValue: String,
+        passwordValue: String,
+        radioGroup: RadioGroup,
+        checkBoxConditions: CheckBox
+    ): Boolean {
+        if (nom.isEmpty() || prenom.isEmpty() || date.isEmpty() || emailValue.isEmpty() || passwordValue.isEmpty()) {
+            showToast("Tous les champs doivent être remplis")
+            return false
+        }
 
-            Toast.makeText(
-                requireContext(),
-                "Nom: $nom Prénom: $prenom Date: $date Email: $emailValue Password: $passwordValue Sexe: $sexe Conditions acceptées: $conditionsAcceptees",
-                Toast.LENGTH_LONG
-            ).show()
+        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(emailValue).matches()) {
+            showToast("Email invalide")
+            return false
+        }
 
+        if (passwordValue.length < 6) {
+            showToast("Le mot de passe doit comporter au moins 6 caractères")
+            return false
+        }
+
+        if (radioGroup.checkedRadioButtonId == -1) {
+            showToast("Sélectionnez votre sexe")
+            return false
+        }
+
+        if (!checkBoxConditions.isChecked) {
+            showToast("Vous devez accepter les conditions")
+            return false
+        }
+
+        utilisateurService.create(
+            utilisateur(nom, prenom, date, radioGroup.checkedRadioButtonId.toString(), emailValue, passwordValue, imageSelected)
+        )
+        return true
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null) {
+            val selectedImageUri = data.data
+            if (selectedImageUri != null) {
+                imageSelected = selectedImageUri
+            }
         }
     }
 }
