@@ -34,122 +34,109 @@
     android:layout_weight="6">
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
         android:background="@drawable/drawable_login"
-        android:backgroundTint="@color/white">
+        android:backgroundTint="@color/white"
+        android:gravity="center"
+        android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/fragment_container2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/drawable_login"
+        android:backgroundTint="@color/white"
+        android:gravity="center"
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="INSCRIPTION"
-            android:textStyle="bold"
-            android:textSize="30dp"
             android:layout_marginBottom="30dp"
-            android:textColor="@color/titleColor"/>
+            android:text="INSCRIPTION"
+            android:textColor="@color/titleColor"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
         <EditText
             android:id="@+id/nomUser"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:hint="Entrer Votre Nom"
             android:background="@drawable/edittext"
             android:gravity="center"
-            android:textColorHint="@color/inputTextColor"/>
+            android:hint="Entrer Votre Nom"
+            android:textColorHint="@color/inputTextColor" />
+
         <EditText
             android:id="@+id/PrenomUser"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:hint="Entrer Votre Prenom"
             android:background="@drawable/edittext"
             android:gravity="center"
-            android:textColorHint="@color/inputTextColor"/>
+            android:hint="Entrer Votre Prenom"
+            android:textColorHint="@color/inputTextColor" />
+
         <EditText
             android:id="@+id/dateNaissance"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:hint="Entrer Votre Date Naissance"
-            android:inputType="date"
             android:background="@drawable/edittext"
             android:gravity="center"
-            android:textColorHint="@color/inputTextColor"/>
+            android:hint="Entrer Votre Date Naissance"
+            android:inputType="date"
+            android:textColorHint="@color/inputTextColor" />
+
         <Spinner
             android:id="@+id/ville"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
+            android:background="@drawable/edittext"
+            android:gravity="center"
             android:hint="Entrer Votre Date Naissance"
             android:inputType="date"
-            android:background="@drawable/edittext"
-            android:gravity="center"
-            android:textColorHint="@color/inputTextColor"/>
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="330dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:hint="Entrer Votre Email"
-            android:background="@drawable/edittext"
-            android:gravity="center"
-            android:textColorHint="@color/inputTextColor"/>
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="330dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:hint="Entrer Votre Password"
-            android:background="@drawable/edittext"
-            android:gravity="center"
-            android:textColorHint="@color/inputTextColor"/>
-        <EditText
-            android:id="@+id/image"
-            android:layout_width="330dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:hint="Clicker pour ajouter image"
-            android:background="@drawable/edittext"
-            android:clickable="true"
-            android:focusable="false"
-            android:gravity="center"
-            android:textColorHint="@color/inputTextColor"/>
+            android:textColorHint="@color/inputTextColor" />
+
         <RadioGroup
             android:id="@+id/RadioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <RadioButton
                 android:id="@+id/homme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="30dp"
                 android:text="homme"
-                android:textColor="@color/inputTextColor"/>
+                android:textColor="@color/inputTextColor" />
+
             <RadioButton
                 android:id="@+id/femme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="femme"
-                android:textColor="@color/inputTextColor"/>
+                android:textColor="@color/inputTextColor" />
         </RadioGroup>
+
         <CheckBox
             android:id="@+id/condition"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="vous acceptez les présentes conditions générales d'utilisation"
-            android:textColor="@color/textcolor"/>
+            android:textColor="@color/textcolor" />
 
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/buttonInscription"
             android:layout_width="182dp"
             android:layout_height="44dp"
-            android:text="INSCRI"
             android:background="@drawable/button"
-            />
+            android:text="INSCRI" />
+    </LinearLayout>
     </LinearLayout>
 </FrameLayout>
 </LinearLayout>

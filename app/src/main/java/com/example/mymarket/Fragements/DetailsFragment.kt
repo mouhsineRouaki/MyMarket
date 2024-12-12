@@ -15,10 +15,12 @@ import com.example.mymarket.DATA.Produit
 import com.example.mymarket.R
 import com.example.mymarket.Service.PanierService
 import com.example.mymarket.Service.ProduitService
+import com.example.mymarket.adapters.adapterCartProduit2
 import com.example.mymarket.adapters.adapterSimilaireProduit
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class DetailsFragment: Fragment() {
+    lateinit var nomP:String
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -46,7 +48,7 @@ class DetailsFragment: Fragment() {
         var category :String?=""
         val bundle = arguments
         if (bundle != null) {
-            val nomP = bundle.getString("nomP")
+            nomP = bundle.getString("nomP").toString()
             category = bundle.getString("cat")
             val description = bundle.getString("desc")
             val prix = bundle.getDouble("prix")
@@ -74,9 +76,9 @@ class DetailsFragment: Fragment() {
 
             recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
-
-            val adapter = adapterSimilaireProduit(listProduit)
-            recyclerView.adapter = adapter
+        val listSansProduitsDetailler = listProduit.filter { it.nomP != nomP }
+        val adapter1 = adapterCartProduit2(listSansProduitsDetailler,parentFragmentManager)
+        recyclerView.adapter = adapter1
 
         }
 }

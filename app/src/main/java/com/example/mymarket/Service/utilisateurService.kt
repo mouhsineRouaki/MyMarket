@@ -36,6 +36,20 @@ object utilisateurService: IDAO<utilisateur> {
     fun ClearAndCreate(u:utilisateur){
         produitCommande.clear()
         produitCommande.add(u)
-
     }
+    fun find(u:String):utilisateur?{
+        return produitCommande.find { it.nom==u}
+    }
+    fun updateEmailPassword(p: utilisateur, email:String,password:String): Boolean {
+        val index = produitCommande.indexOfFirst { it.nom ==p.nom }
+        return if(index!=-1){
+            p.email = email
+            p.password = password
+            produitCommande[index]=p
+            true
+        }else {
+            false
+        }
+    }
+
 }

@@ -20,4 +20,5 @@
     <color name="colorAccent">#1976D2</color>
     <color name="colorMenu">#BCEFDC</color>
     <color name="grey">#CECECE</color>
+    <color name="red">#FF0000</color>
 </resources>
