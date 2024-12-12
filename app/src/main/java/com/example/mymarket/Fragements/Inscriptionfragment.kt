@@ -18,8 +18,6 @@ import com.example.mymarket.Service.utilisateurService
 
 class Inscriptionfragment : Fragment() {
 
-    private val PICK_IMAGE_REQUEST = 1
-    private lateinit var imageSelected: Uri
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,20 +32,13 @@ class Inscriptionfragment : Fragment() {
         val nomUser = view.findViewById<EditText>(R.id.nomUser)
         val prenomUser = view.findViewById<EditText>(R.id.PrenomUser)
         val dateNaissance = view.findViewById<EditText>(R.id.dateNaissance)
-        val email = view.findViewById<EditText>(R.id.email)
-        val password = view.findViewById<EditText>(R.id.password)
         val retour = view.findViewById<ImageButton>(R.id.retour)
         val radioGroup = view.findViewById<RadioGroup>(R.id.RadioGroup)
         val checkBoxConditions = view.findViewById<CheckBox>(R.id.condition)
         val buttonInscription = view.findViewById<Button>(R.id.buttonInscription)
         val ville = view.findViewById<Spinner>(R.id.ville)
-        val image = view.findViewById<TextView>(R.id.image)
+        val linear = view.findViewById<LinearLayout>(R.id.fragment_container2)
 
-        image.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.type = "image/*"
-            startActivityForResult(intent, PICK_IMAGE_REQUEST)
-        }
 
         val villesList = listOf(
             villeType.Safi, villeType.CasaBlanca,
@@ -98,14 +89,21 @@ class Inscriptionfragment : Fragment() {
                     nomUser.text.toString(),
                     prenomUser.text.toString(),
                     dateNaissance.text.toString(),
-                    email.text.toString(),
-                    password.text.toString(),
                     radioGroup,
                     checkBoxConditions
                 )
             ) {
+                linear.visibility = View.GONE
+                parentFragmentManager.beginTransaction().replace(R.id.frameInscription, emailAndPasswordFragement()).commit()
                 val villeSelectionnee = ville.selectedItem.toString()
-                showToast("Inscription réussie pour ${nomUser.text} ${prenomUser.text}")
+                utilisateurService.create(
+                    utilisateur(nomUser.text.toString(), prenomUser.text.toString(), dateNaissance.text.toString(), radioGroup.checkedRadioButtonId.toString())
+                )
+                val bundle = Bundle()
+                bundle.putString("nom", nomUser.text.toString())
+                showToast("${nomUser.text}")
+                val fragmentB = emailAndPasswordFragement()
+                fragmentB.arguments = bundle
             }
         }
     }
@@ -114,23 +112,11 @@ class Inscriptionfragment : Fragment() {
         nom: String,
         prenom: String,
         date: String,
-        emailValue: String,
-        passwordValue: String,
         radioGroup: RadioGroup,
         checkBoxConditions: CheckBox
     ): Boolean {
-        if (nom.isEmpty() || prenom.isEmpty() || date.isEmpty() || emailValue.isEmpty() || passwordValue.isEmpty()) {
+        if (nom.isEmpty() || prenom.isEmpty() || date.isEmpty() ) {
             showToast("Tous les champs doivent être remplis")
-            return false
-        }
-
-        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(emailValue).matches()) {
-            showToast("Email invalide")
-            return false
-        }
-
-        if (passwordValue.length < 6) {
-            showToast("Le mot de passe doit comporter au moins 6 caractères")
             return false
         }
 
@@ -143,25 +129,10 @@ class Inscriptionfragment : Fragment() {
             showToast("Vous devez accepter les conditions")
             return false
         }
-
-        utilisateurService.create(
-            utilisateur(nom, prenom, date, radioGroup.checkedRadioButtonId.toString(), emailValue, passwordValue, imageSelected)
-        )
         return true
     }
 
     private fun showToast(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null) {
-            val selectedImageUri = data.data
-            if (selectedImageUri != null) {
-                imageSelected = selectedImageUri
-            }
-        }
     }
 }

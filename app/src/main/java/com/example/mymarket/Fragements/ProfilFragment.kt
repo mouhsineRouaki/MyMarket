@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.view.ViewOutlineProvider
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.mymarket.R
@@ -36,6 +37,12 @@ class ProfilFragment : Fragment() {
         val bottomNavigation = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
         val imageProfil = view.findViewById<ImageView>(R.id.profile_picture)
         val NomComplet = view.findViewById<TextView>(R.id.user_name)
+        val mesInfo = view.findViewById<LinearLayout>(R.id.mesInfo)
+        mesInfo.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, InformationFragment())
+                .commit()
+        }
         utilisateurService.findAll().forEach { u ->
             imageProfil.setImageURI(u.image)
             imageProfil.apply {

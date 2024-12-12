@@ -44,8 +44,7 @@ class CommandeFragment : Fragment() {
         val livreTextView = view.findViewById<TextView>(R.id.livre)
 
         recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-
-        commandes = CommandesService.findAll()
+        commandes=CommandesService.findAll()
         selectedTextView = allTextView
         selectedView = underAllView
         selectedView.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.black))
@@ -98,10 +97,12 @@ class CommandeFragment : Fragment() {
     fun startAutoRefresh() {
         handler.postDelayed(object : Runnable {
             override fun run() {
-                commandes = commandes
-                adapter.notifyDataSetChanged()
+                commandes=commandes
                 handler.postDelayed(this, refreshInterval)
             }
         }, refreshInterval)
+    }
+    fun stopAutoRefresh() {
+        handler.removeCallbacksAndMessages(null) // Annule tous les callbacks programmés
     }
 }
