@@ -11,7 +11,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Barre de navigation -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -20,6 +19,7 @@
             android:paddingBottom="16dp">
 
             <ImageView
+                android:id="@+id/backImageView"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_gravity="center"
@@ -27,6 +27,7 @@
                 app:tint="@android:color/black" />
 
             <TextView
+                android:id="@+id/titleTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -45,6 +46,7 @@
             android:layout_marginTop="16dp">
 
             <ImageView
+                android:id="@+id/avatarImageView"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:src="@drawable/logo"
@@ -61,6 +63,7 @@
             android:text="Modifier l'image ou l'avatar"
             android:textColor="@android:color/holo_blue_bright"
             android:textSize="16sp" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -70,13 +73,15 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/nomEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nom"
             android:textColor="@android:color/white"
-            android:textColorHint="@android:color/darker_gray"
+            android:textColorHint="@color/buttoncolor"
             android:background="@drawable/edittext"
             android:layout_marginTop="16dp" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -86,13 +91,15 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/prenomEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Prenom"
             android:textColor="@android:color/white"
-            android:textColorHint="@android:color/darker_gray"
+            android:textColorHint="@color/buttoncolor"
             android:background="@drawable/edittext"
             android:layout_marginTop="16dp" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -102,13 +109,15 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/dateEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Date"
             android:textColor="@android:color/white"
-            android:textColorHint="@android:color/darker_gray"
+            android:textColorHint="@color/buttoncolor"
             android:background="@drawable/edittext"
             android:layout_marginTop="16dp" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -117,14 +126,12 @@
             android:layout_marginTop="16dp"
             android:textStyle="bold" />
 
-
         <Spinner
+            android:id="@+id/villeSpinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/spinner_background" />
-
-
 
         <TextView
             android:layout_width="match_parent"
@@ -135,8 +142,9 @@
             android:textStyle="bold" />
 
         <Spinner
+            android:id="@+id/genreSpinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/spinner_background" />
 
@@ -149,8 +157,9 @@
             android:textStyle="bold" />
 
         <Switch
+            android:id="@+id/infoSwitch"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:background="@drawable/edittext"
             android:text="afficher Les informations Personelle"
             android:layout_marginTop="8dp" />
@@ -160,6 +169,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -169,13 +179,15 @@
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/emailEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="email"
                 android:textColor="@android:color/white"
-                android:textColorHint="@android:color/darker_gray"
+                android:textColorHint="@color/buttoncolor"
                 android:background="@drawable/edittext"
                 android:layout_marginTop="16dp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -185,16 +197,25 @@
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/passwordEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="password"
                 android:textColor="@android:color/white"
-                android:textColorHint="@android:color/darker_gray"
+                android:textColorHint="@color/buttoncolor"
                 android:background="@drawable/edittext"
                 android:layout_marginTop="16dp" />
-
-
         </LinearLayout>
+        <Button
+            android:id="@+id/Modifier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Modifier"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@android:color/white"
+            android:background="@color/inputTextColor"
+            android:layout_marginTop="16dp"
+            android:padding="12dp" />
 
     </LinearLayout>
 </ScrollView>

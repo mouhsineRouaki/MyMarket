@@ -3,11 +3,13 @@ package com.example.mymarket.Fragements
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Outline
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewOutlineProvider
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -36,23 +38,40 @@ class ImageInscriptionFragement : Fragment() {
         imageView = view.findViewById(R.id.ImageView)
         val imageButton = view.findViewById<TextView>(R.id.image)
         val next = view.findViewById<Button>(R.id.next)
-        val nom = arguments?.getString("nom") ?: ""
-        val prenom = arguments?.getString("prenom") ?: ""
-        val date = arguments?.getString("date") ?: ""
-        val genre = arguments?.getString("genre") ?: ""
-        val ville = arguments?.getString("ville") ?: ""
-        val email = arguments?.getString("email") ?: "c"
-        val password = arguments?.getString("password") ?: "c"
+        imageView.apply {
+            clipToOutline = true
+            outlineProvider = object : ViewOutlineProvider() {
+                override fun getOutline(view: View, outline: Outline) {
+                    outline.setOval(0, 0, view.width, view.height)
+                }
+            }
+        }
+
 
             next.setOnClickListener {
-                if (imageSelected != null) {
+                if (::imageSelected.isInitialized && imageSelected !=null) {
                     val builder = AlertDialog.Builder(requireContext())
                     builder.setTitle("Creation de Compte!!")
-                    builder.setMessage("Votre Compte est Creer\n$email $password")
+                    builder.setMessage("      Votre Compte est Creer")
                     builder.setPositiveButton("OK") { dialog, which ->
-                        utilisateurService.create(
-                            utilisateur(nom, prenom, date, genre, email, password, imageSelected)
-                        )
+                        val bundle = arguments
+                        if (bundle != null) {
+                            val nom = bundle.getString("nom")
+                            if (nom == null) {
+                                showToast("Le nom est null dans le Bundle")
+                            } else {
+                                showToast("Nom récupéré : $nom")
+                                val user = utilisateurService.find(nom)
+                                if (user == null) {
+                                    showToast("Utilisateur introuvable")
+                                }else{
+                                    utilisateurService.updateImage(user,imageSelected)
+                                    utilisateurService.ClearAndCreate(user)
+                                }
+                            }
+                        } else {
+                            showToast("Le Bundle est null")
+                        }
                         parentFragmentManager.beginTransaction()
                             .replace(R.id.fragmentContainer, loginFragment())
                             .commit()
@@ -82,5 +101,8 @@ class ImageInscriptionFragement : Fragment() {
                 imageSelected =selectedImageUri
             }
         }
+    }
+    fun showToast(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 }

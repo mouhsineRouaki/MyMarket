@@ -1,6 +1,7 @@
 package com.example.mymarket.Service
 
 import com.example.mymarket.DATA.ville
+import com.example.mymarket.DATA.villeType
 import com.example.mymarket.interfaces.IDAO
 
 object VilleService : IDAO<ville> {
@@ -29,5 +30,8 @@ object VilleService : IDAO<ville> {
 
     override fun findAll(): MutableList<ville> {
         return produitCommande.toMutableList()
+    }
+    fun findByNom(ville: villeType): ville? {
+        return  produitCommande.find { it.ville == ville}
     }
 }
