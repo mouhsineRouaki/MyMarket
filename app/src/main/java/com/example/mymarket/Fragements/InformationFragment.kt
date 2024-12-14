@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.Switch
 import android.widget.Toast
@@ -14,6 +16,7 @@ import com.example.mymarket.DATA.Category
 import com.example.mymarket.DATA.Produit
 import com.example.mymarket.R
 import com.example.mymarket.Service.utilisateurService
+import com.example.mymarket.Service.villeTypeService
 import com.example.mymarket.adapters.adapterCategory
 
 class InformationFragment : Fragment() {
@@ -33,12 +36,18 @@ class InformationFragment : Fragment() {
         val infoSwitch =view. findViewById<Switch>(R.id.infoSwitch)
         val emailEditText =view. findViewById<EditText>(R.id.emailEditText)
         val passwordEditText =view. findViewById<EditText>(R.id.passwordEditText)
+        val image =view.findViewById<ImageView>(R.id.avatarImageView)
         val user = utilisateurService.getUser()
+        image.setImageURI(user.image)
         nomEditText.setText(user.nom)
         prenomEditText.setText(user.prenom)
         dateEditText.setText(user.dateN)
-        villeSpinner.setSelection(0)
-        villeSpinner
+        val position = villeTypeService.findByPosition(user.ville.ville)
+        villeSpinner.setSelection(position)
+        val list = villeTypeService.findAll()
+        val adapter = ArrayAdapter(requireContext(),android.R.layout.simple_spinner_item,list)
+        villeSpinner.adapter = adapter
+
 
         val submitButton =view. findViewById<Button>(R.id.Modifier)
         submitButton.setOnClickListener {

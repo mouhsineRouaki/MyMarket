@@ -45,6 +45,11 @@ class emailAndPasswordFragement : Fragment() {
             val bundle = arguments
             if (bundle != null) {
                 val nom = bundle.getString("nom")
+                val fragment = ImageInscriptionFragement()
+                val bundlee = Bundle()
+                bundlee.putString("nom", nom)
+                fragment.arguments = bundlee
+
                 if (nom == null) {
                     showToast("Le nom est null dans le Bundle")
                 } else {
@@ -52,6 +57,9 @@ class emailAndPasswordFragement : Fragment() {
                     val user = utilisateurService.find(nom)
                     if (user != null) {
                         utilisateurService.updateEmailPassword(user,email.text.toString(),password.text.toString())
+                        parentFragmentManager.beginTransaction()
+                            .replace(R.id.frameInscription, fragment)
+                            .commit()
                     }else{
                         showToast("Utilisateur introuvable")
                     }
@@ -59,8 +67,7 @@ class emailAndPasswordFragement : Fragment() {
             } else {
                 showToast("Le Bundle est null")
             }
-            parentFragmentManager.beginTransaction().replace(R.id.frameInscription, ImageInscriptionFragement()).commit()
-            showToast("utilisateur update")
+
 
         }
     }

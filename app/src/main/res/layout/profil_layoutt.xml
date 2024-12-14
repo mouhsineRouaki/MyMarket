@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:paddingBottom="16dp">
+            android:paddingBottom="46dp">
 
             <ImageView
                 android:id="@+id/backImageView"
@@ -77,7 +77,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nom"
-            android:textColor="@android:color/white"
+            android:textColor="@color/buttoncolor"
             android:textColorHint="@color/buttoncolor"
             android:background="@drawable/edittext"
             android:layout_marginTop="16dp" />
@@ -95,7 +95,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Prenom"
-            android:textColor="@android:color/white"
+            android:textColor="@color/buttoncolor"
             android:textColorHint="@color/buttoncolor"
             android:background="@drawable/edittext"
             android:layout_marginTop="16dp" />
@@ -113,7 +113,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Date"
-            android:textColor="@android:color/white"
+            android:textColor="@color/buttoncolor"
             android:textColorHint="@color/buttoncolor"
             android:background="@drawable/edittext"
             android:layout_marginTop="16dp" />
@@ -183,7 +183,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="email"
-                android:textColor="@android:color/white"
+                android:textColor="@color/buttoncolor"
                 android:textColorHint="@color/buttoncolor"
                 android:background="@drawable/edittext"
                 android:layout_marginTop="16dp" />
@@ -201,7 +201,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="password"
-                android:textColor="@android:color/white"
+                android:textColor="@color/buttoncolor"
                 android:textColorHint="@color/buttoncolor"
                 android:background="@drawable/edittext"
                 android:layout_marginTop="16dp" />
@@ -212,7 +212,7 @@
             android:layout_height="wrap_content"
             android:text="Modifier"
             android:layout_gravity="center_horizontal"
-            android:textColor="@android:color/white"
+            android:textColor="@color/buttoncolor"
             android:background="@color/inputTextColor"
             android:layout_marginTop="16dp"
             android:padding="12dp" />

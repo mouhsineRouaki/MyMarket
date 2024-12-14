@@ -1,5 +1,6 @@
 package com.example.mymarket.Fragements
 
+import android.annotation.SuppressLint
 import android.graphics.Outline
 import android.os.Bundle
 import android.os.Handler
@@ -40,6 +41,7 @@ class HomeFragement: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.home_activity, container, false)
     }
+    @SuppressLint("SuspiciousIndentation")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = view.findViewById(R.id.recyclerView)
@@ -52,10 +54,10 @@ class HomeFragement: Fragment() {
         val prenom = view.findViewById<TextView>(R.id.prenom)
         val bottomNavigation = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
         val u = utilisateurService.getUser()
-            buttonUser.setImageURI(u.image)
             nom.text = u.nom
             prenom.text = u.prenom
             buttonUser.apply {
+                setImageURI(u.image)
                 clipToOutline = true
                 outlineProvider = object : ViewOutlineProvider() {
                     override fun getOutline(view: View, outline: Outline) {
