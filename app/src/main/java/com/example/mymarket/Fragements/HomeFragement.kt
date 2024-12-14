@@ -51,7 +51,7 @@ class HomeFragement: Fragment() {
         val nom = view.findViewById<TextView>(R.id.nom)
         val prenom = view.findViewById<TextView>(R.id.prenom)
         val bottomNavigation = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
-        utilisateurService.findAll().forEach { u ->
+        val u = utilisateurService.getUser()
             buttonUser.setImageURI(u.image)
             nom.text = u.nom
             prenom.text = u.prenom
@@ -63,7 +63,6 @@ class HomeFragement: Fragment() {
                     }
                 }
             }
-        }
 
 
         category_btn.setOnClickListener{
@@ -220,10 +219,6 @@ class HomeFragement: Fragment() {
         CategoryService.create(Category(R.drawable.epicess,"Épices"))
         CategoryService.create(Category(R.drawable.cereables,"Céréales"))
 
-        VilleService.create(ville(villeType.Safi,1))
-        VilleService.create(ville(villeType.CasaBlanca,2))
-        VilleService.create(ville(villeType.Agadir,1))
-        VilleService.create(ville(villeType.Tanger,1))
 
         val listProduitPromotions=ProduitService.findAll().filter { it.Promo > 0 }.toMutableList()
 

@@ -2,11 +2,15 @@ package com.example.mymarket.Service
 
 import android.net.Uri
 import com.example.mymarket.DATA.utilisateur
+import com.example.mymarket.DATA.ville
+import com.example.mymarket.DATA.villeType
 import com.example.mymarket.interfaces.IDAO
 
 object utilisateurService: IDAO<utilisateur> {
     private val produitCommande= mutableListOf<utilisateur>(
-        utilisateur("mouhsine","rouaki","27/12/2004","Homme","1","1", Uri.parse("C:\\Users\\poste\\OneDrive\\Images\\html\\icon.webp"))
+        utilisateur("mouhsine","rouaki","27/12/2004","Homme","1","1", Uri.parse("C:\\Users\\poste\\OneDrive\\Images\\html\\icon.webp"),
+            ville(villeType.Safi,3)
+        )
     )
     override fun create(p: utilisateur): Boolean {
         return produitCommande.add(p)
@@ -50,6 +54,23 @@ object utilisateurService: IDAO<utilisateur> {
         }else {
             false
         }
+    }
+    fun updateImage(p: utilisateur, image:Uri): Boolean {
+        val index = produitCommande.indexOfFirst { it.nom ==p.nom }
+        return if(index!=-1){
+            p.image = image
+            produitCommande[index]=p
+            true
+        }else {
+            false
+        }
+    }
+    fun getUser(): utilisateur {
+        lateinit var v:utilisateur
+        if (produitCommande.size == 1) {
+            v=produitCommande[0]
+        }
+        return v
     }
 
 }

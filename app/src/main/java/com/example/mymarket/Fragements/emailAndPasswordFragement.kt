@@ -1,5 +1,6 @@
 package com.example.mymarket.Fragements
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -22,6 +23,7 @@ class emailAndPasswordFragement : Fragment() {
         return inflater.inflate(R.layout.email_password_layout, container, false)
     }
 
+    @SuppressLint("CommitTransaction")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val email = view.findViewById<EditText>(R.id.email)
@@ -42,25 +44,23 @@ class emailAndPasswordFragement : Fragment() {
             }
             val bundle = arguments
             if (bundle != null) {
-                val nom = bundle.getString("nom").toString()
-                var user = utilisateurService.find(nom)
-                val bundle = Bundle()
-                bundle.putString("email", email.text.toString())
-                val fragmentB = ImageInscriptionFragement()
-                fragmentB.arguments = bundle
-                if(user != null) {
-                    utilisateurService.updateEmailPassword(user, email.text.toString(), password.text.toString())
-                    parentFragmentManager.beginTransaction()
-                        .replace(R.id.frameInscription, ImageInscriptionFragement())
-                        .commit()
-                }else{
-                    showToast("user null")
+                val nom = bundle.getString("nom")
+                if (nom == null) {
+                    showToast("Le nom est null dans le Bundle")
+                } else {
+                    showToast("Nom récupéré : $nom")
+                    val user = utilisateurService.find(nom)
+                    if (user != null) {
+                        utilisateurService.updateEmailPassword(user,email.text.toString(),password.text.toString())
+                    }else{
+                        showToast("Utilisateur introuvable")
+                    }
                 }
-
-            }else{
-                showToast("nom null")
+            } else {
+                showToast("Le Bundle est null")
             }
-
+            parentFragmentManager.beginTransaction().replace(R.id.frameInscription, ImageInscriptionFragement()).commit()
+            showToast("utilisateur update")
 
         }
     }

@@ -1,8 +1,5 @@
 package com.example.mymarket.Fragements
 
-import android.app.Activity
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -14,11 +11,13 @@ import androidx.fragment.app.Fragment
 import com.example.mymarket.DATA.utilisateur
 import com.example.mymarket.DATA.villeType
 import com.example.mymarket.R
+import com.example.mymarket.Service.VilleService
 import com.example.mymarket.Service.utilisateurService
 
 class Inscriptionfragment : Fragment() {
 
-
+    private lateinit var villesList: List<villeType>
+    private lateinit var selectedVille: villeType
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,11 +35,10 @@ class Inscriptionfragment : Fragment() {
         val radioGroup = view.findViewById<RadioGroup>(R.id.RadioGroup)
         val checkBoxConditions = view.findViewById<CheckBox>(R.id.condition)
         val buttonInscription = view.findViewById<Button>(R.id.buttonInscription)
-        val ville = view.findViewById<Spinner>(R.id.ville)
+        val villeSpinner = view.findViewById<Spinner>(R.id.ville)
         val linear = view.findViewById<LinearLayout>(R.id.fragment_container2)
 
-
-        val villesList = listOf(
+        villesList = listOf(
             villeType.Safi, villeType.CasaBlanca,
             villeType.Tanger, villeType.Agadir
         )
@@ -70,7 +68,18 @@ class Inscriptionfragment : Fragment() {
                 return view
             }
         }
-        ville.adapter = adapter
+        villeSpinner.adapter = adapter
+        villeSpinner.setSelection(0)
+        selectedVille = villesList[0]
+
+        villeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                selectedVille = villesList[position]
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+        }
 
         retour.setOnClickListener {
             parentFragmentManager.beginTransaction()
@@ -94,16 +103,33 @@ class Inscriptionfragment : Fragment() {
                 )
             ) {
                 linear.visibility = View.GONE
-                parentFragmentManager.beginTransaction().replace(R.id.frameInscription, emailAndPasswordFragement()).commit()
-                val villeSelectionnee = ville.selectedItem.toString()
-                utilisateurService.create(
-                    utilisateur(nomUser.text.toString(), prenomUser.text.toString(), dateNaissance.text.toString(), radioGroup.checkedRadioButtonId.toString())
-                )
+
+                val fragmentB = emailAndPasswordFragement()
+                val fragmentC = ImageInscriptionFragement()
                 val bundle = Bundle()
                 bundle.putString("nom", nomUser.text.toString())
-                showToast("${nomUser.text}")
-                val fragmentB = emailAndPasswordFragement()
                 fragmentB.arguments = bundle
+                fragmentC.arguments = bundle
+
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.frameInscription, fragmentB)
+                    .commit()
+
+                val ville = VilleService.findByNom(selectedVille)
+                if (ville != null) {
+                    utilisateurService.create(
+                        utilisateur(
+                            nomUser.text.toString(),
+                            prenomUser.text.toString(),
+                            dateNaissance.text.toString(),
+                            getSelectedGender(radioGroup),
+                            ville
+                        )
+                    )
+                }else{
+                    showToast("ville null ")
+                    return@setOnClickListener
+                }
             }
         }
     }
@@ -115,7 +141,7 @@ class Inscriptionfragment : Fragment() {
         radioGroup: RadioGroup,
         checkBoxConditions: CheckBox
     ): Boolean {
-        if (nom.isEmpty() || prenom.isEmpty() || date.isEmpty() ) {
+        if (nom.isEmpty() || prenom.isEmpty() || date.isEmpty()) {
             showToast("Tous les champs doivent être remplis")
             return false
         }
@@ -129,7 +155,14 @@ class Inscriptionfragment : Fragment() {
             showToast("Vous devez accepter les conditions")
             return false
         }
+
         return true
+    }
+
+    private fun getSelectedGender(radioGroup: RadioGroup): String {
+        val selectedId = radioGroup.checkedRadioButtonId
+        val selectedRadioButton = view?.findViewById<RadioButton>(selectedId)
+        return selectedRadioButton?.text.toString()
     }
 
     private fun showToast(message: String) {

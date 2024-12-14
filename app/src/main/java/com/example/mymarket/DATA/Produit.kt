@@ -2,7 +2,7 @@ package com.example.mymarket.DATA
 
 import com.example.mymarket.R
 
-class Produit(
+data class Produit(
     val id : Int,
     val nomP : String,
     val description : String,

@@ -1,7 +1,6 @@
 package com.example.mymarket.DATA
 
 import android.net.Uri
-import androidx.compose.ui.text.LinkAnnotation
 import com.example.mymarket.R
 
 data class utilisateur(
@@ -13,6 +12,7 @@ data class utilisateur(
     var email: String,
     var password: String,
     var image: Uri,
+    val ville:ville
 ){
     companion object {
         private var cmp = 0
@@ -29,17 +29,19 @@ data class utilisateur(
         genere: String,
         email: String,
         password: String,
-        image: Uri
+        image: Uri,
+        ville: ville
     ):this(
-        incrementer(),nom,prenom, dateN, genere, email, password, image
+        incrementer(),nom,prenom, dateN, genere, email, password, image,ville
     )
     constructor(
         nom: String,
         prenom: String,
         dateN: String,
         genere: String,
+        ville: ville
 
     ):this(
-        incrementer(),nom,prenom, dateN, genere,""," ",Uri.parse("android.resource://" + com.example.mymarket.R.drawable.ic_user + "/" + R.drawable.ic_user)
+        incrementer(),nom,prenom, dateN, genere,""," ",Uri.parse("android.resource://" + com.example.mymarket.R.drawable.ic_user + "/" + R.drawable.ic_user),ville
     )
 }
