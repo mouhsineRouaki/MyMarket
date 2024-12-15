@@ -37,6 +37,7 @@ class NotificationsAdapter(private val notifications: MutableList<Notification>)
         holder.userIcon.setImageResource(notification.userIcon)
         holder.notificationText.text = notification.text
         holder.notificationTime.text = formatTimeAgo(notification.timestamp)
+        stopAutoRefresh()
     }
 
     override fun getItemCount(): Int = notifications.size
@@ -62,7 +63,6 @@ class NotificationsAdapter(private val notifications: MutableList<Notification>)
         }, refreshInterval)
     }
 
-    // Méthode pour arrêter le rafraîchissement automatique
     fun stopAutoRefresh() {
         handler.removeCallbacksAndMessages(null)
     }

@@ -1,6 +1,6 @@
 package com.example.mymarket.DATA
 
-class ville(val id :Int,val ville:villeType,val timeLaivrison :Int) {
+class ville(val id :Int,val ville:villeType,val timeLaivrison :Long) {
     companion object {
         private var cmp = 0
 
@@ -9,5 +9,5 @@ class ville(val id :Int,val ville:villeType,val timeLaivrison :Int) {
             return cmp
         }
     }
-    constructor(ville: villeType,timeLaivrison: Int):this(incrementer(),ville,timeLaivrison)
+    constructor(ville: villeType,timeLaivrison: Long):this(incrementer(),ville,timeLaivrison)
 }

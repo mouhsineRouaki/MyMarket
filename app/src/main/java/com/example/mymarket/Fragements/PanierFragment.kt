@@ -86,9 +86,9 @@ class PanierFragment : Fragment() {
 
             val ville = VilleService.findById(id)
             if (ville != null) {
-                val c=Commandes(total, listtt, ville)
                 CommandesService.create(Commandes(total, listtt, ville))
-                NotificationService.create(Notification(R.drawable.logo," status de la commande :${c.status} "))
+                val c = CommandesService.findlast()
+                NotificationService.create(Notification(R.drawable.commande,"la commande numero ${c.Num} bien ajouter\n En atente de livre"))
                 Toast.makeText(requireContext(), "Commande ajoutée.", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(requireContext(), "Commande annulée, ville vide.", Toast.LENGTH_SHORT).show()

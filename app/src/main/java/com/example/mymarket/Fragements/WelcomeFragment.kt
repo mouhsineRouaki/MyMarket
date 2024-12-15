@@ -26,10 +26,10 @@ class WelcomeFragment : Fragment() {
         val btnLogin = view.findViewById<TextView>(R.id.tologin)
         val btnInscription = view.findViewById<TextView>(R.id.tosignup)
 
-        VilleService.create(ville(villeType.Safi,1))
-        VilleService.create(ville(villeType.CasaBlanca,2))
-        VilleService.create(ville(villeType.Agadir,1))
-        VilleService.create(ville(villeType.Tanger,1))
+        VilleService.create(ville(villeType.Safi,10_000))
+        VilleService.create(ville(villeType.CasaBlanca,20_000))
+        VilleService.create(ville(villeType.Agadir,60_000))
+        VilleService.create(ville(villeType.Tanger,100_000))
 
         villeTypeService.create(villeType.Safi)
         villeTypeService.create(villeType.CasaBlanca)

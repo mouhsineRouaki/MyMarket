@@ -103,7 +103,4 @@ class CommandeFragment : Fragment() {
             }
         }, refreshInterval)
     }
-    fun stopAutoRefresh() {
-        handler.removeCallbacksAndMessages(null) // Annule tous les callbacks programmés
-    }
 }

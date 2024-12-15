@@ -31,4 +31,8 @@ object CommandesService: IDAO<Commandes> {
     override fun findAll(): MutableList<Commandes> {
         return produitCommande.toMutableList()
     }
+    fun findlast(): Commandes {
+        val c = produitCommande.count()-1
+        return produitCommande[c]
+    }
 }
