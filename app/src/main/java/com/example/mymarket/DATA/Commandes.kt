@@ -42,14 +42,12 @@ class Commandes(val Num:Int = incrementer(), val dateCmd : String, var status : 
             "En cours" -> {
                 handler.postDelayed({
                     status = "En attente"
-                    println("Statut mis à jour : $status")
                 }, 10_000)
             }
             "En attente" -> {
                 val tempsDeLivraison = ville.timeLaivrison.toLong()
                 handler.postDelayed({
                     status = "Livre"
-                    println("Statut mis à jour : $status")
                 }, tempsDeLivraison)
             }
         }

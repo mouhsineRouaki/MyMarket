@@ -64,14 +64,15 @@ class ImageInscriptionFragement : Fragment() {
                                 val user = utilisateurService.find(nom)
                                 if (user == null) {
                                     showToast("Utilisateur introuvable")
-                                }else{
-                                    utilisateurService.updateImage(user,imageSelected)
+                                } else {
+                                    utilisateurService.updateImage(user, imageSelected)
                                     utilisateurService.ClearAndCreate(user)
                                 }
                             }
                         } else {
-                            showToast("Le Bundle est null")
+                            showToast("Le Bundle est null dans ImageInscriptionFragement")
                         }
+
                         parentFragmentManager.beginTransaction()
                             .replace(R.id.fragmentContainer, loginFragment())
                             .commit()
@@ -97,8 +98,8 @@ class ImageInscriptionFragement : Fragment() {
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null) {
             val selectedImageUri = data.data
             if (selectedImageUri != null) {
-                imageView.setImageURI(selectedImageUri)
                 imageSelected =selectedImageUri
+                imageView.setImageURI(selectedImageUri)
             }
         }
     }

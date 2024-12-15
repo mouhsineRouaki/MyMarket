@@ -10,6 +10,7 @@ import com.example.mymarket.DATA.ville
 import com.example.mymarket.DATA.villeType
 import com.example.mymarket.R
 import com.example.mymarket.Service.VilleService
+import com.example.mymarket.Service.villeTypeService
 
 class WelcomeFragment : Fragment() {
     override fun onCreateView(
@@ -24,10 +25,16 @@ class WelcomeFragment : Fragment() {
 
         val btnLogin = view.findViewById<TextView>(R.id.tologin)
         val btnInscription = view.findViewById<TextView>(R.id.tosignup)
+
         VilleService.create(ville(villeType.Safi,1))
         VilleService.create(ville(villeType.CasaBlanca,2))
         VilleService.create(ville(villeType.Agadir,1))
         VilleService.create(ville(villeType.Tanger,1))
+
+        villeTypeService.create(villeType.Safi)
+        villeTypeService.create(villeType.CasaBlanca)
+        villeTypeService.create(villeType.Agadir)
+        villeTypeService.create(villeType.Tanger)
 
         btnLogin.setOnClickListener {
 

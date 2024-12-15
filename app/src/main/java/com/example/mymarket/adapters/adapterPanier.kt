@@ -11,10 +11,12 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mymarket.DATA.Notification
 import com.example.mymarket.DATA.Produit
 import com.example.mymarket.DATA.ProduitPanier
 import com.example.mymarket.Fragements.PanierFragment
 import com.example.mymarket.R
+import com.example.mymarket.Service.NotificationService
 import com.example.mymarket.Service.PanierService
 
 class adapterPanier(
@@ -104,6 +106,7 @@ class adapterPanier(
                     PanierService.deleteByPosition(position)
                     fragment.updateTotal()
                     notifyItemRemoved(position)
+                    NotificationService.create(Notification(produit.image,"le ${produit.nomP} est supprimer dans votre Pannier"))
                 }
                 dialog.setNegativeButton("Annuler", null)
                 dialog.create().show()
@@ -115,6 +118,7 @@ class adapterPanier(
             notifyItemRemoved(position)
             notifyDataSetChanged()
             fragment.updateTotal()
+            NotificationService.create(Notification(produit.image,"le ${produit.nomP} est supprimer dans votre Pannier"))
         }
         updateTotalPrix(holder, produit)
     }

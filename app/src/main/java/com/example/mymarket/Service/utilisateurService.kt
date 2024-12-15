@@ -7,11 +7,7 @@ import com.example.mymarket.DATA.villeType
 import com.example.mymarket.interfaces.IDAO
 
 object utilisateurService: IDAO<utilisateur> {
-    private val produitCommande= mutableListOf<utilisateur>(
-        utilisateur("mouhsine","rouaki","27/12/2004","Homme","1","1", Uri.parse("C:\\Users\\poste\\OneDrive\\Images\\html\\icon.webp"),
-            ville(villeType.Safi,3)
-        )
-    )
+    private val produitCommande= mutableListOf<utilisateur>()
     override fun create(p: utilisateur): Boolean {
         return produitCommande.add(p)
     }
@@ -56,7 +52,7 @@ object utilisateurService: IDAO<utilisateur> {
         }
     }
     fun updateImage(p: utilisateur, image:Uri): Boolean {
-        val index = produitCommande.indexOfFirst { it.nom ==p.nom }
+        val index = produitCommande.indexOfFirst { it.id ==p.id }
         return if(index!=-1){
             p.image = image
             produitCommande[index]=p
@@ -71,6 +67,15 @@ object utilisateurService: IDAO<utilisateur> {
             v=produitCommande[0]
         }
         return v
+    }
+    fun updateCompte(p: utilisateur,u:utilisateur): Boolean {
+        val index = produitCommande.indexOfFirst { it.nom ==p.nom }
+        return if(index!=-1){
+            produitCommande[index]=u
+            true
+        }else {
+            false
+        }
     }
 
 }

@@ -42,6 +42,6 @@ data class utilisateur(
         ville: ville
 
     ):this(
-        incrementer(),nom,prenom, dateN, genere,""," ",Uri.parse("android.resource://" + com.example.mymarket.R.drawable.ic_user + "/" + R.drawable.ic_user),ville
+        incrementer(),nom,prenom, dateN, genere,"houtm27@gmail.com","111111",Uri.parse(""),ville
     )
 }

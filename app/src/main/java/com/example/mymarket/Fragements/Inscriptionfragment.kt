@@ -105,11 +105,9 @@ class Inscriptionfragment : Fragment() {
                 linear.visibility = View.GONE
 
                 val fragmentB = emailAndPasswordFragement()
-                val fragmentC = ImageInscriptionFragement()
                 val bundle = Bundle()
                 bundle.putString("nom", nomUser.text.toString())
                 fragmentB.arguments = bundle
-                fragmentC.arguments = bundle
 
                 parentFragmentManager.beginTransaction()
                     .replace(R.id.frameInscription, fragmentB)

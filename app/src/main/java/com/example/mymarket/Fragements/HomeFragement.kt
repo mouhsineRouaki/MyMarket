@@ -1,5 +1,6 @@
 package com.example.mymarket.Fragements
 
+import android.annotation.SuppressLint
 import android.graphics.Outline
 import android.os.Bundle
 import android.os.Handler
@@ -40,6 +41,7 @@ class HomeFragement: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.home_activity, container, false)
     }
+    @SuppressLint("SuspiciousIndentation")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = view.findViewById(R.id.recyclerView)
@@ -50,12 +52,13 @@ class HomeFragement: Fragment() {
         val category_btn = view.findViewById<TextView>(R.id.Lien_category)
         val nom = view.findViewById<TextView>(R.id.nom)
         val prenom = view.findViewById<TextView>(R.id.prenom)
+        val notification = view.findViewById<ImageButton>(R.id.notification)
         val bottomNavigation = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
         val u = utilisateurService.getUser()
-            buttonUser.setImageURI(u.image)
             nom.text = u.nom
             prenom.text = u.prenom
             buttonUser.apply {
+                setImageURI(u.image)
                 clipToOutline = true
                 outlineProvider = object : ViewOutlineProvider() {
                     override fun getOutline(view: View, outline: Outline) {
@@ -90,6 +93,12 @@ class HomeFragement: Fragment() {
                 .replace(R.id.fragment_container, ProfilFragment())
                 .commit()
         }
+        notification.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, NotificationFragment())
+                .commit()
+        }
+
 
         ProduitService.create(Produit(R.drawable.pomme_fuji,"Pommes Fuji", "Pommes sucrées et croquantes, parfaites pour les collations.", 4.8, "Fruits", 2))
         ProduitService.create(Produit(R.drawable.bananes,10,"Bananes", "Bananes mûres et sucrées, riches en potassium.", 4.7, "Fruits", 50))
