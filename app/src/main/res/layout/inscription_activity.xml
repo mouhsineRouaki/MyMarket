@@ -24,6 +24,12 @@
             android:background="@drawable/cercle"
             android:src="@drawable/baseline_arrow_back_24"
             android:backgroundTint="@color/white"/>
+        <ImageView
+            android:id="@+id/login_logo"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:src="@drawable/login_logo"
+            android:layout_gravity="center" />
 
     </FrameLayout>
 
