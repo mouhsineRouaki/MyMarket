@@ -1,6 +1,8 @@
 package com.example.mymarket.adapters
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,7 +18,7 @@ import com.example.mymarket.Service.PanierService
 import com.example.mymarket.Service.ProduitService
 
 class adapterCommandes(
-    private val CommandesList: List<Commandes>,
+    private var CommandesList: List<Commandes>,
     val fragement:FragmentManager
 ) : RecyclerView.Adapter<adapterCommandes.ProductViewHolder>() {
 
@@ -42,6 +44,8 @@ class adapterCommandes(
         holder.date.text = "${commande.dateCmd}"
         holder.prix.text = String.format("Prix :%.2f DH", commande.prixTotal)
         holder.TotalCategory.text = "Total Category :${commande.TotalCategory}"
+        startAutoRefresh(10000L)
+
         holder.itemView.setOnClickListener{
             val fragmentDestination = DetailsHisoriqueCommandes()
             val bundle = Bundle()
@@ -51,6 +55,16 @@ class adapterCommandes(
 
         }
 
+    }
+    fun startAutoRefresh(refreshInterval:Long) {
+        val handler = Handler(Looper.getMainLooper())
+        handler.postDelayed(object : Runnable {
+            override fun run() {
+                CommandesList=CommandesList
+                notifyDataSetChanged()
+                handler.postDelayed(this, refreshInterval)
+            }
+        }, refreshInterval)
     }
 
     override fun getItemCount(): Int {

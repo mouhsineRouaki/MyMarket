@@ -68,5 +68,14 @@ object utilisateurService: IDAO<utilisateur> {
         }
         return v
     }
+    fun updateCompte(p: utilisateur,u:utilisateur): Boolean {
+        val index = produitCommande.indexOfFirst { it.nom ==p.nom }
+        return if(index!=-1){
+            produitCommande[index]=u
+            true
+        }else {
+            false
+        }
+    }
 
 }

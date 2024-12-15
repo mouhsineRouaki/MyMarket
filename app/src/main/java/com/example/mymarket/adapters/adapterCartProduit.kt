@@ -1,5 +1,6 @@
 package com.example.mymarket.adapters
 
+import android.os.Build
 import com.example.mymarket.DATA.Produit
 
 import android.view.LayoutInflater
@@ -7,13 +8,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mymarket.Fragements.PanierFragment
+import com.example.mymarket.DATA.Notification
 import com.example.mymarket.R
+import com.example.mymarket.Service.NotificationService
 import com.example.mymarket.Service.PanierService
+import java.util.Locale
 
 
 class adapterCartProduit(
@@ -25,6 +29,7 @@ class adapterCartProduit(
         val productName: TextView = itemView.findViewById(R.id.productName)
         val productPrice: TextView = itemView.findViewById(R.id.productPrice)
         val addToCartButton: Button = itemView.findViewById(R.id.addToCartButton)
+        val cart = itemView.findViewById<LinearLayout>(R.id.cartProduit)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -48,20 +53,39 @@ class adapterCartProduit(
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val produit = productList[position]
+        val currentLocale = getCurrentAppLanguage(holder.itemView.context)
+        if (currentLocale == "ar") {
+            holder.cart.setBackgroundResource(R.drawable.linear_radius_arabic)
+        }
 
         holder.productImage.setImageResource(produit.image)
         holder.productName.text = produit.nomP.toUpperCase()
         holder.productPrice.text = String.format(" Prix: %.2f DH", produit.prix)
 
         holder.addToCartButton.setOnClickListener {
-            object{
-                var panier = PanierService.create(produit)
+            val p = PanierService.findAll().map { it.nomP }
+            if(produit.quantite == 0){
+                Toast.makeText(holder.itemView.context, "Stock insuffisant pour ${produit.nomP}", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
-            Toast.makeText(it.context, "${produit.nomP} ajouté au panier !", Toast.LENGTH_SHORT).show()
+            if(!p.contains(produit.nomP)) {
+                PanierService.create(produit)
+                NotificationService.create(Notification(produit.image,"le ${produit.nomP} est ajouter dans votre Pannier"))
+                Toast.makeText(it.context, "${produit.nomP} ajouté au panier !", Toast.LENGTH_SHORT).show()
+            }else{
+                Toast.makeText(it.context, "${produit.nomP} Produit deja en panier", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
     override fun getItemCount(): Int {
         return productList.size
+    }
+    fun getCurrentAppLanguage(context: android.content.Context): String {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            context.resources.configuration.locales[0].language
+        } else {
+            context.resources.configuration.locale.language
+        }
     }
 }

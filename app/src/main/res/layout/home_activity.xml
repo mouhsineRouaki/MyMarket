@@ -64,6 +64,7 @@
             android:src="@drawable/logo" />
 
         <ImageButton
+            android:id="@+id/notification"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="end"
@@ -113,16 +114,6 @@
             android:layout_marginLeft="10dp"
             android:gravity="start"
             android:textStyle="bold"  />
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/voirPlus"
-            android:textSize="20dp"
-            android:layout_marginRight="10dp"
-            android:textColor="@color/colorLogo"
-            android:gravity="end"
-            android:textStyle="italic" />
 
     </LinearLayout>
 

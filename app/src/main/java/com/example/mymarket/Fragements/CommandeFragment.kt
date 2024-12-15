@@ -77,6 +77,7 @@ class CommandeFragment : Fragment() {
             updateSelection(livreTextView, underLivreView, listOf(underAllView, underEncoursView, underEnattentsView))
         }
         startAutoRefresh()
+        adapter.notifyDataSetChanged()
     }
 
     private fun updateSelection(

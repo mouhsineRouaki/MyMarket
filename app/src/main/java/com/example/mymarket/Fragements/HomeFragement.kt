@@ -52,6 +52,7 @@ class HomeFragement: Fragment() {
         val category_btn = view.findViewById<TextView>(R.id.Lien_category)
         val nom = view.findViewById<TextView>(R.id.nom)
         val prenom = view.findViewById<TextView>(R.id.prenom)
+        val notification = view.findViewById<ImageButton>(R.id.notification)
         val bottomNavigation = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
         val u = utilisateurService.getUser()
             nom.text = u.nom
@@ -92,6 +93,12 @@ class HomeFragement: Fragment() {
                 .replace(R.id.fragment_container, ProfilFragment())
                 .commit()
         }
+        notification.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, NotificationFragment())
+                .commit()
+        }
+
 
         ProduitService.create(Produit(R.drawable.pomme_fuji,"Pommes Fuji", "Pommes sucrées et croquantes, parfaites pour les collations.", 4.8, "Fruits", 2))
         ProduitService.create(Produit(R.drawable.bananes,10,"Bananes", "Bananes mûres et sucrées, riches en potassium.", 4.7, "Fruits", 50))

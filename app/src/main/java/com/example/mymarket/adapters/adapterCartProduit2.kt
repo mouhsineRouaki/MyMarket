@@ -12,8 +12,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mymarket.DATA.Notification
 import com.example.mymarket.Fragements.DetailsFragment
 import com.example.mymarket.R
+import com.example.mymarket.Service.NotificationService
 import com.example.mymarket.Service.PanierService
 
 
@@ -73,6 +75,7 @@ class adapterCartProduit2(
                 }
                 if(!p.contains(produit.nomP)) {
                     PanierService.create(produit)
+                    NotificationService.create(Notification(produit.image,"le ${produit.nomP} est ajouter dans votre Pannier"))
                     Toast.makeText(it.context, "${produit.nomP} ajouté au panier !", Toast.LENGTH_SHORT).show()
                 }else{
                     Toast.makeText(it.context, "${produit.nomP} Produit deja en panier", Toast.LENGTH_SHORT).show()
