@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="appbg">#000000</color>
     <color name="titleColor">#FFFFFF</color>
     <color name="inputColor">#ecf2f0</color>
     <color name="inputTextColor">#689b8a</color>
