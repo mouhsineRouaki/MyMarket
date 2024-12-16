@@ -24,6 +24,7 @@ import com.example.mymarket.DATA.ville
 import com.example.mymarket.DATA.villeType
 import com.example.mymarket.R
 import com.example.mymarket.Service.CategoryService
+import com.example.mymarket.Service.NotificationService
 import com.example.mymarket.Service.PanierService
 import com.example.mymarket.Service.ProduitService
 import com.example.mymarket.Service.VilleService
@@ -33,11 +34,12 @@ import com.example.mymarket.adapters.adapterCartProduit2
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeFragement: Fragment() {
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: adapterCartProduit
-    private var handler: Handler? = null
-    private var runnable: Runnable? = null
-    private var currentPosition = 0
+     lateinit var recyclerView: RecyclerView
+     lateinit var adapter: adapterCartProduit
+     var handler: Handler? = null
+     var runnable: Runnable? = null
+     var currentPosition = 0
+    lateinit var countNotification:TextView
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.home_activity, container, false)
     }
@@ -52,11 +54,13 @@ class HomeFragement: Fragment() {
         val category_btn = view.findViewById<TextView>(R.id.Lien_category)
         val nom = view.findViewById<TextView>(R.id.nom)
         val prenom = view.findViewById<TextView>(R.id.prenom)
+        countNotification = view.findViewById<TextView>(R.id.countNotification)
         val notification = view.findViewById<ImageButton>(R.id.notification)
         val bottomNavigation = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
         val u = utilisateurService.getUser()
             nom.text = u.nom
             prenom.text = u.prenom
+            RefrechNotification()
             buttonUser.apply {
                 setImageURI(u.image)
                 clipToOutline = true
@@ -98,7 +102,6 @@ class HomeFragement: Fragment() {
                 .replace(R.id.fragment_container, NotificationFragment())
                 .commit()
         }
-
 
         ProduitService.create(Produit(R.drawable.pomme_fuji,"Pommes Fuji", "Pommes sucrées et croquantes, parfaites pour les collations.", 4.8, "Fruits", 2))
         ProduitService.create(Produit(R.drawable.bananes,10,"Bananes", "Bananes mûres et sucrées, riches en potassium.", 4.7, "Fruits", 50))
@@ -264,9 +267,20 @@ class HomeFragement: Fragment() {
         }
         handler?.postDelayed(runnable!!, 3000)
     }
+    fun RefrechNotification() {
+        val handler = Handler(Looper.getMainLooper())
+        handler.postDelayed(object : Runnable {
+            override fun run() {
+                val count=NotificationService.findAll().count()
+                countNotification.text = count.toString()
+                handler.postDelayed(this, 1)
+            }
+        }, 1)
+    }
 
     override fun onDestroy() {
         super.onDestroy()
         handler?.removeCallbacks(runnable!!)
     }
+
 }

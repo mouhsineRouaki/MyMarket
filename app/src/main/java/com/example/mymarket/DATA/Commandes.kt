@@ -2,12 +2,11 @@ package com.example.mymarket.DATA
 
 import android.os.Handler
 import android.os.Looper
+import com.example.mymarket.R
+import com.example.mymarket.Service.NotificationService
 import com.example.mymarket.Service.PanierService
 import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.LocalDateTime
 import java.util.Date
-import kotlin.concurrent.timer
 
 class Commandes(val Num:Int = incrementer(), val dateCmd : String, var status : String, var prixTotal : Double, var TotalCategory : Int, val ListProduits:MutableList<Produit>, val ville: ville) {
     var totalprix = 0.0
@@ -42,12 +41,14 @@ class Commandes(val Num:Int = incrementer(), val dateCmd : String, var status : 
             "En cours" -> {
                 handler.postDelayed({
                     status = "En attente"
+                    updateStatus()
                 }, 10_000)
             }
             "En attente" -> {
-                val tempsDeLivraison = ville.timeLaivrison.toLong()
+                val tempsDeLivraison = ville.timeLaivrison
                 handler.postDelayed({
                     status = "Livre"
+                    NotificationService.create(Notification(R.drawable.livre,"la commande numero ${Num} est bien Livre"))
                 }, tempsDeLivraison)
             }
         }

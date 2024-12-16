@@ -17,7 +17,7 @@
         android:id="@+id/bottomSheetTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Complétez vos informations"
+        android:text="@string/bottom_sheet_title"
         android:textSize="18sp"
         android:textStyle="bold"
         android:gravity="center" />
@@ -25,20 +25,19 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ajouter l'adresse de votre magasin"
+        android:text="@string/bottom_sheet_subtitle"
         android:layout_marginTop="16dp" />
 
     <Spinner
         android:id="@+id/addressInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="donner votre localisation" />
+        android:hint="@string/bottom_sheet_hint" />
 
     <Button
         android:id="@+id/saveButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="حفظ"
+        android:text="@string/save_button"
         android:layout_marginTop="16dp" />
 </LinearLayout>
-

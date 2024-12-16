@@ -31,6 +31,9 @@
     <string name="Partager">Partager avec votre amis</string>
     <string name="Tousproduits">Tous les produits</string>
     <string name="DH"> DH</string>
-    <string name="back">Back</string>
+    <string name="bottom_sheet_title">Complétez vos informations</string>
+    <string name="bottom_sheet_subtitle">Ajouter l adresse de votre magasin</string>
+    <string name="bottom_sheet_hint">Donner votre localisation</string>
+    <string name="save_button">Enregistrer</string>
 
 </resources>

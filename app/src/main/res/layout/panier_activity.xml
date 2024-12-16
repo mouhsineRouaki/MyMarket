@@ -21,12 +21,12 @@
             android:gravity="center_vertical"
             android:textColor="@color/titleColor"/>
         <ImageButton
+            android:id="@+id/clear"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="end"
             android:layout_marginRight="10dp"
-            android:background="@drawable/image_button_cercle"
-            android:src="@drawable/ic_support"/>
+            android:src="@drawable/clear"/>
     </androidx.appcompat.widget.Toolbar>
 
     <FrameLayout
