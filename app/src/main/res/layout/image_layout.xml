@@ -34,10 +34,9 @@
 
     <Button
         android:id="@+id/next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="next"
-        android:layout_gravity="end"
-        android:textColor="@color/Buttontext"
-        android:backgroundTint="@color/buttoncolor"/>
+        android:layout_width="182sp"
+        android:layout_height="54sp"
+        android:backgroundTint="@color/buttoncolor"
+        android:text="Terminer"
+        android:textStyle="bold"/>
 </LinearLayout>

@@ -6,6 +6,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="@drawable/bg">
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -23,7 +24,7 @@
             android:background="@drawable/cercle"
             android:src="@drawable/baseline_arrow_back_24"
             android:backgroundTint="@color/white"
-            android:contentDescription="@string/back"/>
+            android:contentDescription="back" />
 
         <ImageView
             android:id="@+id/login_logo"
@@ -31,7 +32,6 @@
             android:layout_height="130dp"
             android:src="@drawable/login_logo"
             android:layout_gravity="center" />
-
     </FrameLayout>
 
     <FrameLayout
@@ -68,20 +68,32 @@
                 android:background="@drawable/edittext"
                 android:gravity="center"
                 android:textColor="@color/inputTextColor"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/password"
                 android:layout_width="340dp"
                 android:layout_height="56dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="10dp"
                 android:hint="Password"
                 android:textColorHint="@color/inputTextColor"
                 android:background="@drawable/edittext"
                 android:gravity="center"
                 android:inputType="textPassword"
                 android:autofillHints="password"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/forgot_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Forgot Password?"
+                android:textSize="14sp"
+                android:textColor="@color/inputTextColor"
+                android:fontFamily="sans-serif"
+                android:layout_marginBottom="30dp"
+                android:layout_gravity="end"
+                android:layout_marginEnd="38dp"/>
 
             <Button
                 android:id="@+id/buttonLogin"
@@ -90,7 +102,34 @@
                 android:text="LOGIN"
                 android:textStyle="bold"
                 android:textColor="@color/Buttontext"
-                android:backgroundTint="#006a42"/>
+                android:backgroundTint="#006a42" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Don't have an account? "
+                    android:textSize="14sp"
+                    android:textColor="@color/grey"
+                    android:fontFamily="sans-serif" />
+
+                <TextView
+                    android:id="@+id/signup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sign Up"
+                    android:textSize="14sp"
+                    android:textColor="@color/inputTextColor"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
         </LinearLayout>
     </FrameLayout>
 </LinearLayout>

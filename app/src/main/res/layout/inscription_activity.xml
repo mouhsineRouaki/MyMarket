@@ -153,8 +153,8 @@
 
         <Button
             android:id="@+id/buttonInscription"
-            android:layout_width="182dp"
-            android:layout_height="44dp"
+            android:layout_width="182sp"
+            android:layout_height="54sp"
             android:backgroundTint="@color/buttoncolor"
             android:text="Next"
             android:textStyle="bold"/>

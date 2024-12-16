@@ -2,7 +2,8 @@
 <FrameLayout android:id="@+id/fragmentContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fitsSystemWindows="true">
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,42 +13,54 @@
     android:background="@drawable/bg">
 
     <TextView
-        android:layout_marginHorizontal="10sp"
-        android:layout_marginTop="200sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="WELCOME TO MY MARKET!!"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="120dp"
+        android:fontFamily="sans-serif"
+        android:text="Go Shopping From Home"
         android:textColor="@color/white"
-        android:textSize="80sp"
+        android:textSize="58sp"
         android:textStyle="bold"
-        android:fontFamily="sans-serif"/>
+        android:lineSpacingExtra="10dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:text="ヅ"
+        android:textColor="@color/white"
+        android:textSize="58sp"
+        android:textStyle="bold"
+        android:lineSpacingExtra="10dp"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_gravity="bottom"
-        android:gravity="bottom"
+        android:gravity="center"
         android:layout_height="match_parent">
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_marginTop="150sp"
+    <Button
+        android:layout_marginTop="150dp"
         android:layout_marginHorizontal="10sp"
         android:id="@+id/tologin"
         android:layout_width="match_parent"
-        android:layout_height="54sp"
+        android:layout_height="65dp"
         android:text="LOGIN"
         android:textColor="@color/white"
-        android:background="@drawable/button"
+        android:backgroundTint="#006A42"
         android:textStyle="bold"/>
 
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:layout_marginTop="20sp"
         android:layout_marginHorizontal="10sp"
         android:id="@+id/tosignup"
         android:layout_marginBottom="30dp"
         android:layout_width="match_parent"
-        android:layout_height="54sp"
+        android:layout_height="65dp"
         android:text="Signup"
-        android:textColor="@color/buttoncolor"
-        android:background="@drawable/button"
+        android:textColor="#006A42"
         android:backgroundTint="@color/white"
         android:textStyle="bold"/>
     </LinearLayout>
