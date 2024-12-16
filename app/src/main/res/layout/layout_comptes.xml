@@ -19,7 +19,8 @@
         android:text="WELCOME TO MY MARKET!!"
         android:textColor="@color/white"
         android:textSize="80sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:fontFamily="sans-serif"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
@@ -34,7 +35,8 @@
         android:layout_height="54sp"
         android:text="LOGIN"
         android:textColor="@color/white"
-        android:background="@drawable/button" />
+        android:background="@drawable/button"
+        android:textStyle="bold"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:layout_marginTop="20sp"
@@ -46,7 +48,8 @@
         android:text="Signup"
         android:textColor="@color/buttoncolor"
         android:background="@drawable/button"
-        android:backgroundTint="@color/white"/>
+        android:backgroundTint="@color/white"
+        android:textStyle="bold"/>
     </LinearLayout>
 
 </LinearLayout>

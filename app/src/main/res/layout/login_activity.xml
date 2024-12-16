@@ -18,11 +18,12 @@
             android:id="@+id/retour"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="40dp"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="80dp"
             android:background="@drawable/cercle"
             android:src="@drawable/baseline_arrow_back_24"
-            android:backgroundTint="@color/white"/>
+            android:backgroundTint="@color/white"
+            android:contentDescription="@string/back"/>
 
         <ImageView
             android:id="@+id/login_logo"
@@ -51,36 +52,43 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="LOGIN"
-                android:textStyle="bold"
-                android:textSize="30dp"
+                android:textFontWeight="900"
+                android:fontFamily="sans-serif"
+                android:textSize="30sp"
                 android:layout_marginBottom="30dp"
                 android:textColor="#1a4929" />
 
             <EditText
                 android:id="@+id/email"
-                android:layout_width="330dp"
-                android:layout_height="wrap_content"
+                android:layout_width="340dp"
+                android:layout_height="56dp"
                 android:layout_marginBottom="20dp"
-                android:hint="Entrer Votre Email"
+                android:hint="Email Adresse"
                 android:textColorHint="@color/inputTextColor"
                 android:background="@drawable/edittext"
-                android:gravity="center" />
+                android:gravity="center"
+                android:textColor="@color/inputTextColor"
+                android:textStyle="bold"/>
 
             <EditText
                 android:id="@+id/password"
-                android:layout_width="330sp"
-                android:layout_height="wrap_content"
+                android:layout_width="340dp"
+                android:layout_height="56dp"
                 android:layout_marginBottom="20dp"
-                android:hint="Entrer Votre Password"
+                android:hint="Password"
                 android:textColorHint="@color/inputTextColor"
                 android:background="@drawable/edittext"
-                android:gravity="center" />
+                android:gravity="center"
+                android:inputType="textPassword"
+                android:autofillHints="password"
+                android:textStyle="bold"/>
 
             <Button
                 android:id="@+id/buttonLogin"
                 android:layout_width="182sp"
                 android:layout_height="54sp"
                 android:text="LOGIN"
+                android:textStyle="bold"
                 android:textColor="@color/Buttontext"
                 android:backgroundTint="#006a42"/>
         </LinearLayout>
