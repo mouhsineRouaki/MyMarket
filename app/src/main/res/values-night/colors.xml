@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="appbg">#000000</color>
+    <color name="titleColor">#FFFFFF</color>
+    <color name="buttoncolor">#BCEFDC</color>
+    <color name="colorMenu">#124936</color>
+</resources>

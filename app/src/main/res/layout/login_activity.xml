@@ -10,10 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2">
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
         <ImageButton
             android:id="@+id/retour"
             android:layout_width="50dp"
@@ -23,6 +23,14 @@
             android:background="@drawable/cercle"
             android:src="@drawable/baseline_arrow_back_24"
             android:backgroundTint="@color/white"/>
+
+        <ImageView
+            android:id="@+id/login_logo"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:src="@drawable/login_logo"
+            android:layout_gravity="center" />
+
     </FrameLayout>
 
     <FrameLayout
@@ -46,7 +54,7 @@
                 android:textStyle="bold"
                 android:textSize="30dp"
                 android:layout_marginBottom="30dp"
-                android:textColor="@color/titleColor" />
+                android:textColor="#1a4929" />
 
             <EditText
                 android:id="@+id/email"
@@ -68,14 +76,13 @@
                 android:background="@drawable/edittext"
                 android:gravity="center" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <Button
                 android:id="@+id/buttonLogin"
                 android:layout_width="182sp"
                 android:layout_height="54sp"
                 android:text="LOGIN"
                 android:textColor="@color/Buttontext"
-                android:background="@drawable/button" />
-
+                android:backgroundTint="#006a42"/>
         </LinearLayout>
     </FrameLayout>
 </LinearLayout>

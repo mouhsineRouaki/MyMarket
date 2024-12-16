@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:background="@color/white"
+        android:background="@color/appbackground"
         app:title="">
         <TextView
             android:layout_width="wrap_content"
@@ -18,7 +18,8 @@
             android:text="@string/MonPanier"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:gravity="center_vertical"/>
+            android:gravity="center_vertical"
+            android:textColor="@color/titleColor"/>
         <ImageButton
             android:id="@+id/clear"
             android:layout_width="40dp"
@@ -60,7 +61,8 @@
                     android:text="00.00"
                     android:textStyle="bold"
                     android:gravity="center"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:textColor="@color/titleColor"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -68,7 +70,8 @@
                     android:text="@string/DH"
                     android:textStyle="bold"
                     android:gravity="center"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:textColor="@color/titleColor"/>
             </LinearLayout>
                 <TextView
                     android:layout_width="match_parent"
@@ -85,7 +88,9 @@
                     android:layout_width="400dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_height="wrap_content"
-                    android:text="@string/Commander" />
+                    android:text="@string/Commander"
+                    android:textColor="@color/Buttontext"
+                    android:backgroundTint="@color/buttoncolor"/>
             </LinearLayout>
     </FrameLayout>
 

@@ -1,18 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_blue"
-    android:gravity="center"
+    android:background="@color/appbg"
     tools:context=".activity.SplashActivity">
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="400dp"
-        android:layout_height="400dp" />
+    <!-- Top-left curved shape -->
+    <View
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/curved_top_left"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 
-</LinearLayout>
+    <!-- Top-right curved shape -->
+    <View
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/curved_top_right"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <!-- Bottom-left curved shape -->
+    <View
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/curved_bottom_left"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <!-- Bottom-right curved shape -->
+    <View
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/curved_bottom_right"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+
+    <!-- Central content -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/logo"
+            android:contentDescription="App Logo"
+            android:layout_marginBottom="20dp"
+            android:scaleType="centerInside" />
+
+        <ProgressBar
+            android:id="@+id/loadingIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/buttoncolor"
+            android:layout_marginTop="20dp" />
+    </LinearLayout>
+
+</RelativeLayout>

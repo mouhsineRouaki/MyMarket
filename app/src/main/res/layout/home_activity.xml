@@ -4,7 +4,7 @@
     android:id="@+id/fragment_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/appbg"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
@@ -96,7 +96,7 @@
         android:id="@+id/toolbar2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/appbg"
         app:contentInsetStartWithNavigation="0dp"
         app:title="">
 
@@ -120,13 +120,13 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/appbg"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Promotions"
-            android:textColor="@color/black"
+            android:textColor="@color/titleColor"
             android:textSize="20dp"
             android:layout_marginLeft="10dp"
             android:gravity="start"
@@ -145,19 +145,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/appbg"
         android:orientation="vertical">
         <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:background="@color/appbg"
             android:orientation="horizontal">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/Categories"
-                android:textColor="@color/black"
+                android:textColor="@color/titleColor"
                 android:textSize="20sp"
                 android:layout_marginStart="10sp"
                 android:gravity="start"
@@ -187,7 +187,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:background="@color/white"
+        android:background="@color/appbg"
         android:gravity="center"
         android:layout_height="wrap_content">
 
@@ -222,7 +222,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:textSize="20sp"
-                    android:textColor="@color/white"
+                    android:background="@color/appbg"
                     android:textStyle="bold"
                     android:text=">" />
             </RelativeLayout>

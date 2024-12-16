@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="8dp">
+        android:padding="8dp"
+        android:background="@drawable/gardient_menu">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -51,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Nom du produit"
-            android:textColor="@android:color/black"
+            android:textColor="@color/titleColor"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -63,7 +64,7 @@
             android:maxLines="2"
         android:ellipsize="end"
             android:text="Description courte"
-            android:textColor="@android:color/darker_gray"
+            android:textColor="@color/titleColor"
             android:textSize="14sp" />
 
         <TextView
@@ -74,6 +75,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="8dp"
             android:background="@drawable/border_image"
-            android:text="45.00 DH" />
+            android:text="45.00 DH"
+            android:textColor="@color/titleColor"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

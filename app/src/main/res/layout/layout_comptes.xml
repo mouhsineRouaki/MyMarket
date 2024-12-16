@@ -33,7 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="54sp"
         android:text="LOGIN"
-        android:textColor="@color/Buttontext"
+        android:textColor="@color/white"
         android:background="@drawable/button" />
 
     <androidx.appcompat.widget.AppCompatButton

@@ -29,7 +29,7 @@
         android:gravity="center"
         android:layout_marginBottom="40dp"
         android:text="Ajouter votre Image"
-        android:textColor="@android:color/holo_blue_bright"
+        android:textColor="@color/titleColor"
         android:textSize="16sp" />
 
     <Button
@@ -38,5 +38,6 @@
         android:layout_height="wrap_content"
         android:text="next"
         android:layout_gravity="end"
-        android:textColor="@color/Buttontext"/>
+        android:textColor="@color/Buttontext"
+        android:backgroundTint="@color/buttoncolor"/>
 </LinearLayout>
