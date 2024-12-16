@@ -16,14 +16,6 @@
         android:layoutDirection="ltr"
         android:contentDescription="@string/toolbar">
 
-        <ImageButton
-            android:id="@+id/retour"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@color/white"
-            android:src="@drawable/baseline_arrow_back_24"
-            android:layoutDirection="ltr"
-            android:contentDescription="@string/back_button"/>
 
         <EditText
             android:id="@+id/searchEditText"

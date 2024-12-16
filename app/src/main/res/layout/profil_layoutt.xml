@@ -3,8 +3,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    android:paddingTop="16dp"
-    >
+    android:paddingTop="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,8 +21,8 @@
 
             <ImageView
                 android:id="@+id/backImageView"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="30dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:src="@drawable/baseline_arrow_back_24"
                 app:tint="@android:color/black" />
@@ -34,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_marginLeft="45dp"
-                android:text="@string/MesInformations"
+                android:text="@string/title_mes_informations"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -54,7 +53,6 @@
                 android:src="@drawable/logo"
                 android:scaleType="centerCrop"
                 android:background="@drawable/cercle" />
-
         </LinearLayout>
 
         <TextView
@@ -64,14 +62,14 @@
             android:layout_marginTop="8dp"
             android:gravity="center"
             android:clickable="true"
-            android:text="Modifier l'image ou l'avatar"
+            android:text="@string/modifier_avatar"
             android:textColor="@android:color/holo_blue_bright"
             android:textSize="16sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nom"
+            android:text="@string/nom"
             android:textColor="@android:color/black"
             android:layout_marginTop="16dp"
             android:textStyle="bold" />
@@ -80,7 +78,7 @@
             android:id="@+id/nomEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nom"
+            android:hint="@string/nom_hint"
             android:textColor="@color/buttoncolor"
             android:textColorHint="@color/buttoncolor"
             android:background="@drawable/edittext"
@@ -89,7 +87,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Prenom"
+            android:text="@string/prenom"
             android:textColor="@android:color/black"
             android:layout_marginTop="16dp"
             android:textStyle="bold" />
@@ -98,7 +96,7 @@
             android:id="@+id/prenomEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Prenom"
+            android:hint="@string/prenom_hint"
             android:textColor="@color/buttoncolor"
             android:textColorHint="@color/buttoncolor"
             android:background="@drawable/edittext"
@@ -107,7 +105,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Date"
+            android:text="@string/date"
             android:textColor="@android:color/black"
             android:layout_marginTop="16dp"
             android:textStyle="bold" />
@@ -116,7 +114,7 @@
             android:id="@+id/dateEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Date"
+            android:hint="@string/date_hint"
             android:textColor="@color/buttoncolor"
             android:textColorHint="@color/buttoncolor"
             android:background="@drawable/edittext"
@@ -125,7 +123,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ville"
+            android:text="@string/ville"
             android:textColor="@android:color/black"
             android:layout_marginTop="16dp"
             android:textStyle="bold" />
@@ -135,12 +133,13 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="8dp"
+            android:layoutDirection="ltr"
             android:background="@drawable/spinner_background" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Genre"
+            android:text="@string/genre"
             android:textColor="@android:color/black"
             android:layout_marginTop="16dp"
             android:textStyle="bold" />
@@ -150,12 +149,13 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="8dp"
+            android:layoutDirection="ltr"
             android:background="@drawable/spinner_background" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Informations Personelle"
+            android:text="@string/informations_personnelles"
             android:textColor="@android:color/black"
             android:layout_marginTop="16dp"
             android:textStyle="bold" />
@@ -165,7 +165,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@drawable/edittext"
-            android:text="afficher Les informations Personelle"
+            android:text="@string/afficher_informations"
             android:layout_marginTop="8dp" />
 
         <LinearLayout
@@ -177,7 +177,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Email"
+                android:text="@string/email"
                 android:textColor="@android:color/black"
                 android:layout_marginTop="16dp"
                 android:textStyle="bold" />
@@ -186,7 +186,7 @@
                 android:id="@+id/emailEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="email"
+                android:hint="@string/email_hint"
                 android:textColor="@color/buttoncolor"
                 android:textColorHint="@color/buttoncolor"
                 android:background="@drawable/edittext"
@@ -195,7 +195,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Mot De Pass"
+                android:text="@string/mot_de_passe"
                 android:textColor="@android:color/black"
                 android:layout_marginTop="16dp"
                 android:textStyle="bold" />
@@ -204,21 +204,21 @@
                 android:id="@+id/passwordEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="password"
+                android:hint="@string/mot_de_passe_hint"
                 android:textColor="@color/buttoncolor"
                 android:textColorHint="@color/buttoncolor"
                 android:background="@drawable/edittext"
                 android:layout_marginTop="16dp" />
         </LinearLayout>
+
         <Button
             android:id="@+id/Modifier"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Modifier"
+            android:text="@string/modifier"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="46dp"
             android:padding="12dp" />
-
     </LinearLayout>
 </ScrollView>

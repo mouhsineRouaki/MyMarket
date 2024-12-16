@@ -2,35 +2,41 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@color/appbackground">
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="40dp"
-        android:padding="16dp"
-        android:background="@android:color/white">
-
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="match_parent"
-            android:layout_height="101dp"
-            android:layout_weight="1"
-            android:src="@drawable/logo" />
+        android:layout_marginTop="30dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="46dp">
 
         <ImageButton
             android:id="@+id/back_button"
             android:layout_width="60dp"
             android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:layoutDirection="ltr"
             android:background="?android:attr/selectableItemBackground"
             android:contentDescription="Back"
-            android:src="@drawable/baseline_arrow_back_24" />
+            android:src="@drawable/baseline_arrow_back_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
-    </FrameLayout>
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="100dp"
+            android:layout_height="101dp"
+            android:src="@drawable/logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.5" /> <!-- Centre l'ImageView horizontalement -->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -101,7 +107,6 @@
         </LinearLayout>
 
 
-    <!-- Liste des options -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -6,9 +6,16 @@ import com.example.mymarket.interfaces.IDAO
 
 object CategoryService: IDAO<Category> {
     private val listCategory= mutableListOf<Category>()
+    val listPanierAr= mutableListOf<Category>()
 
     override fun create(p: Category): Boolean {
         return listCategory.add(p)
+    }
+    fun createArabe(p: Category): Boolean {
+        return listPanierAr.add(p)
+    }
+    fun findAllArabe(): MutableList<Category> {
+        return listPanierAr
     }
 
     override fun update(p: Category, q:Int): Boolean {

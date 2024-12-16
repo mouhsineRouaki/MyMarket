@@ -35,4 +35,21 @@
     <string name="bottom_sheet_subtitle">أضف عنوان متجرك</string>
     <string name="bottom_sheet_hint">أدخل موقعك</string>
     <string name="save_button">حفظ</string>
+    <string name="title_mes_informations">معلوماتي</string>
+    <string name="modifier_avatar">تعديل الصورة أو الصورة الرمزية</string>
+    <string name="nom">الاسم</string>
+    <string name="nom_hint">أدخل اسمك</string>
+    <string name="prenom">اللقب</string>
+    <string name="prenom_hint">أدخل لقبك</string>
+    <string name="date">التاريخ</string>
+    <string name="date_hint">أدخل التاريخ</string>
+    <string name="ville">المدينة</string>
+    <string name="genre">الجنس</string>
+    <string name="informations_personnelles">المعلومات الشخصية</string>
+    <string name="afficher_informations">عرض المعلومات الشخصية</string>
+    <string name="email">البريد الإلكتروني</string>
+    <string name="email_hint">أدخل بريدك الإلكتروني</string>
+    <string name="mot_de_passe">كلمة المرور</string>
+    <string name="mot_de_passe_hint">أدخل كلمة المرور</string>
+    <string name="modifier">تعديل</string>
 </resources>

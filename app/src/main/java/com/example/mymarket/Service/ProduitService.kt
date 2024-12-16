@@ -4,9 +4,16 @@ import com.example.mymarket.DATA.Produit
 import com.example.mymarket.interfaces.IDAO
 
 object ProduitService : IDAO<Produit> {
-    private val listPanier= mutableListOf<Produit>()
+    val listPanier= mutableListOf<Produit>()
+    val listPanierAr= mutableListOf<Produit>()
     override fun create(p: Produit): Boolean {
         return listPanier.add(p)
+    }
+    fun createAr(p: Produit): Boolean {
+        return listPanier.add(p)
+    }
+    fun findAllArabe(): MutableList<Produit> {
+        return listPanier
     }
 
     override fun update(p: Produit, q:Int): Boolean {
