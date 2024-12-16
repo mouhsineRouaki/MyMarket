@@ -17,6 +17,7 @@ import com.example.mymarket.Service.CategoryService
 import com.example.mymarket.Service.ProduitService
 import com.example.mymarket.adapters.adapterCartProduit2
 import com.example.mymarket.adapters.adapterCategory
+import java.util.Locale
 
 class CategoryFragment : Fragment() {
 
@@ -37,8 +38,12 @@ class CategoryFragment : Fragment() {
         val recyclerViewCategory = view.findViewById<RecyclerView>(R.id.recycle_category)
         val recyclerViewProduit = view.findViewById<RecyclerView>(R.id.recycle_category_produit)
         val editTextSearch = view.findViewById<EditText>(R.id.searchEditText)
-
-        categoryList = CategoryService.findAll().toMutableList()
+        val language = resources.configuration.locale.language
+        if (language == "fr") {
+            categoryList = CategoryService.findAll().toMutableList()
+        }else{
+            categoryList = CategoryService.findAllArabe().toMutableList()
+        }
         produitList = ProduitService.findAll().toMutableList()
         produitsFiltrer = produitList.toMutableList()
 

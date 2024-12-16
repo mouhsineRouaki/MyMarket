@@ -45,9 +45,14 @@ class PanierFragment : Fragment() {
             builder.setTitle("Confirmation de vider panier")
             builder.setMessage("do you want to vider panier")
             builder.setPositiveButton("OK") { dialog, which ->
-                PanierService.Clear()
-                adapter.notifyDataSetChanged()
-                NotificationService.create(Notification(R.drawable.clear,"le Panier et vider"))
+                val list = PanierService.findAll()
+                if(list.isEmpty()){
+                    Toast.makeText(requireContext(), "Panier Deja Vide", Toast.LENGTH_SHORT).show()
+                }else {
+                    PanierService.Clear()
+                    adapter.notifyDataSetChanged()
+                    NotificationService.create(Notification(R.drawable.clear, "le Panier et vider"))
+                }
             }
             builder.setNegativeButton("Annuler",null)
             builder.show()

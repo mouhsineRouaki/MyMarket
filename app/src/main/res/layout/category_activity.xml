@@ -20,14 +20,6 @@
             android:layoutDirection="locale"
             app:title="">
 
-        <ImageButton
-            android:id="@+id/retour"
-            android:layout_width="40dp"
-            android:layout_height="70dp"
-            android:background="@color/white"
-            android:src="@drawable/baseline_arrow_back_24"
-            android:layout_gravity="start"
-            android:contentDescription="@string/back_button" />
 
         <EditText
             android:id="@+id/searchEditText"

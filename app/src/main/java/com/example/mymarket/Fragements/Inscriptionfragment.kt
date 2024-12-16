@@ -156,14 +156,23 @@ class Inscriptionfragment : Fragment() {
 
         return true
     }
+    override fun onResume() {
+        super.onResume()
+        requireActivity().window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+    }
 
-    private fun getSelectedGender(radioGroup: RadioGroup): String {
+    override fun onPause() {
+        super.onPause()
+        requireActivity().window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+    }
+
+    fun getSelectedGender(radioGroup: RadioGroup): String {
         val selectedId = radioGroup.checkedRadioButtonId
         val selectedRadioButton = view?.findViewById<RadioButton>(selectedId)
         return selectedRadioButton?.text.toString()
     }
 
-    private fun showToast(message: String) {
+    fun showToast(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 }

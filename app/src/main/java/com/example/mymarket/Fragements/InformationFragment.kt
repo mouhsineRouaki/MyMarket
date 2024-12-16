@@ -49,6 +49,7 @@ class InformationFragment : Fragment() {
         val emailEditText =view. findViewById<EditText>(R.id.emailEditText)
         val TextButton =view. findViewById<TextView>(R.id.textButton)
         val passwordEditText =view. findViewById<EditText>(R.id.passwordEditText)
+        val backimageView =view.findViewById<ImageView>(R.id.backImageView)
         imageView =view.findViewById<ImageView>(R.id.avatarImageView)
         val user = utilisateurService.getUser()
         imageView.setImageURI(user.image)
@@ -58,6 +59,11 @@ class InformationFragment : Fragment() {
         dateEditText.setText(user.dateN)
         emailEditText.setText(user.email)
         passwordEditText.setText(user.password)
+        backimageView.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, ProfilFragment())
+                .commit()
+        }
 
         val position = villeTypeService.findByPosition(user.ville.ville)
         val list = villeTypeService.findAll()

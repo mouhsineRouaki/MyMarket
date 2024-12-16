@@ -35,5 +35,22 @@
     <string name="bottom_sheet_subtitle">Ajouter l adresse de votre magasin</string>
     <string name="bottom_sheet_hint">Donner votre localisation</string>
     <string name="save_button">Enregistrer</string>
+    <string name="title_mes_informations">Mes Informations</string>
+    <string name="modifier_avatar">Modifier l image ou l avatar</string>
+    <string name="nom">Nom</string>
+    <string name="nom_hint">Entrez votre nom</string>
+    <string name="prenom">Prénom</string>
+    <string name="prenom_hint">Entrez votre prénom</string>
+    <string name="date">Date</string>
+    <string name="date_hint">Entrez la date</string>
+    <string name="ville">Ville</string>
+    <string name="genre">Genre</string>
+    <string name="informations_personnelles">Informations Personnelles</string>
+    <string name="afficher_informations">Afficher les informations personnelles</string>
+    <string name="email">Email</string>
+    <string name="email_hint">Entrez votre email</string>
+    <string name="mot_de_passe">Mot de passe</string>
+    <string name="mot_de_passe_hint">Entrez votre mot de passe</string>
+    <string name="modifier">Modifier</string>
 
 </resources>

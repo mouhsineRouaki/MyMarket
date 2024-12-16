@@ -16,21 +16,22 @@
         android:paddingTop="20dp"
         app:title="">
 
-        <ImageButton
-            android:id="@+id/user"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="start"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/image_button_cercle"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_user" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="start"
+            android:layout_gravity="start"
             android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/user"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/image_button_cercle"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_user" />
 
             <TextView
                 android:id="@+id/nom"
@@ -38,18 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="2dp"
                 android:layout_weight="1"
-                android:gravity="end"
-                android:text="ghgdwh"
-                android:textColor="@color/black"
-                android:textSize="15dp"
-                android:textStyle="italic" />
-
-            <TextView
-                android:id="@+id/prenom"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="2dp"
-                android:gravity="end"
+                android:gravity="center"
                 android:text="ghgdwh"
                 android:textColor="@color/black"
                 android:textSize="15dp"
