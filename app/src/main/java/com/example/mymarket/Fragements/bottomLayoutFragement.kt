@@ -28,7 +28,6 @@ class bottomLayoutFragement : BottomSheetDialogFragment() {
         val spinner = view.findViewById<Spinner>(R.id.addressInput)
         val button = view.findViewById<Button>(R.id.saveButton)
 
-        // Populate the spinner with available city types
         val villesList = listOf(
             villeType.Safi, villeType.CasaBlanca,
             villeType.Tanger, villeType.Agadir
@@ -36,7 +35,6 @@ class bottomLayoutFragement : BottomSheetDialogFragment() {
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, villesList)
         spinner.adapter = adapter
 
-        // Set click listener for the save button
         button.setOnClickListener {
             val selectedCity = spinner.selectedItem as villeType
             val V = VilleService.findAll().find { it.ville == selectedCity }
@@ -61,8 +59,6 @@ class bottomLayoutFragement : BottomSheetDialogFragment() {
         super.onStart()
         val dialog = dialog
         if (dialog != null) {
-            // Set the layout parameters for the bottom sheet
-            val height = resources.displayMetrics.heightPixels / 1
             dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
         }
     }

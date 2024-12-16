@@ -31,4 +31,8 @@
     <string name="Partager">مشاركة مع أصدقائك</string>
     <string name="Tousproduits">جميع المنتجات</string>
     <string name="DH">درهم </string>
+    <string name="bottom_sheet_title">أكمل معلوماتك</string>
+    <string name="bottom_sheet_subtitle">أضف عنوان متجرك</string>
+    <string name="bottom_sheet_hint">أدخل موقعك</string>
+    <string name="save_button">حفظ</string>
 </resources>

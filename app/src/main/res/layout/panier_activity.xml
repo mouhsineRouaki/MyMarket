@@ -20,11 +20,12 @@
             android:textStyle="bold"
             android:gravity="center_vertical"/>
         <ImageButton
+            android:id="@+id/clear"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="end"
             android:layout_marginRight="10dp"
-            android:background="@drawable/image_button_cercle"
+            android:background="@drawable/clear"
             android:src="@drawable/ic_support"/>
     </androidx.appcompat.widget.Toolbar>
 

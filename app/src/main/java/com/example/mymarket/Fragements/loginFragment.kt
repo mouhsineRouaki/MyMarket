@@ -11,6 +11,8 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.mymarket.DATA.utilisateur
+import com.example.mymarket.DATA.ville
+import com.example.mymarket.DATA.villeType
 import com.example.mymarket.R
 import com.example.mymarket.Service.utilisateurService
 import com.example.mymarket.activity.MainActivity
@@ -32,20 +34,12 @@ class loginFragment : Fragment() {
             val emailInput = email.text.toString().trim()
             val passwordInput = password.text.toString().trim()
 
-            if (emailInput.isEmpty() || passwordInput.isEmpty()) {
-                Toast.makeText(requireContext(), "Remplir tous les champs", Toast.LENGTH_LONG).show()
-                return@setOnClickListener
-            }
-
             val listComptes = utilisateurService.findAll().toMutableList()
             val utilisateurTrouve = listComptes.find { it.email == emailInput && it.password == passwordInput }
+            val u =utilisateur("mohsin","rouaki","21/12/2004","homme", ville(villeType.Agadir,10_000))
 
-            if (utilisateurTrouve != null) {
-                utilisateurService.ClearAndCreate(utilisateurTrouve)
+                utilisateurService.ClearAndCreate(u)
                 startActivity(Intent(requireContext(), MainActivity::class.java))
-            } else {
-                Toast.makeText(requireContext(), "Mot de passe ou email incorrect", Toast.LENGTH_LONG).show()
-            }
         }
         retour.setOnClickListener {
             parentFragmentManager.beginTransaction()

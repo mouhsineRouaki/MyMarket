@@ -37,10 +37,14 @@ object PanierService: IDAO<Produit> {
             listPanier.removeAt(P)
 
         }
-    fun findPosition(p:Produit):Int{
-        return listPanier.indexOfFirst { it.nomP ==p.nomP }
+        fun Clear(){
+            listPanier.clear()
+        }
 
-    }
+        fun findPosition(p:Produit):Int{
+            return listPanier.indexOfFirst { it.nomP ==p.nomP }
+
+        }
 
 
 }

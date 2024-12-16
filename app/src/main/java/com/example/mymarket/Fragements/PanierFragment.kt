@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -37,6 +39,19 @@ class PanierFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val clear = view.findViewById<ImageButton>(R.id.clear)
+        clear.setOnClickListener {
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setTitle("Confirmation de vider panier")
+            builder.setMessage("do you want to vider panier")
+            builder.setPositiveButton("OK") { dialog, which ->
+                PanierService.Clear()
+                adapter.notifyDataSetChanged()
+                NotificationService.create(Notification(R.drawable.clear,"le Panier et vider"))
+            }
+            builder.setNegativeButton("Annuler",null)
+            builder.show()
+        }
 
         val recyclerView: RecyclerView = view.findViewById(R.id.RecyclePanier)
         val id = arguments?.getInt("id")
