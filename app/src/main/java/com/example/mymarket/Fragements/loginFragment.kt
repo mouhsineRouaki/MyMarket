@@ -1,5 +1,6 @@
 package com.example.mymarket.Fragements
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -24,6 +25,7 @@ class loginFragment : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.login_activity, container, false)
     }
+    @SuppressLint("SuspiciousIndentation")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val email = view.findViewById<EditText>(R.id.email)

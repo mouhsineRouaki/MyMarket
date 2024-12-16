@@ -26,8 +26,7 @@
             android:layout_height="40dp"
             android:layout_gravity="end"
             android:layout_marginRight="10dp"
-            android:background="@drawable/clear"
-            android:src="@drawable/ic_support"/>
+            android:src="@drawable/clear"/>
     </androidx.appcompat.widget.Toolbar>
 
     <FrameLayout
