@@ -52,4 +52,10 @@
     <string name="mot_de_passe">كلمة المرور</string>
     <string name="mot_de_passe_hint">أدخل كلمة المرور</string>
     <string name="modifier">تعديل</string>
+    <string name="commande_num_exemple">رقم 1243</string>
+    <string name="commande_prix_total_exemple">المجموع الكلي: 250.0 درهم</string>
+    <string name="commande_date_exemple">2024-12-03</string>
+    <string name="commande_categories_exemple">الفئات: 3</string>
+    <string name="commande_status_exemple">قيد التنفيذ</string>
+    <string name="icon_description">رمز الطلب</string>
 </resources>
