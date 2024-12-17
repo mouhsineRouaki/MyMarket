@@ -17,8 +17,8 @@
             android:layout_weight="1" />
         <ImageButton
             android:id="@+id/retour"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginStart="40dp"
             android:layout_marginTop="80dp"
             android:background="@drawable/cercle"

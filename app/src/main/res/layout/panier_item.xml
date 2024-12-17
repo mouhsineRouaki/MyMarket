@@ -128,7 +128,7 @@
                     android:id="@+id/linearLayout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_image"
+                    android:background="@drawable/border_image2"
                     android:orientation="horizontal">
 
                 <ImageButton
@@ -150,7 +150,8 @@
                     android:text="1"
                     android:textColor="#000000"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:background="@color/white"/>
 
                 <!-- Bouton d'augmentation -->
                 <ImageButton
