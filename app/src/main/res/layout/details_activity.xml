@@ -80,7 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:backgroundTint="@color/colorLogo"
+            android:backgroundTint="@color/buttoncolor"
             android:text="Ajouter au panier"
             android:textColor="@android:color/white" />
 
