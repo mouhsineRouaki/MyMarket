@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    app:cardCornerRadius="12dp"
+    app:cardCornerRadius="20dp"
     app:cardElevation="4dp">
 
     <RelativeLayout
@@ -15,19 +15,22 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="40dp"
             android:orientation="horizontal"
-            android:padding="12dp"
-            android:layout_marginEnd="40dp">
+            android:padding="12dp">
 
             <RelativeLayout
                 android:layout_width="90dp"
-                android:layout_height="110dp">
+                android:layout_height="110dp"
+                android:layout_gravity="center">
 
                 <ImageView
                     android:id="@+id/image_produitP"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop" />
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/bananes" />
 
                 <TextView
                     android:id="@+id/label_reduction"
@@ -47,6 +50,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center_vertical"
                 android:orientation="vertical"
                 android:paddingStart="12dp"
                 android:paddingEnd="2dp">
@@ -55,118 +59,153 @@
                     android:id="@+id/nom_produitP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="2"
                     android:text="DURACELL Piles C2 PLUSP x 10U"
                     android:textColor="#000000"
                     android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:maxLines="2"
-                    android:ellipsize="end" />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/description_produit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:text="Vendu à l’unité"
                     android:textColor="#757575"
-                    android:textSize="14sp"
-                    android:layout_marginTop="4dp" />
+                    android:textSize="14sp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="8dp">
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/prix_original"
+                    <LinearLayout
+                        android:id="@+id/linearLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="47.84 dh"
-                        android:textColor="#757575"
-                        android:textSize="14sp" />
+                        android:background="@drawable/border_image2"
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/prix_reduit"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:text="• 38.26 dh"
-                        android:textColor="#FF5722"
-                        android:textSize="14sp" />
+                        <ImageButton
+                            android:id="@+id/btn_decrement"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/image_button_cercle"
+                            android:contentDescription="Diminuer la quantité"
+                            android:paddingBottom="15dp"
+                            android:src="@drawable/ic_min"
+                            app:tint="#000000" />
+
+                        <TextView
+                            android:id="@+id/text_quantite"
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:text="1"
+                            android:textColor="#000000"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <!-- Bouton d'augmentation -->
+                        <ImageButton
+                            android:id="@+id/btn_increment"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/image_button_cercle"
+                            android:contentDescription="Augmenter la quantité"
+                            android:src="@drawable/ic_add"
+                            app:tint="#000000" />
+                    </LinearLayout>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="8dp">
-                <TextView
-                    android:id="@+id/total_produit"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="76.51"
-                    android:textColor="#000000"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="4dp" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/DH"
-                        android:textColor="#000000"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:layout_marginTop="4dp" />
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:gravity="center">
-                <LinearLayout
-                    android:id="@+id/linearLayout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/border_image2"
-                    android:orientation="horizontal">
-
-                <ImageButton
-                    android:id="@+id/btn_decrement"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:background="@drawable/image_button_cercle"
-                    android:src="@drawable/ic_min"
-                    android:paddingBottom="15dp"
-                    android:contentDescription="Diminuer la quantité"
-                    app:tint="#000000" />
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/text_quantite"
-                    android:layout_width="40dp"
+                    android:id="@+id/prix_original"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_gravity="center"
-                    android:text="1"
-                    android:textColor="#000000"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:background="@color/white"/>
+                    android:text="47.84 dh"
+                    android:textColor="#B0BEC5"
+                    android:textSize="14sp"
+                    android:textStyle="italic" />
 
-                <!-- Bouton d'augmentation -->
-                <ImageButton
-                    android:id="@+id/btn_increment"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:background="@drawable/image_button_cercle"
-                    android:src="@drawable/ic_add"
-                    android:contentDescription="Augmenter la quantité"
-                    app:tint="#000000" />
+                <TextView
+                    android:id="@+id/prix_reduit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="38.26 dh"
+                    android:textColor="#FF5722"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="4dp"
+                    android:paddingEnd="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/total"
+                        android:textColor="#263238"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="2dp" />
+
+                    <TextView
+                        android:id="@+id/total_produit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="76.51"
+                        android:textColor="#263238"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/DH"
+                        android:textColor="#263238"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="2dp" />
                 </LinearLayout>
+
             </LinearLayout>
+
+
         </LinearLayout>
 
-        <!-- Bouton "X" pour supprimer -->
         <ImageButton
             android:id="@+id/btn_remove_item"
             android:layout_width="20dp"

@@ -52,4 +52,5 @@
     <string name="mot_de_passe">كلمة المرور</string>
     <string name="mot_de_passe_hint">أدخل كلمة المرور</string>
     <string name="modifier">تعديل</string>
+    <string name="total">المجموع</string>
 </resources>

@@ -52,5 +52,6 @@
     <string name="mot_de_passe">Mot de passe</string>
     <string name="mot_de_passe_hint">Entrez votre mot de passe</string>
     <string name="modifier">Modifier</string>
+    <string name="total">Total</string>
 
 </resources>
