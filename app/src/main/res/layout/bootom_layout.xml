@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@drawable/gardient_menu">
+    android:background="@drawable/gardient_window">
 
     <View
         android:id="@+id/handle"
@@ -28,7 +28,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/bottom_sheet_subtitle"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:textColor="@color/titleColor"/>
 
     <Spinner
         android:id="@+id/addressInput"
