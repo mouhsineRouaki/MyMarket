@@ -101,25 +101,6 @@ class HomeFragement: Fragment() {
                 .replace(R.id.fragment_container, NotificationFragment())
                 .commit()
         }
-        CategoryService.createArabe(Category(R.drawable.fruits, "فواكه"))
-        CategoryService.createArabe(Category(R.drawable.legumes, "خضروات"))
-        CategoryService.createArabe(Category(R.drawable.poisson, "أسماك"))
-        CategoryService.createArabe(Category(R.drawable.viandes, "لحوم"))
-        CategoryService.createArabe(Category(R.drawable.litairs, "منتجات الألبان"))
-        CategoryService.createArabe(Category(R.drawable.patisserie, "حلويات"))
-        CategoryService.createArabe(Category(R.drawable.boissons, "مشروبات"))
-        CategoryService.createArabe(Category(R.drawable.epicess, "توابل"))
-        CategoryService.createArabe(Category(R.drawable.cereables, "حبوب"))
-
-        CategoryService.create(Category(R.drawable.fruits, "Fruits"))
-        CategoryService.create(Category(R.drawable.legumes, "Légumes"))
-        CategoryService.create(Category(R.drawable.poisson, "Poissons"))
-        CategoryService.create(Category(R.drawable.viandes, "Viandes"))
-        CategoryService.create(Category(R.drawable.litairs, "Laitiers"))
-        CategoryService.create(Category(R.drawable.patisserie, "Pâtisseries"))
-        CategoryService.create(Category(R.drawable.boissons, "Boissons"))
-        CategoryService.create(Category(R.drawable.epicess, "Épices"))
-        CategoryService.create(Category(R.drawable.cereables, "Céréales"))
 
 
         val listProduitPromotions=ProduitService.findAll().filter { it.Promo > 0 }.toMutableList()

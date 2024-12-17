@@ -6,10 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.example.mymarket.DATA.Category
 import com.example.mymarket.DATA.Produit
 import com.example.mymarket.DATA.ville
 import com.example.mymarket.DATA.villeType
 import com.example.mymarket.R
+import com.example.mymarket.Service.CategoryService
 import com.example.mymarket.Service.ProduitService
 import com.example.mymarket.Service.VilleService
 import com.example.mymarket.Service.villeTypeService
@@ -167,6 +169,27 @@ class WelcomeFragment : Fragment() {
         VilleService.create(ville(villeType.Dakhla, 20_000))
         VilleService.create(ville(villeType.Zagora, 15_000))
         VilleService.create(ville(villeType.KsarElKebir, 22_000))
+
+
+        CategoryService.createArabe(Category(R.drawable.fruits, "فواكه"))
+        CategoryService.createArabe(Category(R.drawable.legumes, "خضروات"))
+        CategoryService.createArabe(Category(R.drawable.poisson, "أسماك"))
+        CategoryService.createArabe(Category(R.drawable.viandes, "لحوم"))
+        CategoryService.createArabe(Category(R.drawable.litairs, "منتجات الألبان"))
+        CategoryService.createArabe(Category(R.drawable.patisserie, "حلويات"))
+        CategoryService.createArabe(Category(R.drawable.boissons, "مشروبات"))
+        CategoryService.createArabe(Category(R.drawable.epicess, "توابل"))
+        CategoryService.createArabe(Category(R.drawable.cereables, "حبوب"))
+
+        CategoryService.create(Category(R.drawable.fruits, "Fruits"))
+        CategoryService.create(Category(R.drawable.legumes, "Légumes"))
+        CategoryService.create(Category(R.drawable.poisson, "Poissons"))
+        CategoryService.create(Category(R.drawable.viandes, "Viandes"))
+        CategoryService.create(Category(R.drawable.litairs, "Laitiers"))
+        CategoryService.create(Category(R.drawable.patisserie, "Pâtisseries"))
+        CategoryService.create(Category(R.drawable.boissons, "Boissons"))
+        CategoryService.create(Category(R.drawable.epicess, "Épices"))
+        CategoryService.create(Category(R.drawable.cereables, "Céréales"))
 
 
         villeTypeService.create(villeType.Safi)
