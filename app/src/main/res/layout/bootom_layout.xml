@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/gardient_menu">
 
     <View
         android:id="@+id/handle"
@@ -20,7 +21,8 @@
         android:text="@string/bottom_sheet_title"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:gravity="center" />
+        android:gravity="center"
+        android:textColor="@color/titleColor"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -31,13 +33,16 @@
     <Spinner
         android:id="@+id/addressInput"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="54sp"
         android:hint="@string/bottom_sheet_hint" />
 
     <Button
         android:id="@+id/saveButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="54sp"
+        android:textStyle="bold"
+        android:backgroundTint="@color/buttoncolor"
+        android:textColor="@color/Buttontext"
         android:text="@string/save_button"
         android:layout_marginTop="16dp" />
 </LinearLayout>
