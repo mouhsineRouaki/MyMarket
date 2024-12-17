@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
-        <shape>
-            <solid android:color="#FFFFFF" /> <!-- Couleur de fond -->
-            <corners android:radius="500dp" /> <!-- Coins arrondis -->
-        </shape>
-    </item>
-
-    <item>
         <bitmap
             android:src="@drawable/background_button"
             android:gravity="center" />
     </item>
+    <item>
+        <shape>
+            <solid android:color="#FFFFFF" />
+            <gradient xmlns:android="http://schemas.android.com/apk/res/android"
+                android:angle="360"
+                android:startColor="#C7207857"
+                android:endColor="#5EFFFFFF"
+                />
+        </shape>
+    </item>
+
+
 </layer-list>
 

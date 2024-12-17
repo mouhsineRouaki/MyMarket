@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_margin="10dp">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -39,7 +40,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=" Total :"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/Total"
@@ -58,14 +60,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" Statu :"
-                android:gravity="start" />
+                android:gravity="start"
+                android:textStyle="bold"/>
             <TextView
                 android:id="@+id/status"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/DH"
                 android:textStyle="bold"
-                android:gravity="end" />
+                android:gravity="end"
+                />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -76,7 +80,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" Date :"
-                android:gravity="start" />
+                android:gravity="start"
+                android:textStyle="bold"/>
             <TextView
                 android:id="@+id/Time_commande"
                 android:layout_width="match_parent"
@@ -94,7 +99,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" Total Category :"
-                android:gravity="start" />
+                android:gravity="start"
+                android:textStyle="bold"/>
             <TextView
                 android:id="@+id/Total_category"
                 android:layout_width="match_parent"

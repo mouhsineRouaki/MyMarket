@@ -27,9 +27,10 @@
                 android:id="@+id/user"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:gravity="center"
+                android:layout_gravity="center"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/image_button_cercle"
+                android:gravity="center"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_user" />
 
@@ -43,7 +44,7 @@
                 android:text="ghgdwh"
                 android:textColor="@color/black"
                 android:textSize="15dp"
-                android:textStyle="italic" />
+                android:textStyle="bold" />
         </LinearLayout>
 
 
@@ -162,7 +163,7 @@
                 android:clickable="true"
                 android:layoutDirection="rtl"
                 android:layout_marginRight="10sp"
-                android:textColor="@color/colorLogo"
+                android:textColor="@color/colorMenu"
                 android:gravity="end"
                 android:textStyle="italic" />
 
@@ -184,9 +185,9 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/TousProduits"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="68dp"
             android:layout_margin="10dp"
-            app:cardCornerRadius="500dp"
+            app:cardCornerRadius="15dp"
             app:cardElevation="4dp"
             android:clickable="true"
             android:backgroundTint="@android:color/transparent">
@@ -203,8 +204,9 @@
                     android:layout_alignParentStart="true"
                     android:textSize="23sp"
                     android:textStyle="bold"
-                    android:textColor="@color/colorLogo"
-                    android:text="@string/voirLesProduits" />
+                    android:textColor="@color/appbg"
+                    android:text="@string/voirLesProduits"
+                    android:layout_marginStart="15dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -212,9 +214,11 @@
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:textSize="20sp"
-                    android:background="@color/appbg"
+                    android:background="@color/transparent"
                     android:textStyle="bold"
-                    android:text=">" />
+                    android:layout_marginEnd="25dp"
+                    android:textColor="@color/appbg"
+                    android:text=" > " />
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
