@@ -16,7 +16,7 @@
         <ImageButton
             android:id="@+id/back_button"
             android:layout_width="60dp"
-            android:layout_height="match_parent"
+            android:layout_height="60dp"
             android:background="?android:attr/selectableItemBackground"
             android:contentDescription="Back"
             android:src="@drawable/baseline_arrow_back_24"
