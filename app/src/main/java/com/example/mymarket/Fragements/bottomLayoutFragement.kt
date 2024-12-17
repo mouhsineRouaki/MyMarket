@@ -28,17 +28,18 @@ class bottomLayoutFragement : BottomSheetDialogFragment() {
         val spinner = view.findViewById<Spinner>(R.id.addressInput)
         val button = view.findViewById<Button>(R.id.saveButton)
 
-        val villesList = listOf(
-            villeType.Safi, villeType.CasaBlanca,
-            villeType.Tanger, villeType.Agadir
-        )
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, villesList)
+        val villesList = VilleService.findAll().toMutableList()
+        val ListVilleType = mutableListOf<villeType>()
+        for(e in villesList){
+            ListVilleType.add(e.ville)
+        }
+
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, ListVilleType)
         spinner.adapter = adapter
 
         button.setOnClickListener {
             val selectedCity = spinner.selectedItem as villeType
             val V = VilleService.findAll().find { it.ville == selectedCity }
-
             if (V != null) {
 
                 val fragment = PanierFragment()

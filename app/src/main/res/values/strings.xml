@@ -52,6 +52,11 @@
     <string name="mot_de_passe">Mot de passe</string>
     <string name="mot_de_passe_hint">Entrez votre mot de passe</string>
     <string name="modifier">Modifier</string>
-    <string name="total">Total</string>
+    <string name="commande_num_exemple">N 1243</string>
+    <string name="commande_prix_total_exemple">Prix total: 250.0 DH</string>
+    <string name="commande_date_exemple">2024-12-03</string>
+    <string name="commande_categories_exemple">Catégories: 3</string>
+    <string name="commande_status_exemple">En cours</string>
+    <string name="icon_description">Icône de commande</string>
 
 </resources>

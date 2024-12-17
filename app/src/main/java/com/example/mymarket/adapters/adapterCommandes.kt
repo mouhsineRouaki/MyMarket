@@ -3,9 +3,11 @@ package com.example.mymarket.adapters
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.provider.Settings.Secure.getString
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.FragmentManager
@@ -28,6 +30,7 @@ class adapterCommandes(
         val date = itemView.findViewById<TextView>(R.id.commande_date)
         val prix: TextView = itemView.findViewById(R.id.commande_prix_total)
         val TotalCategory: TextView = itemView.findViewById(R.id.commande_total_category)
+        val iconCommande = itemView.findViewById<ImageView>(R.id.iconCommande)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -39,12 +42,19 @@ class adapterCommandes(
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val commande = CommandesList[position]
 
-        holder.num.text = "Commande #${commande.Num}"
-        holder.status.text ="Status :${commande.status}"
+        holder.num.text = "N°${commande.Num}"
+        holder.status.text ="${commande.status}"
         holder.date.text = "${commande.dateCmd}"
-        holder.prix.text = String.format("Prix :%.2f DH", commande.prixTotal)
-        holder.TotalCategory.text = "Total Category :${commande.TotalCategory}"
+        holder.prix.text = String.format("%.2f %s", commande.prixTotal,holder.itemView.context.getString(R.string.DH))
+        holder.TotalCategory.text = "articles(${commande.TotalCategory})"
         startAutoRefresh(10000L)
+        if(commande.status == "En cours"){
+            holder.iconCommande.setImageResource(R.drawable.en_cours)
+        }else if(commande.status == "En attente"){
+            holder.iconCommande.setImageResource(R.drawable.en_attente)
+        }else{
+            holder.iconCommande.setImageResource(R.drawable.accepte)
+        }
 
         holder.itemView.setOnClickListener{
             val fragmentDestination = DetailsHisoriqueCommandes()
