@@ -58,4 +58,5 @@
     <string name="commande_categories_exemple">الفئات: 3</string>
     <string name="commande_status_exemple">قيد التنفيذ</string>
     <string name="icon_description">رمز الطلب</string>
+    <string name="logout">تسجيل الخروج</string>
 </resources>

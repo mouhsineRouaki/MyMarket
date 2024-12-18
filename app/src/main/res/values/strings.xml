@@ -58,5 +58,6 @@
     <string name="commande_categories_exemple">Catégories: 3</string>
     <string name="commande_status_exemple">En cours</string>
     <string name="icon_description">Icône de commande</string>
+    <string name="logout">Se Deconnecter</string>
 
 </resources>
