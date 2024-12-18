@@ -58,4 +58,10 @@
     <string name="commande_categories_exemple">الفئات: 3</string>
     <string name="commande_status_exemple">قيد التنفيذ</string>
     <string name="icon_description">رمز الطلب</string>
+    <string name="logout">تسجيل الخروج</string>
+    <string name="memeCategory">منتجات من نفس الفئة</string>
+    <string name="quantite">كمية</string>
+    <string name="prix">سعر</string>
+    <string name="AjouterPanier">أضف إلى السلة</string>
+    <string name="StockInsifut">كمية غير كافية</string>
 </resources>

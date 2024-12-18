@@ -129,9 +129,9 @@ class PanierFragment : Fragment() {
         val service = PanierService.findAll()
         for (e in service) {
             total += if (e.Promo <= 0) {
-                e.prix * e.quantitePanier - 0.29
+                e.prix * e.quantitePanier + 0.29
             } else {
-                (e.prix * (1 - e.Promo / 100.0)) * e.quantitePanier - 0.29
+                (e.prix * (1 - e.Promo / 100.0)) * e.quantitePanier + 0.29
             }
         }
 

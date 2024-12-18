@@ -195,15 +195,6 @@ class SplashActivity: AppCompatActivity() {
         CategoryService.create(Category(R.drawable.cereables, "Céréales"))
 
 
-        villeTypeService.create(villeType.Safi)
-        villeTypeService.create(villeType.Taza)
-        villeTypeService.create(villeType.Marrakech)
-        villeTypeService.create(villeType.CasaBlanca)
-        villeTypeService.create(villeType.Agadir)
-        villeTypeService.create(villeType.Tanger)
-        villeTypeService.create(villeType.Fes)
-        villeTypeService.create(villeType.ElJadida)
-        villeTypeService.create(villeType.Rabat)
         Handler(Looper.getMainLooper()).postDelayed({
             val image = findViewById<ImageView>(R.id.logo)
             image.setImageResource(R.drawable.logo)
@@ -211,6 +202,6 @@ class SplashActivity: AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(Intent(this, GererComptes::class.java))
             finish()
-        }, 4000)
+        }, 2500)
     }
 }

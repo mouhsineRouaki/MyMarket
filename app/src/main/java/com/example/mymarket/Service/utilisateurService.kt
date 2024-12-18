@@ -8,7 +8,9 @@ import com.example.mymarket.interfaces.IDAO
 
 object utilisateurService: IDAO<utilisateur> {
     private val produitCommande= mutableListOf<utilisateur>()
+    val utulisiteurEnCours= mutableListOf<utilisateur>()
     override fun create(p: utilisateur): Boolean {
+        utulisiteurEnCours.add(p)
         return produitCommande.add(p)
     }
 
@@ -29,9 +31,15 @@ object utilisateurService: IDAO<utilisateur> {
     override fun findById(id: Int): utilisateur? {
        TODO()
     }
+    fun Clear(){
+      produitCommande.clear()
+    }
 
     override fun findAll(): MutableList<utilisateur> {
         return produitCommande.toMutableList()
+    }
+    fun findAllUtlisateur(): MutableList<utilisateur> {
+        return utulisiteurEnCours.toMutableList()
     }
     fun ClearAndCreate(u:utilisateur){
         produitCommande.clear()

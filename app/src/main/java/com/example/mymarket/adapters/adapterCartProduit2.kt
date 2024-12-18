@@ -45,7 +45,7 @@ class adapterCartProduit2(
         holder.productImage.setImageResource(produit.image)
         holder.productName.text = produit.nomP.toUpperCase()
         holder.productDetails.text = produit.description
-        holder.productPrice.text = "${produit.prix} DH"
+        holder.productPrice.text = "${produit.prix} ${holder.itemView.context.getString(R.string.DH)}"
         if (produit.quantite ==0){
             holder.textViewOverly.visibility= View.VISIBLE
             holder.textViewOverly.rotation = 45f
