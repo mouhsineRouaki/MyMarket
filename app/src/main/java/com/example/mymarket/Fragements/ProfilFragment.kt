@@ -53,14 +53,14 @@ class ProfilFragment : Fragment() {
         val partager = view.findViewById<LinearLayout>(R.id.partager)
         val logout = view.findViewById<LinearLayout>(R.id.LougOut)
         aide.setOnClickListener {
-            val phoneNumber = "0614291145"
+            val phoneNumber = "tel:0614291145"
             val intent = Intent(Intent.ACTION_DIAL).apply {
                 data = Uri.parse(phoneNumber)
             }
             startActivity(intent)
         }
         partager.setOnClickListener {
-            val supportNumber = "123456789"
+            val supportNumber = "0614291145"
             val message = "Contactez notre support au numéro : $supportNumber"
 
             val intent = Intent(Intent.ACTION_SEND).apply {
