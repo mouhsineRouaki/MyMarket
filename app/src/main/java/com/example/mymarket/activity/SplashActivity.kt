@@ -203,6 +203,6 @@ class SplashActivity: AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(Intent(this, GererComptes::class.java))
             finish()
-        }, 4000)
+        }, 2500)
     }
 }

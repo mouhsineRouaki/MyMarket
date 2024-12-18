@@ -31,6 +31,9 @@ object utilisateurService: IDAO<utilisateur> {
     override fun findById(id: Int): utilisateur? {
        TODO()
     }
+    fun Clear(){
+      produitCommande.clear()
+    }
 
     override fun findAll(): MutableList<utilisateur> {
         return produitCommande.toMutableList()

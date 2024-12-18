@@ -24,6 +24,8 @@ import com.example.mymarket.Service.NotificationService
 import com.example.mymarket.Service.PanierService
 import com.example.mymarket.Service.ProduitService
 import com.example.mymarket.Service.utilisateurService
+import com.example.mymarket.activity.MainActivity
+import com.example.mymarket.activity.SplashActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.util.Locale
 
@@ -73,7 +75,8 @@ class ProfilFragment : Fragment() {
             builder.setTitle("Confirmation de Loug Out")
             builder.setMessage("do you want to Loug Out")
             builder.setPositiveButton("OK") { dialog, which ->
-
+                utilisateurService.Clear()
+                startActivity(Intent(requireContext(), SplashActivity::class.java))
             }
             builder.setNegativeButton("Annuler",null)
             builder.show()
