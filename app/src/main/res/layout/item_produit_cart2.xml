@@ -80,7 +80,7 @@
             android:layout_marginTop="12dp"
             android:background="@drawable/rounded_price_background"
             android:text="45.00 DH"
-            android:textColor="@color/titleColor"
+            android:textColor="@color/Buttontext"
             android:textSize="16sp"
             android:textStyle="bold" />
     </LinearLayout>

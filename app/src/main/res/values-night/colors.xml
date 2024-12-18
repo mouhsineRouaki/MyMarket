@@ -4,4 +4,5 @@
     <color name="titleColor">#FFFFFF</color>
     <color name="buttoncolor">#BCEFDC</color>
     <color name="colorMenu">#124936</color>
+    <color name="bgproduit">#124936</color>
 </resources>

@@ -23,4 +23,5 @@
     <color name="colorMenu">#BCEFDC</color>
     <color name="grey">#CECECE</color>
     <color name="red">#FF0000</color>
+    <color name="bgproduit">#94EFE5BC</color>
 </resources>

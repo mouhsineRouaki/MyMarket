@@ -1,7 +1,7 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <gradient
         android:startColor="@color/appbg"
-        android:endColor="@color/colorMenu"
+        android:endColor="@color/bgproduit"
         android:angle="180"/>
 
     <corners android:radius="16dp" />
