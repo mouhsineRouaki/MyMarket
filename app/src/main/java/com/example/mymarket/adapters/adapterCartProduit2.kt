@@ -31,6 +31,7 @@ class adapterCartProduit2(
         val productPrice: TextView = itemView.findViewById(R.id.prix)
         val add: ImageButton = itemView.findViewById(R.id.add)
         val textViewOverly :TextView =itemView.findViewById(R.id.text_overlay)
+        val promotext : TextView = itemView.findViewById(R.id.promoText2)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -41,6 +42,7 @@ class adapterCartProduit2(
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val produit = productList[position]
+
         holder.textViewOverly.visibility= View.GONE
         holder.productImage.setImageResource(produit.image)
         holder.productName.text = produit.nomP.toUpperCase()
@@ -49,6 +51,10 @@ class adapterCartProduit2(
         if (produit.quantite ==0){
             holder.textViewOverly.visibility= View.VISIBLE
             holder.textViewOverly.rotation = 45f
+        }
+        if(produit.Promo == 0){
+            holder.promotext.visibility = View.GONE
+            holder.promotext.text = "${produit.Promo}"
         }
 
         holder.itemView.setOnClickListener {
