@@ -41,9 +41,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:backgroundTint="@color/buttoncolor"
+            android:backgroundTint="@color/colorMenu"
             android:text="Ajouter au panier"
-            android:textColor="@android:color/white" />
+            android:textColor="@color/titleColor"
+            android:textStyle="bold"/>
     </LinearLayout>
     <FrameLayout
         android:layout_width="match_parent"

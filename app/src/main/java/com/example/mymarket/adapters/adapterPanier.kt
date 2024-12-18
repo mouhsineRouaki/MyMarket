@@ -1,5 +1,6 @@
 package com.example.mymarket.adapters
 
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -76,6 +77,7 @@ class adapterPanier(
             holder.reduction.visibility = View.GONE
             holder.productReduit.visibility = View.GONE
         } else {
+            holder.productPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
             holder.reduction.visibility = View.VISIBLE
             holder.reduction.text = "-${produit.Promo}%"
             holder.productReduit.visibility = View.VISIBLE
