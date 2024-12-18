@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.FragmentManager
@@ -25,6 +26,7 @@ class adapterCommandes(
 ) : RecyclerView.Adapter<adapterCommandes.ProductViewHolder>() {
 
     class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val itemid : LinearLayout = itemView.findViewById(R.id.itemcmd)
         val num: TextView = itemView.findViewById(R.id.commande_num)
         val status: TextView = itemView.findViewById(R.id.commande_status)
         val date = itemView.findViewById<TextView>(R.id.commande_date)
@@ -50,10 +52,14 @@ class adapterCommandes(
         startAutoRefresh(10000L)
         if(commande.status == "En cours"){
             holder.iconCommande.setImageResource(R.drawable.en_cours)
+            holder.itemid.setBackgroundResource(R.drawable.item_command_encours)
+
         }else if(commande.status == "En attente"){
             holder.iconCommande.setImageResource(R.drawable.en_attente)
+            holder.itemid.setBackgroundResource(R.drawable.item_commande_enattent)
         }else{
             holder.iconCommande.setImageResource(R.drawable.accepte)
+            holder.itemid.setBackgroundResource(R.drawable.item_commandes_bg)
         }
 
         holder.itemView.setOnClickListener{

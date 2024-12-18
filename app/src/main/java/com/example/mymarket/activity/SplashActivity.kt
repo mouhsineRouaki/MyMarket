@@ -24,6 +24,7 @@ class SplashActivity: AppCompatActivity() {
         enableEdgeToEdge()
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
         setContentView(R.layout.splash_activity)
+        ProduitService.create(Produit(R.drawable.dedourant,"Adidas Stan Smith Déodorant", "Adidas Stan Smith Déodorant Adidas Originals Chaussure, frais et cool, parfum        ", 25.0, "Embellissement", 99))
         ProduitService.create(Produit(R.drawable.ace_1l,"Ace 1L", "Nettoyant Manzili Sol Sans Javel Rose Ace 1L        ", 15.0, "nettoyage", 50))
         ProduitService.create(Produit(R.drawable.pomme_fuji,"Pommes Fuji", "Pommes sucrées et croquantes, parfaites pour les collations.", 4.8, "Fruits", 2))
         ProduitService.create(Produit(R.drawable.bananes,10,"Bananes", "Bananes mûres et sucrées, riches en potassium.", 4.7, "Fruits", 50))
