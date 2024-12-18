@@ -61,7 +61,7 @@
     <string name="logout">Se Deconnecter</string>
     <string name="memeCategory">Produits de meme catégorie</string>
     <string name="quantite">Quantite</string>
-    <string name="prix">prix</string>
+    <string name="prix">Prix</string>
     <string name="AjouterPanier">Ajouter au panier</string>
     <string name="StockInsifut">Stock insuffisant</string>
 </resources>
