@@ -1,5 +1,6 @@
 package com.example.mymarket.adapters
 
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -53,13 +54,16 @@ class adapterCommandes(
         if(commande.status == "En cours"){
             holder.iconCommande.setImageResource(R.drawable.en_cours)
             holder.itemid.setBackgroundResource(R.drawable.item_command_encours)
+            holder.status.setTextColor(Color.parseColor("#7A6A44"))
 
         }else if(commande.status == "En attente"){
             holder.iconCommande.setImageResource(R.drawable.en_attente)
             holder.itemid.setBackgroundResource(R.drawable.item_commande_enattent)
+            holder.status.setTextColor(Color.parseColor("#7A4F33"))
         }else{
             holder.iconCommande.setImageResource(R.drawable.accepte)
             holder.itemid.setBackgroundResource(R.drawable.item_commandes_bg)
+            holder.status.setTextColor(Color.parseColor("#389975"))
         }
 
         holder.itemView.setOnClickListener{
