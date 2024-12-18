@@ -183,6 +183,29 @@
                 android:textSize="16sp"
                 android:textColor="@android:color/black" />
         </LinearLayout>
+        <LinearLayout
+            android:id="@+id/LougOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="12dp"
+            android:gravity="center_vertical"
+            android:background="?android:attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/baseline_share_24"
+                android:contentDescription="Icon" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/Partager"
+                android:textSize="16sp"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
 
 
     </LinearLayout>

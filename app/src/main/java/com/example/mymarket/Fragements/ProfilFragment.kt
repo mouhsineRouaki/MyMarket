@@ -1,8 +1,10 @@
 package com.example.mymarket.Fragements
 
+import android.content.Intent
 import android.content.res.Configuration
 import android.content.res.Resources
 import android.graphics.Outline
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,9 +14,14 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import com.example.mymarket.DATA.Notification
 import com.example.mymarket.DATA.Produit
 import com.example.mymarket.R
+import com.example.mymarket.Service.NotificationService
+import com.example.mymarket.Service.PanierService
 import com.example.mymarket.Service.ProduitService
 import com.example.mymarket.Service.utilisateurService
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -40,6 +47,37 @@ class ProfilFragment : Fragment() {
         val imageProfil = view.findViewById<ImageView>(R.id.profile_picture)
         val NomComplet = view.findViewById<TextView>(R.id.user_name)
         val mesInfo = view.findViewById<LinearLayout>(R.id.mesInfo)
+        val aide = view.findViewById<LinearLayout>(R.id.aide)
+        val partager = view.findViewById<LinearLayout>(R.id.partager)
+        val logout = view.findViewById<LinearLayout>(R.id.LougOut)
+        aide.setOnClickListener {
+            val phoneNumber = "0614291145"
+            val intent = Intent(Intent.ACTION_DIAL).apply {
+                data = Uri.parse(phoneNumber)
+            }
+            startActivity(intent)
+        }
+        partager.setOnClickListener {
+            val supportNumber = "123456789"
+            val message = "Contactez notre support au numéro : $supportNumber"
+
+            val intent = Intent(Intent.ACTION_SEND).apply {
+                type = "text/plain"
+                putExtra(Intent.EXTRA_TEXT, message)
+                putExtra(Intent.EXTRA_SUBJECT, "Numéro de Support")
+            }
+            startActivity(Intent.createChooser(intent, "Partager le support via :"))
+        }
+        logout.setOnClickListener {
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setTitle("Confirmation de Loug Out")
+            builder.setMessage("do you want to Loug Out")
+            builder.setPositiveButton("OK") { dialog, which ->
+
+            }
+            builder.setNegativeButton("Annuler",null)
+            builder.show()
+        }
         mesInfo.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, InformationFragment())

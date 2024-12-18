@@ -36,10 +36,9 @@ class loginFragment : Fragment() {
             val emailInput = email.text.toString().trim()
             val passwordInput = password.text.toString().trim()
 
-            val listComptes = utilisateurService.findAll().toMutableList()
+            val listComptes = utilisateurService.findAllUtlisateur().toMutableList()
             val utilisateurTrouve = listComptes.find { it.email == emailInput && it.password == passwordInput }
             val u =utilisateur("mohsin","rouaki","21/12/2004","homme", ville(villeType.Agadir,10_000))
-
                 utilisateurService.ClearAndCreate(u)
                 startActivity(Intent(requireContext(), MainActivity::class.java))
         }

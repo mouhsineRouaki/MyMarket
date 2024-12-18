@@ -6,6 +6,7 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
@@ -16,6 +17,7 @@ import com.example.mymarket.DATA.Commandes
 import com.example.mymarket.R
 import com.example.mymarket.Service.CommandesService
 import com.example.mymarket.adapters.adapterCommandes
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.sql.Date
 
 class CommandeFragment : Fragment() {
@@ -42,6 +44,14 @@ class CommandeFragment : Fragment() {
         val encoursTextView = view.findViewById<TextView>(R.id.encours)
         val enattentsTextView = view.findViewById<TextView>(R.id.enattents)
         val livreTextView = view.findViewById<TextView>(R.id.livre)
+        val serch=view.findViewById<EditText>(R.id.searchEditText)
+        val bottomNavigation = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        serch.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, CategoryFragment())
+                .commit()
+            bottomNavigation?.selectedItemId = R.id.category
+        }
 
         recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         commandes=CommandesService.findAll()
