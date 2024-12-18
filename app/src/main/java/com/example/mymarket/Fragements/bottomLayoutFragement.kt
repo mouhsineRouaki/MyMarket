@@ -41,7 +41,6 @@ class bottomLayoutFragement : BottomSheetDialogFragment() {
             val selectedCity = spinner.selectedItem as villeType
             val V = VilleService.findAll().find { it.ville == selectedCity }
             if (V != null) {
-
                 val fragment = PanierFragment()
                 val bundle = Bundle()
                 bundle.putInt("id", V.id)

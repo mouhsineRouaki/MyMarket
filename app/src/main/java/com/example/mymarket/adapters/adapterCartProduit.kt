@@ -64,6 +64,7 @@ class adapterCartProduit(
         holder.productPrice.text = String.format("${holder.itemView.context.getString(R.string.prix)} : %.2f ${holder.itemView.context.getString(R.string.DH)}", produit.prix)
         holder.produitDescription.text = produit.description.toUpperCase()
 
+
         holder.addToCartButton.setOnClickListener {
             val p = PanierService.findAll().map { it.nomP }
             if(produit.quantite == 0){

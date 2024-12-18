@@ -82,5 +82,5 @@ class DetailsFragment: Fragment() {
         val adapter1 = adapterCartProduit2(listSansProduitsDetailler,parentFragmentManager)
         recyclerView.adapter = adapter1
 
-        }
+    }
 }
