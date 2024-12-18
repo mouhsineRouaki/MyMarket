@@ -26,13 +26,24 @@
             android:textColor="@color/titleColor"
             android:textSize="18sp"
             android:textStyle="bold" />
+        <TextView
+            android:id="@+id/descriptionProduit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textStyle="italic"
+            android:maxLines="2"
+            android:text="Prix : 0.00 DH"
+            android:textColor="@color/titleColor"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/productPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="7dp"
             android:text="Prix : 0.00 DH"
+            android:textStyle="bold"
             android:textColor="@color/titleColor"
             android:textSize="16sp" />
 
@@ -42,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:backgroundTint="@color/colorMenu"
-            android:text="Ajouter au panier"
+            android:text="@string/AjouterPanier"
             android:textColor="@color/titleColor"
             android:textStyle="bold"/>
     </LinearLayout>

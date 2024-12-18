@@ -28,6 +28,7 @@ class adapterCartProduit(
         val productImage: ImageView = itemView.findViewById(R.id.productImage)
         val productName: TextView = itemView.findViewById(R.id.productName)
         val productPrice: TextView = itemView.findViewById(R.id.productPrice)
+        val produitDescription: TextView = itemView.findViewById(R.id.descriptionProduit)
         val addToCartButton: Button = itemView.findViewById(R.id.addToCartButton)
         val cart = itemView.findViewById<LinearLayout>(R.id.cartProduit)
     }
@@ -60,7 +61,8 @@ class adapterCartProduit(
 
         holder.productImage.setImageResource(produit.image)
         holder.productName.text = produit.nomP.toUpperCase()
-        holder.productPrice.text = String.format(" Prix: %.2f DH", produit.prix)
+        holder.productPrice.text = String.format("${holder.itemView.context.getString(R.string.prix)} : %.2f ${holder.itemView.context.getString(R.string.DH)}", produit.prix)
+        holder.produitDescription.text = produit.description.toUpperCase()
 
         holder.addToCartButton.setOnClickListener {
             val p = PanierService.findAll().map { it.nomP }

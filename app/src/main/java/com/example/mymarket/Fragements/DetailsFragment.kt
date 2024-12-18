@@ -36,6 +36,7 @@ class DetailsFragment: Fragment() {
         val nomDetails = view.findViewById<TextView>(R.id.nomDetails)
         val prixDetails = view.findViewById<TextView>(R.id.prixDetails)
         val quantiteDetails = view.findViewById<TextView>(R.id.quantiteDetails)
+        val DescriptionDetails = view.findViewById<TextView>(R.id.descriptionDetails)
         val addToCartButton = view.findViewById<Button>(R.id.add_to_cart_button)
         val bottomNavigation = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
         val retour = view.findViewById<ImageView>(R.id.retour)
@@ -56,8 +57,9 @@ class DetailsFragment: Fragment() {
             val image = bundle.getInt("img")
 
             nomDetails.text = nomP
-            prixDetails.text = "Prix :$prix dh"
-            quantiteDetails.text = "Quantité : $quantite"
+            DescriptionDetails.text = description
+            prixDetails.text = "${getString(R.string.prix)} : $prix ${getString(R.string.DH)}"
+            quantiteDetails.text = "${getString(R.string.quantite)}  : $quantite"
             imageDetails.setImageResource(image)
             val produit= Produit(image,nomP.toString(),description.toString(),prix,category.toString(),quantite)
             addToCartButton.setOnClickListener {
