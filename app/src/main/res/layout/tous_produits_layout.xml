@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/appbackground"
+    android:background="@color/appbg"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <androidx.appcompat.widget.Toolbar
@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:background="@color/white"
+        android:background="@color/appbg"
         app:title=""
         android:layoutDirection="locale"
         android:contentDescription="@string/toolbar">
@@ -19,7 +19,7 @@
             android:id="@+id/retour"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@color/white"
+            android:background="@color/appbg"
             android:layoutDirection="ltr"
             android:src="@drawable/baseline_arrow_back_24"
             android:contentDescription="@string/back_button"/>
@@ -30,6 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:background="@drawable/edittext"
+            android:backgroundTint="@color/searchcolor"
             android:drawableStart="@drawable/baseline_search_24"
             android:drawablePadding="8dp"
             android:hint="@string/search"
@@ -46,10 +47,13 @@
         android:text="@string/Tousproduits"
         android:gravity="center_horizontal"
         android:textStyle="bold"
-        android:textSize="18dp"/>
+        android:textSize="18dp"
+        android:textColor="@color/titleColor"
+        android:background="@color/appbg"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycle_tous_produits"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:background="@color/appbg"/>
 
 </LinearLayout>

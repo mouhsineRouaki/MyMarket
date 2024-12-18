@@ -6,7 +6,8 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     app:cardCornerRadius="20dp"
-    app:cardElevation="4dp">
+    app:cardElevation="4dp"
+    android:backgroundTint="@color/panierbg">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -60,7 +61,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="DURACELL Piles C2 PLUSP x 10U"
-                    android:textColor="#000000"
+                    android:textColor="@color/titleColor"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:maxLines="2"
@@ -170,13 +171,21 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginTop="6dp">
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total : "
+                        android:textColor="@color/titleColor"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/total_produit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Total: 76.51"
-                        android:textColor="#263238"
+                        android:text="76.51"
+                        android:textColor="@color/titleColor"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -184,7 +193,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/DH"
-                        android:textColor="#263238"
+                        android:textColor="@color/titleColor"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:layout_marginStart="2dp" />

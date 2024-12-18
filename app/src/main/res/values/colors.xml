@@ -23,4 +23,9 @@
     <color name="colorMenu">#BCEFDC</color>
     <color name="grey">#CECECE</color>
     <color name="red">#FF0000</color>
+    <color name="bgproduit">#94EFE5BC</color>
+    <color name="searchcolor">#ecf2f0</color>
+    <color name="panierbg">#ecf2f0</color>
+    <color name="selected_item_background" >@color/colorMenu</color>
+    <color name="unselected_item_background2" >#00FFFFFF</color>
 </resources>
