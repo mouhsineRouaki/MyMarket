@@ -3,13 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="50dp"
-    android:background="@color/white">
+    android:background="@color/appbg">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/appbg"
         android:elevation="4dp"
         android:padding="8dp">
         <ImageButton
@@ -27,7 +27,7 @@
             android:layout_gravity="center"
             android:text="Notifications"
             android:textSize="20sp"
-            android:textColor="@android:color/black"
+            android:textColor="@color/titleColor"
             android:fontFamily="sans-serif-medium" />
 
     </androidx.appcompat.widget.Toolbar>

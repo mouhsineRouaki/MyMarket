@@ -48,7 +48,7 @@ class adapterCategory(
             }
         }
         val background = if (category.Select) {
-            R.drawable.stroke_black
+            R.drawable.gardient_category
         } else {
             R.drawable.cercle
         }

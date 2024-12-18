@@ -63,7 +63,7 @@
             android:gravity="center"
             android:clickable="true"
             android:text="@string/modifier_avatar"
-            android:textColor="@android:color/holo_blue_bright"
+            android:textColor="@color/titleColor"
             android:textSize="16sp" />
 
         <TextView
@@ -77,7 +77,7 @@
         <EditText
             android:id="@+id/nomEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:hint="@string/nom_hint"
             android:textColor="@color/buttoncolor"
             android:textColorHint="@color/buttoncolor"
@@ -95,7 +95,7 @@
         <EditText
             android:id="@+id/prenomEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:hint="@string/prenom_hint"
             android:textColor="@color/buttoncolor"
             android:textColorHint="@color/buttoncolor"
@@ -113,7 +113,7 @@
         <EditText
             android:id="@+id/dateEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:hint="@string/date_hint"
             android:textColor="@color/buttoncolor"
             android:textColorHint="@color/buttoncolor"
@@ -131,7 +131,7 @@
         <Spinner
             android:id="@+id/villeSpinner"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="56dp"
             android:layout_marginTop="8dp"
             android:layoutDirection="ltr"
             android:background="@drawable/spinner_background" />
@@ -147,7 +147,7 @@
         <Spinner
             android:id="@+id/genreSpinner"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="56dp"
             android:layout_marginTop="8dp"
             android:layoutDirection="ltr"
             android:background="@drawable/spinner_background" />
@@ -163,7 +163,7 @@
         <Switch
             android:id="@+id/infoSwitch"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="56dp"
             android:background="@drawable/edittext"
             android:text="@string/afficher_informations"
             android:layout_marginTop="8dp" />
@@ -185,7 +185,7 @@
             <EditText
                 android:id="@+id/emailEditText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="56dp"
                 android:hint="@string/email_hint"
                 android:textColor="@color/buttoncolor"
                 android:textColorHint="@color/buttoncolor"
@@ -203,7 +203,7 @@
             <EditText
                 android:id="@+id/passwordEditText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="56dp"
                 android:hint="@string/mot_de_passe_hint"
                 android:textColor="@color/buttoncolor"
                 android:textColorHint="@color/buttoncolor"
@@ -219,6 +219,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="46dp"
-            android:padding="12dp" />
+            android:padding="12dp"
+            android:backgroundTint="@color/buttoncolor"/>
     </LinearLayout>
 </ScrollView>

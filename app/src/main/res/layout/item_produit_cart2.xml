@@ -4,56 +4,61 @@
     android:layout_width="220dp"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="4dp">
+    app:cardCornerRadius="16dp"
+    app:cardElevation="6dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="8dp"
-        android:background="@drawable/gardient_menu">
+        android:padding="12dp"
+        android:background="@drawable/gradient_background">
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_gravity="center"
             android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/product_image"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
-            android:layout_gravity="center"
-            android:scaleType="centerCrop" />
+            <ImageView
+                android:id="@+id/product_image"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:clipToOutline="true"
+                android:background="@drawable/rounded_border_image" />
 
             <ImageButton
                 android:id="@+id/add"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_gravity="end"
+                android:layout_gravity="end|top"
+                android:layout_margin="8dp"
                 android:background="@drawable/border_image"
                 android:src="@drawable/ic_add" />
+
             <TextView
                 android:id="@+id/text_overlay"
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="stock insufisant"
                 android:gravity="center"
                 android:layout_gravity="center"
+                android:text="Stock insuffisant"
                 android:textStyle="bold"
-                android:background="@drawable/text_view"
-                android:textSize="20sp"
-                android:textColor="@android:color/white" />
+                android:background="@drawable/overlay_background"
+                android:padding="8dp"
+                android:textSize="16sp"
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
         </FrameLayout>
 
         <TextView
             android:id="@+id/product_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             android:text="Nom du produit"
             android:textColor="@color/titleColor"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -61,8 +66,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:maxLines="1"
-        android:ellipsize="end"
+            android:maxLines="2"
+            android:ellipsize="end"
             android:text="Description courte"
             android:textColor="@color/titleColor"
             android:textSize="14sp" />
@@ -72,10 +77,11 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:gravity="center"
-            android:layout_gravity="center"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/border_image"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/rounded_price_background"
             android:text="45.00 DH"
-            android:textColor="@color/titleColor"/>
+            android:textColor="@color/titleColor"
+            android:textSize="16sp"
+            android:textStyle="bold" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
