@@ -24,6 +24,7 @@ class SplashActivity: AppCompatActivity() {
         enableEdgeToEdge()
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
         setContentView(R.layout.splash_activity)
+        ProduitService.create(Produit(R.drawable.ace_1l,"Ace 1L", "Nettoyant Manzili Sol Sans Javel Rose Ace 1L        ", 15.0, "nettoyage", 50))
         ProduitService.create(Produit(R.drawable.pomme_fuji,"Pommes Fuji", "Pommes sucrées et croquantes, parfaites pour les collations.", 4.8, "Fruits", 2))
         ProduitService.create(Produit(R.drawable.bananes,10,"Bananes", "Bananes mûres et sucrées, riches en potassium.", 4.7, "Fruits", 50))
         ProduitService.create(Produit(R.drawable.oranges,"Oranges", "Oranges juteuses et sucrées, idéales pour un jus frais.", 4.9, "Fruits", 60))
@@ -166,6 +167,8 @@ class SplashActivity: AppCompatActivity() {
         VilleService.create(ville(villeType.KsarElKebir, 22_000))
 
 
+        CategoryService.createArabe(Category(R.drawable.net, "تنظيف"))
+        CategoryService.createArabe(Category(R.drawable.embellissement, "تجميل"))
         CategoryService.createArabe(Category(R.drawable.fruits, "فواكه"))
         CategoryService.createArabe(Category(R.drawable.legumes, "خضروات"))
         CategoryService.createArabe(Category(R.drawable.poisson, "أسماك"))
@@ -175,7 +178,11 @@ class SplashActivity: AppCompatActivity() {
         CategoryService.createArabe(Category(R.drawable.boissons, "مشروبات"))
         CategoryService.createArabe(Category(R.drawable.epicess, "توابل"))
         CategoryService.createArabe(Category(R.drawable.cereables, "حبوب"))
+        CategoryService.createArabe(Category(R.drawable.fruits, "فواكه"))
 
+
+        CategoryService.create(Category(R.drawable.net, "nettoyage"))
+        CategoryService.create(Category(R.drawable.embellissement, "Embellissement"))
         CategoryService.create(Category(R.drawable.fruits, "Fruits"))
         CategoryService.create(Category(R.drawable.legumes, "Légumes"))
         CategoryService.create(Category(R.drawable.poisson, "Poissons"))

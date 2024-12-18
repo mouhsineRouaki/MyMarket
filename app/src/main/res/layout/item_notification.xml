@@ -1,10 +1,13 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:padding="12dp"
-    android:gravity="center_vertical">
+    android:gravity="center_vertical"
+    android:background="@color/panierbg"
+    android:layout_margin="6dp"
+    android:clickable="true">
 
     <ImageView
         android:id="@+id/userIcon"
@@ -28,7 +31,7 @@
             android:layout_height="wrap_content"
             android:text="John Doe liked your post"
             android:textSize="14sp"
-            android:textColor="@android:color/black" />
+            android:textColor="@color/titleColor" />
 
         <TextView
             android:id="@+id/notificationTime"

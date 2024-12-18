@@ -3,12 +3,12 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@color/appbg"
     android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/appbg"
         android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
@@ -27,12 +27,13 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:background="@drawable/edittext"
+            android:backgroundTint="@color/searchcolor"
             android:drawableStart="@drawable/baseline_search_24"
             android:drawablePadding="8dp"
             android:hint="@string/search"
             android:padding="16dp"
             android:layout_gravity="end"
-            android:textColor="#000000"
+            android:textColor="@color/titleColor"
             android:textSize="16sp"
             android:layoutDirection="locale"
             android:contentDescription="@string/search_edittext" />

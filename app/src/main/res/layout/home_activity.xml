@@ -40,7 +40,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="ghgdwh"
-                android:textColor="@color/black"
+                android:textColor="@color/titleColor"
                 android:textSize="15dp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -72,7 +72,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1"
-                android:textColor="@color/white"
+                android:textColor="@color/appbg"
                 android:textSize="15dp"
                 android:layout_gravity="center"
             android:textStyle="bold" />
@@ -95,6 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:background="@drawable/edittext"
+            android:backgroundTint="@color/searchcolor"
             android:drawableStart="@drawable/baseline_search_24"
             android:drawablePadding="8dp"
             android:hint="@string/search"
