@@ -38,6 +38,7 @@ class DetailsFragment: Fragment() {
         val quantiteDetails = view.findViewById<TextView>(R.id.quantiteDetails)
         val DescriptionDetails = view.findViewById<TextView>(R.id.descriptionDetails)
         val addToCartButton = view.findViewById<Button>(R.id.add_to_cart_button)
+        val PromoDetails = view.findViewById<TextView>(R.id.promoText)
         val bottomNavigation = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
         val retour = view.findViewById<ImageView>(R.id.retour)
         retour.setOnClickListener {
@@ -55,6 +56,11 @@ class DetailsFragment: Fragment() {
             val prix = bundle.getDouble("prix")
             val quantite = bundle.getInt("quantite")
             val image = bundle.getInt("img")
+            val promo = bundle.getInt("Promo")
+            if(promo > 0){
+                PromoDetails.visibility = View.VISIBLE
+                PromoDetails.text = "-${promo}"
+            }
 
             nomDetails.text = nomP
             DescriptionDetails.text = description

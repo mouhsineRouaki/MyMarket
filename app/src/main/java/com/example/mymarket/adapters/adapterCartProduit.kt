@@ -1,6 +1,7 @@
 package com.example.mymarket.adapters
 
 import android.os.Build
+import android.os.Bundle
 import com.example.mymarket.DATA.Produit
 
 import android.view.LayoutInflater
@@ -12,8 +13,10 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mymarket.DATA.Notification
+import com.example.mymarket.Fragements.DetailsFragment
 import com.example.mymarket.R
 import com.example.mymarket.Service.NotificationService
 import com.example.mymarket.Service.PanierService
@@ -22,6 +25,7 @@ import java.util.Locale
 
 class adapterCartProduit(
     private var productList: List<Produit>,
+    val childFragmentManager: FragmentManager
 ) : RecyclerView.Adapter<adapterCartProduit.ProductViewHolder>() {
 
     class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -80,6 +84,23 @@ class adapterCartProduit(
             }else{
                 Toast.makeText(it.context, "${produit.nomP} Produit deja en panier", Toast.LENGTH_SHORT).show()
             }
+        }
+        holder.itemView.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("nomP", produit.nomP)
+            bundle.putString("cat", produit.category)
+            bundle.putString("desc", produit.description)
+            bundle.putDouble("prix", produit.prix)
+            bundle.putInt("quantite", produit.quantite)
+            bundle.putInt("img", produit.image)
+            bundle.putInt("Promo", produit.Promo)
+
+            val fragment = DetailsFragment()
+            fragment.arguments = bundle
+            childFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit()
         }
     }
 
