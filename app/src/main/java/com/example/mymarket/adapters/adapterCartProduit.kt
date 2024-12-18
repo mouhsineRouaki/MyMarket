@@ -31,6 +31,7 @@ class adapterCartProduit(
         val produitDescription: TextView = itemView.findViewById(R.id.descriptionProduit)
         val addToCartButton: Button = itemView.findViewById(R.id.addToCartButton)
         val cart = itemView.findViewById<LinearLayout>(R.id.cartProduit)
+        val textpromo = itemView.findViewById<TextView>(R.id.promoText)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -63,6 +64,7 @@ class adapterCartProduit(
         holder.productName.text = produit.nomP.toUpperCase()
         holder.productPrice.text = String.format("${holder.itemView.context.getString(R.string.prix)} : %.2f ${holder.itemView.context.getString(R.string.DH)}", produit.prix)
         holder.produitDescription.text = produit.description.toUpperCase()
+        holder.textpromo.text = "-${produit.Promo}%"
 
 
         holder.addToCartButton.setOnClickListener {
