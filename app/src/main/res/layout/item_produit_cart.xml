@@ -21,6 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:maxLines="2"
             android:text="Nom du produit"
             android:textColor="@color/titleColor"
             android:textSize="18sp"

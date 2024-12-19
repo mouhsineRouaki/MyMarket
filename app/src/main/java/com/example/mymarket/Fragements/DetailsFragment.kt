@@ -59,7 +59,7 @@ class DetailsFragment: Fragment() {
             val promo = bundle.getInt("Promo")
             if(promo > 0){
                 PromoDetails.visibility = View.VISIBLE
-                PromoDetails.text = "-${promo}"
+                PromoDetails.text = "-${promo}%"
             }
 
             nomDetails.text = nomP
