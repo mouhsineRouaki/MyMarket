@@ -65,6 +65,7 @@ class adapterCartProduit2(
             bundle.putDouble("prix", produit.prix)
             bundle.putInt("quantite", produit.quantite)
             bundle.putInt("img", produit.image)
+            bundle.putInt("Promo", produit.Promo)
 
             val fragment = DetailsFragment()
             fragment.arguments = bundle

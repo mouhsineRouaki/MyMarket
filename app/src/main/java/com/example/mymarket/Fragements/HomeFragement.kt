@@ -109,7 +109,7 @@ class HomeFragement: Fragment() {
         recyclerPlusVente.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
 
 
-        adapter = adapterCartProduit(listProduitPromotions)
+        adapter = adapterCartProduit(listProduitPromotions,parentFragmentManager)
         recyclerView.adapter = adapter
 
         recyclerView.addItemDecoration(adapterCartProduit.CarouselEffect())
