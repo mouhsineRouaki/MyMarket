@@ -26,11 +26,10 @@
                 android:id="@+id/user"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-
                 android:layout_marginRight="10dp"
                 android:background="@drawable/image_button_cercle"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_user" />
+                android:src="@drawable/pfp" />
 
             <TextView
                 android:id="@+id/nom"

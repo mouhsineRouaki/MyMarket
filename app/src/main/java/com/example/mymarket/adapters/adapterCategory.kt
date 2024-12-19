@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.view.ViewOutlineProvider
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.compose.ui.graphics.findFirstRoot
 import androidx.core.content.ContextCompat
@@ -25,6 +26,7 @@ class adapterCategory(
     class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val image=itemView.findViewById<ImageView>(R.id.id_image)
         val texte=itemView.findViewById<TextView>(R.id.id_nomCategory)
+        val la=itemView.findViewById<LinearLayout>(R.id.id_category)
 
     }
 
@@ -52,7 +54,7 @@ class adapterCategory(
         } else {
             R.drawable.cercle
         }
-        holder.image.setBackgroundResource(background)
+        holder.la.setBackgroundResource(background)
 
         holder.itemView.setOnClickListener {
             onCategoryClick(category)
