@@ -48,13 +48,14 @@ class adapterCartProduit2(
         holder.productName.text = produit.nomP.toUpperCase()
         holder.productDetails.text = produit.description
         holder.productPrice.text = "${produit.prix} ${holder.itemView.context.getString(R.string.DH)}"
+        holder.promotext.text = "-${produit.Promo}%"
+        holder.promotext.visibility = View.VISIBLE
         if (produit.quantite ==0){
             holder.textViewOverly.visibility= View.VISIBLE
             holder.textViewOverly.rotation = 45f
         }
         if(produit.Promo == 0){
             holder.promotext.visibility = View.GONE
-            holder.promotext.text = "${produit.Promo}"
         }
 
         holder.itemView.setOnClickListener {
