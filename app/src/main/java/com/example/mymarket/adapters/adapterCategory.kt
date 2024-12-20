@@ -42,7 +42,7 @@ class adapterCategory(
         holder.texte.text = category.nom
         holder.image.setImageResource(category.image)
         holder.image.apply {
-            clipToOutline = true
+            
             outlineProvider = object : ViewOutlineProvider() {
                 override fun getOutline(view: View, outline: Outline) {
                     outline.setOval(0, 0, view.width, view.height)
@@ -52,7 +52,7 @@ class adapterCategory(
         val background = if (category.Select) {
             R.drawable.gardient_category
         } else {
-            R.drawable.cercle
+            R.color.appbg
         }
         holder.la.setBackgroundResource(background)
 

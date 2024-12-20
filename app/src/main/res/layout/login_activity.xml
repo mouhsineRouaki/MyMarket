@@ -23,7 +23,7 @@
             android:layout_marginTop="80dp"
             android:background="@drawable/cercle"
             android:src="@drawable/baseline_arrow_back_24"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/appbg"
             android:contentDescription="back" />
 
         <ImageView
@@ -46,7 +46,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -63,7 +64,7 @@
                 android:layout_width="340dp"
                 android:layout_height="56dp"
                 android:layout_marginBottom="20dp"
-                android:hint="Email Adresse"
+                android:hint="@string/email_hint"
                 android:textColorHint="@color/inputTextColor"
                 android:background="@drawable/edittext"
                 android:gravity="center"
@@ -75,7 +76,7 @@
                 android:layout_width="340dp"
                 android:layout_height="56dp"
                 android:layout_marginBottom="10dp"
-                android:hint="Password"
+                android:hint="@string/mot_de_passe_hint"
                 android:textColorHint="@color/inputTextColor"
                 android:background="@drawable/edittext"
                 android:gravity="center"
@@ -87,7 +88,7 @@
                 android:id="@+id/forgot_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Forgot Password?"
+                android:text="@string/forgot_password"
                 android:textSize="14sp"
                 android:textColor="@color/inputTextColor"
                 android:fontFamily="sans-serif"
@@ -130,6 +131,36 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="20dp"
+            android:gravity="center|bottom"
+            android:orientation="horizontal"
+            android:background="@drawable/gardient_menu">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/facebook_logo"
+                android:paddingBottom="5dp"/>
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/google_logo"
+                android:paddingBottom="5dp"/>
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/vk_logo"
+                android:paddingBottom="5dp"/>
         </LinearLayout>
     </FrameLayout>
 </LinearLayout>
