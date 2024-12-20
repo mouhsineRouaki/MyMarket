@@ -102,6 +102,7 @@ class PanierFragment : Fragment() {
 
                 ProduitService.update(p, c)
                 PanierService.update(p, c)
+                PanierService.Clear()
             }
 
             val ville = VilleService.findById(id)
