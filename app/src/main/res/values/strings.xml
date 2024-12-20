@@ -4,7 +4,7 @@
     <string name="Fruits">Fruits</string>
     <string name="Légumes">Légumes</string>
     <string name="Poissons">Poissons</string>
-    <string name="Categories">Meilleur ventes</string>
+    <string name="Categories">Plus Vente</string>
     <string name="Promotions">Promotions</string>
     <string name="voirLesProduits">Voir tous les produits</string>
     <string name="voirPlus">Voir Plus</string>
@@ -21,7 +21,7 @@
     <string name="Panier">Panier</string>
     <string name="Commandes">Commandes</string>
     <string name="Droittimbre">Droit de timbre 0.29 dh</string>
-    <string name="toolbar">Toolbar</string>
+    <string name="toolbar">toolbar</string>
     <string name="search_edittext">search edittext</string>
     <string name="back_button">back button</string>
     <string name="btn_arabic">Button arabic</string>
@@ -64,5 +64,15 @@
     <string name="prix">Prix</string>
     <string name="AjouterPanier">Ajouter au panier</string>
     <string name="StockInsifut">Stock insuffisant</string>
-    <string name="forgot_password">Mot de passe oublié ?</string>
+    <string name="ajouterAuPanier">Ajouté au panier !</string>
+    <string name="added_to_cart">Est ajouté dans votre panier.</string>
+    <string name="product_already_in_cart">Produit déjà dans le panier.</string>
+    <string name="notifications">Notifications</string>
+    <string name="order_information">Informations Commande</string>
+    <string name="total">Total :</string>
+    <string name="status">Statut :</string>
+    <string name="articles">Articles :</string>
+    <string name="order_added">La commande numéro %1$s bien ajoutée. En attente de livraison.</string>
+    <string name="catAdd">Commande ajoutée.</string>
+    <string name="order_cancelled_city_empty">Commande annulée, ville vide.</string>
 </resources>

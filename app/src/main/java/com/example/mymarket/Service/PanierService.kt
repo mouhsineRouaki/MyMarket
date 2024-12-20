@@ -1,7 +1,6 @@
 package com.example.mymarket.Service
 
 import com.example.mymarket.DATA.Produit
-import com.example.mymarket.DATA.ProduitPanier
 import com.example.mymarket.adapters.adapterPanier
 import com.example.mymarket.interfaces.IDAO
 
