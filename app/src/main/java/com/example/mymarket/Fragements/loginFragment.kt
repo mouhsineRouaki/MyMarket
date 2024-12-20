@@ -36,7 +36,7 @@ class loginFragment : Fragment() {
             val emailInput = email.text.toString().trim()
             val passwordInput = password.text.toString().trim()
             if (emailInput.isEmpty() || passwordInput.isEmpty()){
-                Toast.makeText(requireContext(),"Veuillez remplir tous les champs",Toast.LENGTH_SHORT)
+                Toast.makeText(requireContext(),"Veuillez remplir tous les champs",Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -46,7 +46,7 @@ class loginFragment : Fragment() {
                 utilisateurService.ClearAndCreate(utilisateurTrouve)
                 startActivity(Intent(requireContext(), MainActivity::class.java))
             }else{
-                Toast.makeText(requireContext(),"Mot de pass ou email incorrect",Toast.LENGTH_SHORT)
+                Toast.makeText(requireContext(),"Mot de pass ou email incorrect",Toast.LENGTH_SHORT).show()
             }
         }
         retour.setOnClickListener {
