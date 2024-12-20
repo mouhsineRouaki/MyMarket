@@ -16,12 +16,6 @@ class GererComptes: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.layout_comptes)
-
-        val btnLogin = findViewById<TextView>(R.id.tologin)
-        val btnInscription = findViewById<TextView>(R.id.tosignup)
-
         supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, WelcomeFragment()).commit()
-
-
     }
 }

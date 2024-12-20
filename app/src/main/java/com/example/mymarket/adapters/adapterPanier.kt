@@ -14,7 +14,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mymarket.DATA.Notification
 import com.example.mymarket.DATA.Produit
-import com.example.mymarket.DATA.ProduitPanier
 import com.example.mymarket.Fragements.PanierFragment
 import com.example.mymarket.R
 import com.example.mymarket.Service.NotificationService
