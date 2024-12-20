@@ -35,12 +35,19 @@ class loginFragment : Fragment() {
         btnLogin.setOnClickListener {
             val emailInput = email.text.toString().trim()
             val passwordInput = password.text.toString().trim()
+            if (emailInput.isEmpty() || passwordInput.isEmpty()){
+                Toast.makeText(requireContext(),"Veuillez remplir tous les champs",Toast.LENGTH_SHORT)
+                return@setOnClickListener
+            }
 
             val listComptes = utilisateurService.findAllUtlisateur().toMutableList()
             val utilisateurTrouve = listComptes.find { it.email == emailInput && it.password == passwordInput }
-            val u =utilisateur("mohsin","rouaki","21/12/2004","homme", ville(villeType.Agadir,10_000))
-                utilisateurService.ClearAndCreate(u)
+            if(utilisateurTrouve != null) {
+                utilisateurService.ClearAndCreate(utilisateurTrouve)
                 startActivity(Intent(requireContext(), MainActivity::class.java))
+            }else{
+                Toast.makeText(requireContext(),"Mot de pass ou email incorrect",Toast.LENGTH_SHORT)
+            }
         }
         retour.setOnClickListener {
             parentFragmentManager.beginTransaction()

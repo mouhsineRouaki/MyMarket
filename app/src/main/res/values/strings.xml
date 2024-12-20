@@ -64,4 +64,15 @@
     <string name="prix">Prix</string>
     <string name="AjouterPanier">Ajouter au panier</string>
     <string name="StockInsifut">Stock insuffisant</string>
+    <string name="ajouterAuPanier">Ajouté au panier !</string>
+    <string name="added_to_cart">Est ajouté dans votre panier.</string>
+    <string name="product_already_in_cart">Produit déjà dans le panier.</string>
+    <string name="notifications">Notifications</string>
+    <string name="order_information">Informations Commande</string>
+    <string name="total">Total :</string>
+    <string name="status">Statut :</string>
+    <string name="articles">Articles :</string>
+    <string name="order_added">La commande numéro %1$s bien ajoutée. En attente de livraison.</string>
+    <string name="catAdd">Commande ajoutée.</string>
+    <string name="order_cancelled_city_empty">Commande annulée, ville vide.</string>
 </resources>

@@ -64,4 +64,15 @@
     <string name="prix">سعر</string>
     <string name="AjouterPanier">أضف إلى السلة</string>
     <string name="StockInsifut">كمية غير كافية</string>
+    <string name="ajouterAuPanier">تمت الإضافة إلى السلة!</string>
+    <string name="added_to_cart">تمت الإضافة إلى عربة التسوق الخاصة بك.</string>
+    <string name="product_already_in_cart">المنتج موجود بالفعل في السلة.</string>
+    <string name="notifications">الإشعارات</string>
+    <string name="order_information">معلومات الطلب</string>
+    <string name="total">الإجمالي :</string>
+    <string name="status">الحالة :</string>
+    <string name="articles">العناصر :</string>
+    <string name="order_added">تمت إضافة الطلب رقم %1$s بنجاح. في انتظار التسليم.</string>
+    <string name="catAdd">تمت إضافة الطلب.</string>
+    <string name="order_cancelled_city_empty">تم إلغاء الطلب، المدينة فارغة.</string>
 </resources>

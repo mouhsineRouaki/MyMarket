@@ -11,8 +11,10 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mymarket.DATA.Notification
 import com.example.mymarket.DATA.Produit
 import com.example.mymarket.R
+import com.example.mymarket.Service.NotificationService
 import com.example.mymarket.Service.PanierService
 import com.example.mymarket.Service.ProduitService
 import com.example.mymarket.adapters.adapterCartProduit2
@@ -72,9 +74,10 @@ class DetailsFragment: Fragment() {
                 val p = PanierService.findAll().map { it.nomP }
                 if(!p.contains(nomP)) {
                     PanierService.create(produit)
-                    Toast.makeText(it.context, "${produit.nomP} ajouté au panier !", Toast.LENGTH_SHORT).show()
+                    NotificationService.create(Notification(produit.image,"le ${produit.nomP} ${getString(R.string.added_to_cart)}"))
+                    Toast.makeText(it.context, "${produit.nomP} ${getString(R.string.ajouterAuPanier)}", Toast.LENGTH_SHORT).show()
                 }else{
-                    Toast.makeText(it.context, "${produit.nomP} Produit deja en panier", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(it.context, "${produit.nomP} ${getString(R.string.product_already_in_cart)}", Toast.LENGTH_SHORT).show()
                 }
             }
         }
