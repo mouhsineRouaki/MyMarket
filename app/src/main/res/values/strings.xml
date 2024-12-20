@@ -75,4 +75,5 @@
     <string name="order_added">La commande numéro %1$s bien ajoutée. En attente de livraison.</string>
     <string name="catAdd">Commande ajoutée.</string>
     <string name="order_cancelled_city_empty">Commande annulée, ville vide.</string>
+    <string name="forgot_password">Mot de passe oublié ?</string>
 </resources>
