@@ -4,7 +4,8 @@
     android:layout_marginRight="10dp"
     android:orientation="vertical"
     android:layout_height="wrap_content"
-    android:gravity="center">
+    android:gravity="center"
+    android:id="@+id/id_category">
     <ImageView
         android:id="@+id/id_image"
         android:layout_width="49dp"
