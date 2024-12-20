@@ -1,40 +1,116 @@
 package com.example.mymarket.Fragements
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mymarket.DATA.Commandes
 import com.example.mymarket.R
+import com.example.mymarket.Service.CommandesService
 import com.example.mymarket.adapters.adapterCommandes
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.sql.Date
 
-class CommandeFragment: Fragment() {
+class CommandeFragment : Fragment() {
+    private var commandes: MutableList<Commandes> = mutableListOf()
+    private lateinit var selectedTextView: TextView
+    private lateinit var selectedView: View
+    private lateinit var adapter: adapterCommandes
+    private val handler = Handler(Looper.getMainLooper())
+    private val refreshInterval = 10L
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.commande_layout, container, false)
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val recyclerView: RecyclerView = view.findViewById(R.id.recycler_commandes)
-         recyclerView.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
-        val commandes = listOf(
-            Commandes(dateCmd = Date(2024, 0, 1), status = "En cours", prixTotal = 250.0, TotalCategory = 3),
-            Commandes(dateCmd = Date(2024, 1, 15), status = "Livré", prixTotal = 500.0, TotalCategory = 5),
-            Commandes(dateCmd = Date(2024, 2, 20), status = "Annulé", prixTotal = 120.0, TotalCategory = 2),
-            Commandes(dateCmd = Date(2024, 3, 10), status = "En attente", prixTotal = 300.0, TotalCategory = 4),
-            Commandes(dateCmd = Date(2024, 4, 25), status = "En cours", prixTotal = 400.0, TotalCategory = 3),
-            Commandes(dateCmd = Date(2024, 5, 5), status = "Livré", prixTotal = 150.0, TotalCategory = 1),
-            Commandes(dateCmd = Date(2024, 6, 30), status = "Annulé", prixTotal = 320.0, TotalCategory = 2),
-            Commandes(dateCmd = Date(2024, 7, 12), status = "En cours", prixTotal = 270.0, TotalCategory = 3),
-            Commandes(dateCmd = Date(2024, 8, 18), status = "Livré", prixTotal = 500.0, TotalCategory = 4),
-            Commandes(dateCmd = Date(2024, 9, 1), status = "Annulé", prixTotal = 210.0, TotalCategory = 2)
-        )
-        val adapter = adapterCommandes(commandes)
+        val underAllView = view.findViewById<View>(R.id.under_all)
+        val underEncoursView = view.findViewById<View>(R.id.under_encours)
+        val underEnattentsView = view.findViewById<View>(R.id.under_enattents)
+        val underLivreView = view.findViewById<View>(R.id.under_livre)
+        val allTextView = view.findViewById<TextView>(R.id.all)
+        val encoursTextView = view.findViewById<TextView>(R.id.encours)
+        val enattentsTextView = view.findViewById<TextView>(R.id.enattents)
+        val livreTextView = view.findViewById<TextView>(R.id.livre)
+        val serch=view.findViewById<EditText>(R.id.searchEditText)
+        val bottomNavigation = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        serch.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, CategoryFragment())
+                .commit()
+            bottomNavigation?.selectedItemId = R.id.category
+        }
+
+        recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        commandes=CommandesService.findAll()
+        selectedTextView = allTextView
+        selectedView = underAllView
+        selectedView.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.black))
+
+        adapter = adapterCommandes(commandes, parentFragmentManager)
         recyclerView.adapter = adapter
 
+
+        allTextView.setOnClickListener {
+            commandes.clear()
+            commandes.addAll(CommandesService.findAll())
+            updateSelection(allTextView, underAllView, listOf(underEncoursView, underEnattentsView, underLivreView))
+        }
+
+        encoursTextView.setOnClickListener {
+            commandes.clear()
+            commandes.addAll(CommandesService.findAll().filter { it.status == "En cours" }.toMutableList())
+            updateSelection(encoursTextView, underEncoursView, listOf(underAllView, underEnattentsView, underLivreView))
+        }
+
+        enattentsTextView.setOnClickListener {
+            commandes.clear()
+            commandes.addAll(CommandesService.findAll().filter { it.status == "En attente" }.toMutableList())
+            updateSelection(enattentsTextView, underEnattentsView, listOf(underAllView, underEncoursView, underLivreView))
+        }
+
+        livreTextView.setOnClickListener {
+            commandes.clear()
+            commandes.addAll(CommandesService.findAll().filter { it.status == "Livre" }.toMutableList())
+            updateSelection(livreTextView, underLivreView, listOf(underAllView, underEncoursView, underEnattentsView))
+        }
+        startAutoRefresh()
+        adapter.notifyDataSetChanged()
+    }
+
+    private fun updateSelection(
+        newSelectedTextView: TextView,
+        newSelectedView: View,
+        otherViews: List<View>
+    ) {
+        selectedView.setBackgroundColor(ContextCompat.getColor(requireContext(), android.R.color.transparent))
+
+        newSelectedView.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.black))
+        selectedTextView = newSelectedTextView
+        selectedView = newSelectedView
+
+        otherViews.forEach { it.setBackgroundColor(ContextCompat.getColor(requireContext(), android.R.color.transparent)) }
+
+        adapter.notifyDataSetChanged()
+    }
+    fun startAutoRefresh() {
+        handler.postDelayed(object : Runnable {
+            override fun run() {
+                commandes=commandes
+                handler.postDelayed(this, refreshInterval)
+            }
+        }, refreshInterval)
     }
 }

@@ -1,0 +1,44 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:gravity="center_vertical"
+    android:background="@color/panierbg"
+    android:layout_margin="6dp"
+    android:clickable="true">
+
+    <ImageView
+        android:id="@+id/userIcon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/logo"
+        android:scaleType="centerCrop"
+        android:background="@drawable/cercle"
+        android:contentDescription="User Icon" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingStart="12dp">
+
+        <TextView
+            android:id="@+id/notificationText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="John Doe liked your post"
+            android:textSize="14sp"
+            android:textColor="@color/titleColor" />
+
+        <TextView
+            android:id="@+id/notificationTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5m ago"
+            android:textSize="12sp"
+            android:textColor="@android:color/darker_gray" />
+    </LinearLayout>
+</LinearLayout>

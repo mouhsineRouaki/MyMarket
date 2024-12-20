@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mymarket.DATA.Produit
 import com.example.mymarket.R
+import com.example.mymarket.Service.ProduitService
 import com.example.mymarket.adapters.adapterCartProduit2
 import com.example.mymarket.adapters.adapterRechercheCategory
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -45,17 +46,8 @@ class ProduitsFragement: Fragment() {
 
 
 
-        val listProduit= listOf(
-            Produit("produit","hgdhed",45.0,"udgj",45),
-            Produit("produit","hgdhed",45.0,"udgj",45),
-            Produit("produit","hgdhed",45.0,"udgj",45),
-            Produit("produit","hgdhed",45.0,"udgj",45),
-            Produit("produit","hgdhed",45.0,"udgj",45),
-            Produit("produit","hgdhed",45.0,"udgj",45),
-            Produit("produit","hgdhed",45.0,"udgj",45),
-            Produit("produit","hgdhed",45.0,"udgj",45)
-        )
-        val adapterPro = adapterCartProduit2(listProduit,parentFragmentManager)
+
+        val adapterPro = adapterCartProduit2(ProduitService.findAll(),parentFragmentManager)
         recyclerViewProduit.adapter = adapterPro
     }
 }

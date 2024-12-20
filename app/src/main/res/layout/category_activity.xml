@@ -3,12 +3,12 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@color/appbg"
     android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/appbg"
         android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
@@ -16,36 +16,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:background="@color/white"
-            app:title=""
-            android:layoutDirection="ltr"
-            android:contentDescription="@string/toolbar">
+            android:background="@color/appbg"
+            android:layoutDirection="locale"
+            app:title="">
 
-            <ImageButton
-                android:id="@+id/retour"
-                android:layout_width="40dp"
-                android:layout_height="70dp"
-                android:background="@color/white"
-                android:src="@drawable/baseline_arrow_back_24"
-                android:layoutDirection="ltr"
-                android:contentDescription="@string/back_button"/>
 
-            <EditText
-                android:id="@+id/searchEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:background="@drawable/edittext"
-                android:drawableStart="@drawable/baseline_search_24"
-                android:drawablePadding="8dp"
-                android:hint="@string/search"
-                android:padding="16dp"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                android:layoutDirection="ltr"
-                android:contentDescription="@string/search_edittext"/>
+        <EditText
+            android:id="@+id/searchEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/edittext"
+            android:backgroundTint="@color/searchcolor"
+            android:drawableStart="@drawable/baseline_search_24"
+            android:drawablePadding="8dp"
+            android:hint="@string/search"
+            android:padding="16dp"
+            android:layout_gravity="end"
+            android:textColor="@color/titleColor"
+            android:textSize="16sp"
+            android:layoutDirection="locale"
+            android:contentDescription="@string/search_edittext" />
         </androidx.appcompat.widget.Toolbar>
-        <androidx.recyclerview.widget.RecyclerView
+
+    <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycle_category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

@@ -1,106 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/frameInscription"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
-    <ImageView
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/bg">
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/shape"
-        android:alpha="0.5"
-        />
+        android:layout_height="0dp"
+        android:layout_weight="2">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+        <ImageButton
+            android:id="@+id/retour"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/cercle"
+            android:src="@drawable/baseline_arrow_back_24"
+            android:backgroundTint="@color/white"/>
+        <ImageView
+            android:id="@+id/login_logo"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:src="@drawable/login_logo"
+            android:layout_gravity="center" />
+
+    </FrameLayout>
+
+<FrameLayout
+    android:id="@+id/frameInscription"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="6">
+
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:gravity="center">
+        android:background="@drawable/drawable_login"
+        android:backgroundTint="@color/white"
+        android:gravity="center"
+        android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/fragment_container2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/drawable_login"
+        android:backgroundTint="@color/white"
+        android:gravity="center"
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
             android:text="INSCRIPTION"
-            android:textStyle="bold"
-            android:textSize="30dp"
-            android:layout_marginBottom="30dp"/>
+            android:textColor="@color/titleColor"
+            android:textSize="30sp"
+            android:textFontWeight="900"
+            android:fontFamily="sans-serif" />
+
+
         <EditText
             android:id="@+id/nomUser"
-            android:layout_width="330dp"
-            android:layout_height="wrap_content"
+            android:layout_width="340dp"
+            android:layout_height="56dp"
+            android:textColor="@color/inputTextColor"
+            android:textStyle="bold"
             android:layout_marginBottom="20dp"
-            android:hint="Entrer Votre Nom"
             android:background="@drawable/edittext"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:hint="Entrer Votre Nom"
+            android:textColorHint="@color/inputTextColor" />
+
         <EditText
             android:id="@+id/PrenomUser"
-            android:layout_width="330dp"
-            android:layout_height="wrap_content"
+            android:layout_width="340dp"
+            android:layout_height="56dp"
+            android:textColor="@color/inputTextColor"
+            android:textStyle="bold"
             android:layout_marginBottom="20dp"
-            android:hint="Entrer Votre Prenom"
             android:background="@drawable/edittext"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:hint="Entrer Votre Prenom"
+            android:textColorHint="@color/inputTextColor" />
+
         <EditText
             android:id="@+id/dateNaissance"
-            android:layout_width="330dp"
-            android:layout_height="wrap_content"
+            android:layout_width="340dp"
+            android:layout_height="56dp"
+            android:textColor="@color/inputTextColor"
+            android:textStyle="bold"
             android:layout_marginBottom="20dp"
+            android:background="@drawable/edittext"
+            android:gravity="center"
             android:hint="Entrer Votre Date Naissance"
             android:inputType="date"
-            android:background="@drawable/edittext"
-            android:gravity="center"/>
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="330dp"
-            android:layout_height="wrap_content"
+            android:textColorHint="@color/inputTextColor" />
+
+        <Spinner
+            android:id="@+id/ville"
+            android:layout_width="340dp"
+            android:layout_height="56dp"
+            android:textColor="@color/inputTextColor"
+            android:textStyle="bold"
             android:layout_marginBottom="20dp"
-            android:hint="Entrer Votre Email"
             android:background="@drawable/edittext"
-            android:gravity="center"/>
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="330dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:hint="Entrer Votre Password"
-            android:background="@drawable/edittext"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:hint="Entrer Votre Date Naissance"
+            android:inputType="date"
+            android:textColorHint="@color/inputTextColor"
+            android:spinnerMode="dropdown"/>
+
         <RadioGroup
             android:id="@+id/RadioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <RadioButton
                 android:id="@+id/homme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/inputTextColor"
+                android:textStyle="bold"
                 android:layout_marginRight="30dp"
-                android:text="homme"/>
+                android:text="Male" />
+
             <RadioButton
                 android:id="@+id/femme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="femme"/>
+                android:textStyle="bold"
+                android:text="Female"
+                android:textColor="@color/inputTextColor" />
         </RadioGroup>
+
         <CheckBox
             android:id="@+id/condition"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="vous acceptez les présentes conditions générales d'utilisation"/>
+            android:text="vous acceptez les présentes conditions générales d'utilisation"
+            android:textColor="@color/textcolor"
+            android:textStyle="bold"
+            android:shadowColor="@color/titleColor"/>
 
 
-        <androidx.appcompat.widget.AppCompatButton
+        <Button
             android:id="@+id/buttonInscription"
-            android:layout_width="182dp"
-            android:layout_height="44dp"
-            android:text="INSCRI"
-            android:background="@drawable/button"
-            />
-
+            android:layout_width="182sp"
+            android:layout_height="54sp"
+            android:backgroundTint="@color/buttoncolor"
+            android:text="Next"
+            android:textStyle="bold"/>
+    </LinearLayout>
     </LinearLayout>
 </FrameLayout>
+</LinearLayout>

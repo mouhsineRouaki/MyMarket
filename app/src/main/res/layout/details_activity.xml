@@ -2,7 +2,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:background="@color/white"
+    android:background="@color/appbg"
     android:layout_height="match_parent"
     android:fillViewport="true">
 
@@ -12,80 +12,114 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <androidx.appcompat.widget.Toolbar
+            android:backgroundTint="@color/appbg"
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             app:title="">
 
+
             <ImageButton
+                android:id="@+id/retour"
                 android:layout_width="40dp"
                 android:layout_height="70dp"
                 android:layout_gravity="start"
-                android:background="@color/white"
+                android:background="@color/appbg"
+                android:layoutDirection="ltr"
                 android:src="@drawable/baseline_arrow_back_24"/>
-            <EditText
-                android:id="@+id/searchEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:background="@drawable/edittext"
-                android:drawableStart="@drawable/baseline_search_24"
-                android:drawablePadding="8dp"
-                android:hint="Recherche..."
-                android:padding="16dp"
-                android:textColor="#000000"
-                android:textSize="16sp"/>
-        </androidx.appcompat.widget.Toolbar>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
-        <ImageView
-            android:id="@+id/imageDetails"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/logo" />
 
+        </androidx.appcompat.widget.Toolbar>
         <TextView
             android:id="@+id/nomDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="DARI Couscous Moyen 1KG x 12U"
-            android:textSize="18sp"
+            android:textSize="25sp"
             android:textStyle="bold"
-            android:textColor="@android:color/black" />
+            android:textColor="@color/titleColor"
+            android:layout_gravity="center"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_border_image"
+            android:layout_gravity="center">
+        <ImageView
+            android:id="@+id/imageDetails"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo" />
+            <TextView
+                android:id="@+id/promoText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|end"
+                android:padding="8dp"
+                android:background="@drawable/promo_background"
+                android:text="- 20 %"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:visibility="gone"/>
+        </FrameLayout>
 
+
+        <TextView
+            android:id="@+id/descriptionDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textStyle="italic"
+            android:text="Description"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/quantiteDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textStyle="bold"
+            android:text="13.72 dh"
+            android:textSize="20sp" />
         <TextView
             android:id="@+id/prixDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="13.72 dh"
-            android:textSize="16sp"
-            android:textColor="@android:color/holo_red_dark" />
-
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/titleColor"
+            android:background="@drawable/stroke"
+            android:padding="5dp"/>
         <Button
             android:id="@+id/add_to_cart_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="250dp"
+            android:layout_height="54sp"
             android:layout_marginTop="16dp"
-            android:backgroundTint="@color/colorLogo"
-            android:text="Ajouter au panier"
-            android:textColor="@android:color/white" />
+            android:textSize="20sp"
+            android:backgroundTint="@color/buttoncolor"
+            android:text="@string/AjouterPanier"
+            android:textColor="@android:color/white"
+            android:layout_gravity="center"/>
 
         <TextView
             android:id="@+id/similar_products_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Produits similaires"
-            android:textSize="18sp"
+            android:text="@string/memeCategory"
+            android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="@android:color/black" />
+            android:textColor="@color/titleColor" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/similar_produit"

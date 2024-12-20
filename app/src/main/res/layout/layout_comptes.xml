@@ -1,55 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout android:id="@+id/fragmentContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fitsSystemWindows="true">
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
     android:padding="4dp"
-    android:gravity="center_horizontal">
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="38dp"
-    android:orientation="horizontal"
-    android:id="@+id/layoutSelect"
-    android:background="@drawable/toggle_background"
-    android:padding="4dp"
-    android:gravity="center_horizontal">
+    android:gravity="center_horizontal"
+    android:background="@drawable/bg">
 
-    <!-- Bouton Français -->
     <TextView
-        android:id="@+id/btnLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="      Login    "
-        android:gravity="center"
-        android:padding="10dp"
-        android:background="@drawable/toggle_selected"
-        android:textColor="@color/white"
-        android:fontFamily="sans-serif-medium"
-        android:clickable="true"
-        android:focusable="true" />
-
-    <!-- Bouton Arabe -->
-    <TextView
-        android:id="@+id/btnInscription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="inscription"
-        android:gravity="center"
-        android:padding="10dp"
-        android:background="@drawable/toggle_unselected"
-        android:textColor="@color/black"
-        android:fontFamily="sans-serif-medium"
-        android:clickable="true"
-        android:focusable="true" />
-</LinearLayout>
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="120dp"
+        android:fontFamily="sans-serif"
+        android:text="Go Shopping From Home"
+        android:textColor="@color/white"
+        android:textSize="58sp"
+        android:textStyle="bold"
+        android:lineSpacingExtra="10dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:text="ヅ"
+        android:textColor="@color/white"
+        android:textSize="58sp"
+        android:textStyle="bold"
+        android:lineSpacingExtra="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:layout_height="match_parent">
+    <Button
+        android:layout_marginTop="150dp"
+        android:layout_marginHorizontal="10sp"
+        android:id="@+id/tologin"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:text="LOGIN"
+        android:textColor="@color/white"
+        android:backgroundTint="#006A42"
+        android:textStyle="bold"/>
+
+    <Button
+        android:layout_marginTop="20sp"
+        android:layout_marginHorizontal="10sp"
+        android:id="@+id/tosignup"
+        android:layout_marginBottom="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:text="Signup"
+        android:textColor="#006A42"
+        android:backgroundTint="@color/white"
+        android:textStyle="bold"/>
+    </LinearLayout>
+
 </LinearLayout>
+    </FrameLayout>

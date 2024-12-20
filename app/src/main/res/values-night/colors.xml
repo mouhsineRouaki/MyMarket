@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="appbg">#000000</color>
+    <color name="titleColor">#FFFFFF</color>
+    <color name="buttoncolor">#647A71</color>
+    <color name="colorMenu">#124936</color>
+    <color name="bgproduit">#124936</color>
+    <color name="searchcolor">#647A71</color>
+    <color name="panierbg">#1F1F1F</color>
+
+</resources>

@@ -2,35 +2,42 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@android:color/white">
+    android:background="@color/appbg">
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="40dp"
-        android:padding="16dp"
-        android:background="@android:color/white">
-
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="match_parent"
-            android:layout_height="101dp"
-            android:layout_weight="1"
-            android:src="@drawable/logo" />
+        android:layout_marginTop="30dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="46dp"
+        android:background="@color/appbg">
 
         <ImageButton
             android:id="@+id/back_button"
             android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:layoutDirection="ltr"
+            android:layout_height="60dp"
             android:background="?android:attr/selectableItemBackground"
             android:contentDescription="Back"
-            android:src="@drawable/baseline_arrow_back_24" />
+            android:src="@drawable/baseline_arrow_back_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
-    </FrameLayout>
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="100dp"
+            android:layout_height="101dp"
+            android:src="@drawable/logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.5" /> <!-- Centre l'ImageView horizontalement -->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -44,6 +51,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:src="@drawable/ic_user"
+            android:scaleType="centerCrop"
             android:contentDescription="User Profile"
             android:layout_gravity="center"
             android:padding="8dp" />
@@ -53,7 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Pouhsine Rousik"
-            android:textColor="@android:color/black"
+            android:textColor="@color/titleColor"
             android:textStyle="bold"
             android:textSize="18sp"
             android:layout_marginTop="8dp" />
@@ -79,7 +87,7 @@
                 android:gravity="center"
                 android:padding="10dp"
                 android:background="@drawable/toggle_selected"
-                android:textColor="@color/white"
+                android:textColor="@color/Buttontext"
                 android:fontFamily="sans-serif-medium"
                 android:clickable="true"
                 android:focusable="true" />
@@ -100,7 +108,6 @@
         </LinearLayout>
 
 
-    <!-- Liste des options -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -108,6 +115,7 @@
         android:padding="16dp">
 
         <LinearLayout
+            android:id="@+id/mesInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -127,10 +135,11 @@
                 android:layout_marginStart="16dp"
                 android:text="@string/MesInformations"
                 android:textSize="16sp"
-                android:textColor="@android:color/black" />
+                android:textColor="@color/titleColor" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/aide"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -150,9 +159,10 @@
                 android:layout_marginStart="16dp"
                 android:text="@string/aide"
                 android:textSize="16sp"
-                android:textColor="@android:color/black" />
+                android:textColor="@color/titleColor" />
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/partager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -171,6 +181,29 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="@string/Partager"
+                android:textSize="16sp"
+                android:textColor="@color/titleColor" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/LougOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="12dp"
+            android:gravity="center_vertical"
+            android:background="?android:attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/lougout"
+                android:contentDescription="Icon" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/logout"
                 android:textSize="16sp"
                 android:textColor="@android:color/black" />
         </LinearLayout>

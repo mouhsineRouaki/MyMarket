@@ -8,8 +8,7 @@ import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
-import com.example.mymarket.Fragements.Inscriptionfragment
-import com.example.mymarket.Fragements.loginFragment
+import com.example.mymarket.Fragements.WelcomeFragment
 
 class GererComptes: AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -17,24 +16,6 @@ class GererComptes: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.layout_comptes)
-
-        val btnLogin = findViewById<TextView>(R.id.btnLogin)
-        val btnInscription = findViewById<TextView>(R.id.btnInscription)
-
-        supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, loginFragment()).commit()
-
-        findViewById<TextView>(R.id.btnLogin).setOnClickListener {
-            btnLogin.setBackgroundResource(R.drawable.toggle_selected)
-            btnInscription.setBackgroundResource(R.drawable.toggle_unselected)
-            supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, loginFragment())
-                .commit()
-        }
-        findViewById<TextView>(R.id.btnInscription).setOnClickListener {
-            btnInscription.setBackgroundResource(R.drawable.toggle_selected)
-            btnLogin.setBackgroundResource(R.drawable.toggle_unselected)
-            supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, Inscriptionfragment())
-                .commit()
-        }
-
+        supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, WelcomeFragment()).commit()
     }
 }

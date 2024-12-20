@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="appbg">#FFFFFF</color>
     <color name="titleColor">#1a4929</color>
     <color name="inputColor">#ecf2f0</color>
     <color name="inputTextColor">#689b8a</color>
     <color name="buttoncolor">#006a42</color>
     <color name="Buttontext">#f0fffe</color>
+    <color name="secondbuttontext">#006a42</color>
+    <color name="secondButtoncolor">#f0fffe</color>
     <color name="textcolor">#7aa393</color>
+    <color name="appbackground">#FFFFFFFF</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="primary">#FC8822</color>
@@ -17,4 +22,10 @@
     <color name="colorAccent">#1976D2</color>
     <color name="colorMenu">#BCEFDC</color>
     <color name="grey">#CECECE</color>
+    <color name="red">#FF0000</color>
+    <color name="bgproduit">#94EFE5BC</color>
+    <color name="searchcolor">#ecf2f0</color>
+    <color name="panierbg">#ecf2f0</color>
+    <color name="selected_item_background" >@color/colorMenu</color>
+    <color name="unselected_item_background2" >#00FFFFFF</color>
 </resources>

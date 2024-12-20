@@ -3,6 +3,9 @@ package com.example.mymarket.activity
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationSet
+import android.view.animation.ScaleAnimation
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -21,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         window.statusBarColor = ContextCompat.getColor(this, R.color.colorMenu)
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
         setContentView(R.layout.activity_main)
 
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
@@ -34,8 +38,12 @@ class MainActivity : AppCompatActivity() {
                 R.id.commandes -> loadFragment(CommandeFragment())
                 R.id.category -> loadFragment(CategoryFragment())
             }
+
+
             true
         }
+
+
     }
     fun loadFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()

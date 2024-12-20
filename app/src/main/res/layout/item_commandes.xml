@@ -3,61 +3,95 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="4dp"
-    android:layout_margin="8dp"
-    android:background="?android:attr/selectableItemBackground">
+    app:cardCornerRadius="12dp"
+    app:cardElevation="6dp"
+    android:layout_margin="16dp">
 
     <LinearLayout
+        android:id="@+id/itemcmd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:background="@drawable/item_commandes_bg">
 
-        <TextView
-            android:id="@+id/commande_num"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/commande_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="N 1243"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:background="#00E2DCDC"
+                android:textColor="@color/titleColor" />
+            <TextView
+                android:id="@+id/commande_prix_total"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Prix total: 250.0 DH"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/titleColor"
+                android:gravity="end" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:id="@+id/commande_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2024-12-03"
+                android:textSize="16sp"
+                android:textColor="@color/titleColor" />
+
+            <TextView
+                android:id="@+id/commande_total_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:layoutDirection="locale"
+                android:text="Catégories: 3"
+                android:textColor="@color/titleColor"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Commande #1"
-            android:textStyle="bold"
-            android:textSize="18sp" />
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/iconCommande"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_weight="1"
+                android:text="En cours"
+                android:textSize="16sp"
+                android:textColor="@android:color/holo_green_dark"
+                android:textStyle="italic"
+                android:layout_marginRight="8dp" />
 
-        <TextView
-            android:id="@+id/commande_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2024-12-03"
-            android:textSize="14sp"
-            android:textColor="@android:color/darker_gray"
-            android:layout_marginTop="4dp" />
 
-        <TextView
-            android:id="@+id/commande_status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="En cours"
-            android:textColor="@android:color/holo_green_dark"
-            android:textStyle="italic"
-            android:layout_marginTop="4dp" />
+            <TextView
+                android:id="@+id/commande_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="En cours"
+                android:textColor="@android:color/holo_green_dark"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/commande_prix_total"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Prix total: 250.0 DH"
-            android:textSize="16sp"
-            android:textColor="@android:color/black"
-            android:layout_marginTop="4dp" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/commande_total_category"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Catégories: 3"
-            android:textSize="14sp"
-            android:textColor="@android:color/darker_gray"
-            android:layout_marginTop="4dp" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
-

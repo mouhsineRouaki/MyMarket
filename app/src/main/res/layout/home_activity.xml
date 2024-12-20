@@ -4,7 +4,7 @@
     android:id="@+id/fragment_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/appbg"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
@@ -16,14 +16,34 @@
         android:paddingTop="20dp"
         app:title="">
 
-        <ImageButton
-            android:id="@+id/user"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="start"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/image_button_cercle"
-            android:src="@drawable/ic_user"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/user"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/image_button_cercle"
+                android:scaleType="centerCrop"
+                android:src="@drawable/pfp" />
+
+            <TextView
+                android:id="@+id/nom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="2dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="ghgdwh"
+                android:textColor="@color/titleColor"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
 
         <ImageView
             android:id="@+id/logo"
@@ -31,15 +51,32 @@
             android:layout_height="@dimen/logo_size"
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="16dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/logo" />
-
-        <ImageButton
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+        <FrameLayout
+            android:layout_width="wrap_content"
             android:layout_gravity="end"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/image_button_cercle"
-            android:src="@drawable/ic_support"/>
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp">
+
+            <ImageButton
+                android:id="@+id/notification"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/notifications"
+                android:src="@drawable/ic_support" />
+
+            <TextView
+                android:id="@+id/countNotification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textColor="@color/appbg"
+                android:textSize="15dp"
+                android:layout_gravity="center"
+            android:textStyle="bold" />
+        </FrameLayout>
+
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -47,7 +84,7 @@
         android:id="@+id/toolbar2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/appbg"
         app:contentInsetStartWithNavigation="0dp"
         app:title="">
 
@@ -57,6 +94,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:background="@drawable/edittext"
+            android:backgroundTint="@color/searchcolor"
             android:drawableStart="@drawable/baseline_search_24"
             android:drawablePadding="8dp"
             android:hint="@string/search"
@@ -71,27 +109,17 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/appbg"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Promotions"
-            android:textColor="@color/black"
+            android:textColor="@color/titleColor"
             android:textSize="20dp"
             android:layout_marginLeft="10dp"
             android:gravity="start"
             android:textStyle="bold"  />
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/voirPlus"
-            android:textSize="20dp"
-            android:layout_marginRight="10dp"
-            android:textColor="@color/colorLogo"
-            android:gravity="end"
-            android:textStyle="italic" />
 
     </LinearLayout>
 
@@ -99,24 +127,26 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:scrollbars="none"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/appbg"
         android:orientation="vertical">
         <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:background="@color/appbg"
             android:orientation="horizontal">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/Categories"
-                android:textColor="@color/black"
+                android:textColor="@color/titleColor"
                 android:textSize="20sp"
                 android:layout_marginStart="10sp"
                 android:gravity="start"
@@ -131,7 +161,7 @@
                 android:clickable="true"
                 android:layoutDirection="rtl"
                 android:layout_marginRight="10sp"
-                android:textColor="@color/colorLogo"
+                android:textColor="@color/colorMenu"
                 android:gravity="end"
                 android:textStyle="italic" />
 
@@ -146,38 +176,51 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:background="@color/white"
+        android:background="@color/appbg"
+        android:gravity="center"
         android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:id="@+id/TousProduits"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:padding="20dp"
-        android:clickable="true"
-        android:orientation="horizontal"
-        android:background="@drawable/edittext"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="start"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:text="@string/voirLesProduits"/>
-
-        <TextView
+        <androidx.cardview.widget.CardView
+            android:id="@+id/TousProduits"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="end"
-            android:textSize="20dp"
-            android:textColor="@color/black"
-            android:layout_gravity="end"
-            android:textStyle="bold"
-            android:text=">" />
-    </LinearLayout>
+            android:layout_height="68dp"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="4dp"
+            android:clickable="true"
+            android:backgroundTint="@android:color/transparent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/edittext_image">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true"
+                    android:textSize="23sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:text="@string/voirLesProduits"
+                    android:layout_marginStart="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:textSize="20sp"
+                    android:background="@color/transparent"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="25dp"
+                    android:textColor="@color/appbg"
+                    android:text=" > " />
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
 
 </LinearLayout>
 </LinearLayout>
