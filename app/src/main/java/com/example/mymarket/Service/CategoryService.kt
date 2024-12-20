@@ -43,6 +43,11 @@ object CategoryService: IDAO<Category> {
         val index = listCategory.indexOfFirst { it.nom ==p.nom }
         return if(index!=-1){
             p.Select = !p.Select
+            for(e in listCategory){
+                if(e.nom != p.nom) {
+                    e.Select = false
+                }
+            }
             listCategory[index]=p
             true
         }else {

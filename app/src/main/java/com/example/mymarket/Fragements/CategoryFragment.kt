@@ -48,7 +48,7 @@ class CategoryFragment : Fragment() {
         produitsFiltrer = produitList.toMutableList()
 
         categoryAdapter = adapterCategory(categoryList) { category ->
-            category.Select = !category.Select
+            CategoryService.ChangeSelect(category)
             filterProduits()
             updateProduitRecyclerView(recyclerViewProduit)
         }
