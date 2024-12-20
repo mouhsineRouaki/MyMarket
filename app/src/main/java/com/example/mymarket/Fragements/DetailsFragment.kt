@@ -64,7 +64,7 @@ class DetailsFragment: Fragment() {
 
             nomDetails.text = nomP
             DescriptionDetails.text = description
-            prixDetails.text = "${getString(R.string.prix)} : $prix ${getString(R.string.DH)}"
+            prixDetails.text = "$prix ${getString(R.string.DH)}"
             quantiteDetails.text = "${getString(R.string.quantite)}  : $quantite"
             imageDetails.setImageResource(image)
             val produit= Produit(image,nomP.toString(),description.toString(),prix,category.toString(),quantite)

@@ -119,20 +119,20 @@ class ProfilFragment : Fragment() {
             btnArabic.setBackgroundResource(R.drawable.toggle_unselected)
             changeLanguage(Locale("fr"))
             ProduitService.Clear()
-            ProduitService.create(Produit(R.drawable.headsholders,15,"Head & Shoulders", "Shampooing 2-en-1 Classic", 37.0, "Embellissement", 20))
-            ProduitService.create(Produit(R.drawable.dedourant,"Adidas Stan Smith Déodorant", "Adidas Originals Chaussure, frais et cool, parfum        ", 25.0, "Embellissement", 99))
+            ProduitService.create(Produit(R.drawable.headsholders,15,"Head & Shoulders", "Shampooing 2-en-1 Classic", 37.0, "Cosmétiques", 20))
+            ProduitService.create(Produit(R.drawable.dedourant,"Adidas Stan Smith Déodorant", "Adidas Originals Chaussure, frais et cool, parfum        ", 25.0, "Cosmétiques", 99))
             ProduitService.create(Produit(R.drawable.ace_1l,"Ace 1L", "Nettoyant Manzili Sol Sans Javel Rose Ace 1L        ", 15.0, "nettoyage", 50))
             ProduitService.create( Produit(R.drawable.the_vert, "Thé vert", "Thé vert bio, parfait pour un moment de détente.", 4.7, "Boissons", 55))
-            ProduitService.create(Produit(R.drawable.yves_rocher,15,"Yves Rocher Maroc", "Shampooing fortifiant aux plantes", 40.0, "Embellissement", 30));
+            ProduitService.create(Produit(R.drawable.yves_rocher,15,"Yves Rocher Maroc", "Shampooing fortifiant aux plantes", 40.0, "Cosmétiques", 30));
             ProduitService.create( Produit(R.drawable.soda_cola, "Soda cola", "Soda cola classique, une boisson rafraîchissante et pétillante.", 4.5, "Boissons", 65))
-            ProduitService.create(Produit(R.drawable.dalaa,5,"Dalaa Couches", "Dalaa Couches bébé Taille 4 - 16 Unités", 25.0, "Embellissement", 20))
+            ProduitService.create(Produit(R.drawable.dalaa,5,"Dalaa Couches", "Dalaa Couches bébé Taille 4 - 16 Unités", 25.0, "Cosmétiques", 20))
             ProduitService.create(Produit(R.drawable.pomme_fuji,"Pommes", "Pommes sucrées et croquantes, parfaites pour les collations.", 4.8, "Fruits", 2))
             ProduitService.create(Produit(R.drawable.bananes,10,"Bananes", "Bananes mûres et sucrées, riches en potassium.", 4.7, "Fruits", 50))
-            ProduitService.create(Produit(R.drawable.florame,15,"Florame Maroc", "Crème hydratante aux huiles essentielles", 45.0, "Embellissement", 35));
-            ProduitService.create(Produit(R.drawable.achifae,"Achifae Argan Oil", "Huile d'argan pure pour soin capillaire", 60.0, "Embellissement", 25));
-            ProduitService.create(Produit(R.drawable.khmiss,"Masque Ghassoul", "Masque naturel au ghassoul marocain", 70.0, "Embellissement", 60));
+            ProduitService.create(Produit(R.drawable.florame,15,"Florame Maroc", "Crème hydratante aux huiles essentielles", 45.0, "Cosmétiques", 35));
+            ProduitService.create(Produit(R.drawable.achifae,"Achifae Argan Oil", "Huile d'argan pure pour soin capillaire", 60.0, "Cosmétiques", 25));
+            ProduitService.create(Produit(R.drawable.khmiss,"Masque Ghassoul", "Masque naturel au ghassoul marocain", 70.0, "Cosmétiques", 60));
             ProduitService.create(Produit(R.drawable.oranges,"Oranges", "Oranges juteuses et sucrées, idéales pour un jus frais.", 4.9, "Fruits", 60))
-            ProduitService.create(Produit(R.drawable.papier,5,"papier hygiénique", "papier hygiénique Pandoo  4 - 16 Unités", 25.0, "Embellissement", 20))
+            ProduitService.create(Produit(R.drawable.papier,5,"papier hygiénique", "papier hygiénique Pandoo  4 - 16 Unités", 25.0, "Cosmétiques", 20))
             ProduitService.create(Produit(R.drawable.raisins,"Raisins", "Raisins frais, parfaits pour une collation rapide.", 4.6, "Fruits", 45))
             ProduitService.create( Produit(R.drawable.cornflakes, "Cornflakes", "Cornflakes croustillants, parfaits pour un petit déjeuner rapide.", 4.7, "Céréales", 55))
             ProduitService.create( Produit(R.drawable.eau_plate, "Eau plate", "Eau minérale plate, idéale pour hydrater.", 4.6, "Boissons", 70))

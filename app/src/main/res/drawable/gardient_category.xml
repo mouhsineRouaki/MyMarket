@@ -9,7 +9,7 @@
         android:centerColor="@color/colorMenu"
         android:endColor="@color/appbg"
         android:useLevel="false" />
-    <corners android:radius="2000dp" />
+    <corners android:radius="5000dp" />
 
 
 </shape>

@@ -64,4 +64,5 @@
     <string name="prix">سعر</string>
     <string name="AjouterPanier">أضف إلى السلة</string>
     <string name="StockInsifut">كمية غير كافية</string>
+    <string name="forgot_password">هل نسيت كلمة المرور ؟</string>
 </resources>

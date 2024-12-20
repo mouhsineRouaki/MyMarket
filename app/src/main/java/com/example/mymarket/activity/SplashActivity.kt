@@ -24,21 +24,21 @@ class SplashActivity: AppCompatActivity() {
         enableEdgeToEdge()
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
         setContentView(R.layout.splash_activity)
-        ProduitService.create(Produit(R.drawable.headsholders,15,"Head & Shoulders", "Shampooing 2-en-1 Classic", 37.0, "Embellissement", 20))
-        ProduitService.create(Produit(R.drawable.dedourant,"Adidas Stan Smith Déodorant", "Adidas Originals Chaussure, frais et cool, parfum        ", 25.0, "Embellissement", 99))
+        ProduitService.create(Produit(R.drawable.headsholders,15,"Head & Shoulders", "Shampooing 2-en-1 Classic", 37.0, "Cosmétiques", 20))
+        ProduitService.create(Produit(R.drawable.dedourant,"Adidas Stan Smith Déodorant", "Adidas Originals Chaussure, frais et cool, parfum        ", 25.0, "Cosmétiques", 99))
         ProduitService.create(Produit(R.drawable.ace_1l,"Ace 1L", "Nettoyant Manzili Sol Sans Javel Rose Ace 1L        ", 15.0, "nettoyage", 50))
         ProduitService.create( Produit(R.drawable.the_vert, "Thé vert", "Thé vert bio, parfait pour un moment de détente.", 4.7, "Boissons", 55))
-        ProduitService.create(Produit(R.drawable.yves_rocher,15,"Yves Rocher Maroc", "Shampooing fortifiant aux plantes", 40.0, "Embellissement", 30));
+        ProduitService.create(Produit(R.drawable.yves_rocher,15,"Yves Rocher Maroc", "Shampooing fortifiant aux plantes", 40.0, "Cosmétiques", 30));
         ProduitService.create( Produit(R.drawable.soda_cola, "Soda cola", "Soda cola classique, une boisson rafraîchissante et pétillante.", 4.5, "Boissons", 65))
-        ProduitService.create(Produit(R.drawable.dalaa,5,"Dalaa Couches", "Dalaa Couches bébé Taille 4 - 16 Unités", 25.0, "Embellissement", 20))
+        ProduitService.create(Produit(R.drawable.dalaa,5,"Dalaa Couches", "Dalaa Couches bébé Taille 4 - 16 Unités", 25.0, "Cosmétiques", 20))
         ProduitService.create(Produit(R.drawable.pomme_fuji,"Pommes", "Pommes sucrées et croquantes, parfaites pour les collations.", 4.8, "Fruits", 2))
         ProduitService.create(Produit(R.drawable.bananes,10,"Bananes", "Bananes mûres et sucrées, riches en potassium.", 4.7, "Fruits", 50))
-        ProduitService.create(Produit(R.drawable.florame,15,"Florame Maroc", "Crème hydratante aux huiles essentielles", 45.0, "Embellissement", 35));
+        ProduitService.create(Produit(R.drawable.florame,15,"Florame Maroc", "Crème hydratante aux huiles essentielles", 45.0, "Cosmétiques", 35));
         ProduitService.create(Produit(R.drawable.kiwi,15,"Kiwi", "Kiwi acidulé, riche en vitamine C.", 15.0, "Fruits", 40))
-        ProduitService.create(Produit(R.drawable.achifae,"Achifae Argan Oil", "Huile d'argan pure pour soin capillaire", 60.0, "Embellissement", 25));
-        ProduitService.create(Produit(R.drawable.khmiss,"Masque Ghassoul", "Masque naturel au ghassoul marocain", 70.0, "Embellissement", 60));
+        ProduitService.create(Produit(R.drawable.achifae,"Achifae Argan Oil", "Huile d'argan pure pour soin capillaire", 60.0, "Cosmétiques", 25));
+        ProduitService.create(Produit(R.drawable.khmiss,"Masque Ghassoul", "Masque naturel au ghassoul marocain", 70.0, "Cosmétiques", 60));
         ProduitService.create(Produit(R.drawable.oranges,"Oranges", "Oranges juteuses et sucrées, idéales pour un jus frais.", 4.9, "Fruits", 60))
-        ProduitService.create(Produit(R.drawable.papier,5,"papier hygiénique", "papier hygiénique Pandoo  4 - 16 Unités", 25.0, "Embellissement", 20))
+        ProduitService.create(Produit(R.drawable.papier,5,"papier hygiénique", "papier hygiénique Pandoo  4 - 16 Unités", 25.0, "Cosmétiques", 20))
         ProduitService.create(Produit(R.drawable.raisins,"Raisins", "Raisins frais, parfaits pour une collation rapide.", 4.6, "Fruits", 45))
         ProduitService.create( Produit(R.drawable.cornflakes, "Cornflakes", "Cornflakes croustillants, parfaits pour un petit déjeuner rapide.", 4.7, "Céréales", 55))
         ProduitService.create( Produit(R.drawable.eau_plate, "Eau plate", "Eau minérale plate, idéale pour hydrater.", 4.6, "Boissons", 70))
@@ -46,7 +46,9 @@ class SplashActivity: AppCompatActivity() {
         ProduitService.create( Produit(R.drawable.yaourt_nature, "Yaourt nature", "Yaourt nature crémeux et frais, parfait pour le dessert.", 4.6, "Laitiers", 50))
         ProduitService.create( Produit(R.drawable.creme_fraiche, "Crème fraîche", "Crème fraîche épaisse, idéale pour les sauces ou les desserts.", 4.8, "Laitiers", 45))
         ProduitService.create( Produit(R.drawable.eau_petillante, "Eau pétillante", "Eau pétillante rafraîchissante, idéale pour accompagner vos repas.", 4.6, "Boissons", 60))
-        ProduitService.create(Produit(R.drawable.poires,"Poires", "Poires juteuses et sucrées, parfaites en dessert.", 4.7, "Fruits", 55))
+        ProduitService.create(Produit(R.drawable.tomates, "Tomates", "Tomates fraîches et juteuses, parfaites pour les salades.", 4.7, "Légumes", 50))
+        ProduitService.create(Produit(R.drawable.pommes_de_terre,10, "Pommes de terre", "Pommes de terre fraîches, idéales pour tous les types de plats.", 4.5, "Légumes", 60))
+        ProduitService.create(Produit(R.drawable.cho_fleur, "Chou-fleur", "Chou-fleur frais, parfait pour les gratins.", 4.6, "Légumes", 55))
         ProduitService.create(Produit(R.drawable.fraises,"Fraises", "Fraises fraîches et sucrées, parfaites pour les salades de fruits.", 4.8, "Fruits", 60))
         ProduitService.create(Produit(R.drawable.ananas,"Ananas", "Ananas frais, délicieux et sucré.", 4.7, "Fruits", 50))
         ProduitService.create(Produit(R.drawable.mangue,"Mangue", "Mangue juteuse et sucrée, parfaite en smoothie.", 4.9, "Fruits", 45))
@@ -65,9 +67,6 @@ class SplashActivity: AppCompatActivity() {
         ProduitService.create(Produit(R.drawable.epinards, "Épinards", "Épinards frais, riches en fer et en vitamines.", 4.7, "Légumes", 50))
         ProduitService.create(Produit(R.drawable.courgettes, "Courgettes", "Courgettes fraîches, idéales pour les ratatouilles.", 4.6, "Légumes", 40))
         ProduitService.create(Produit(R.drawable.poivrons, "Poivrons", "Poivrons colorés, idéals pour les salades ou les plats sautés.", 4.8, "Légumes", 45))
-        ProduitService.create(Produit(R.drawable.pommes_de_terre, "Pommes de terre", "Pommes de terre fraîches, idéales pour tous les types de plats.", 4.5, "Légumes", 60))
-        ProduitService.create(Produit(R.drawable.tomates, "Tomates", "Tomates fraîches et juteuses, parfaites pour les salades.", 4.7, "Légumes", 50))
-        ProduitService.create(Produit(R.drawable.cho_fleur,10, "Chou-fleur", "Chou-fleur frais, parfait pour les gratins.", 4.6, "Légumes", 55))
         ProduitService.create(Produit(R.drawable.haricots_verts, "Haricots verts", "Haricots verts frais, parfaits pour un plat d'accompagnement.", 4.5, "Légumes", 45))
         ProduitService.create(Produit(R.drawable.petits_pois, "Petits pois", "Petits pois frais, délicieux dans les soupes ou salades.", 4.6, "Légumes", 35))
         ProduitService.create(Produit(R.drawable.aubergines, "Aubergines", "Aubergines fraîches, idéales pour les plats méditerranéens.", 4.4, "Légumes", 40))
@@ -80,7 +79,7 @@ class SplashActivity: AppCompatActivity() {
         ProduitService.create(Produit(R.drawable.poireaux, "Poireaux", "Poireaux frais, parfaits pour les soupes ou les plats mijotés.", 4.8, "Légumes", 45))
         ProduitService.create(Produit(R.drawable.betteraves, "Betteraves", "Betteraves fraîches, idéales pour les salades ou jus.", 4.5, "Légumes", 40))
         ProduitService.create(Produit(R.drawable.saumon_frais, "Saumon frais", "Filets de saumon frais, riches en oméga-3.", 4.9, "Poissons", 25))
-        ProduitService.create(Produit(R.drawable.thon_en_conserve, "Thon en conserve", "Thon sauvage en conserve, idéal pour les salades.", 4.3, "Poissons", 40))
+        ProduitService.create(Produit(R.drawable.thon_en_conserve, "Thon Isabel", "THON À LA SAUCE TOMATE, idéal pour les salades.", 4.3, "Poissons", 40))
         ProduitService.create(Produit(R.drawable.maquereau, "Maquereau", "Maquereau frais, idéal pour les grillades.", 4.6, "Poissons", 30))
         ProduitService.create(Produit(R.drawable.sardines, "Sardines", "Sardines en conserve, parfaites pour une recette rapide.", 4.4, "Poissons", 35))
         ProduitService.create(Produit(R.drawable.truite, "Truite", "Truite fraîche, idéale pour une cuisson en papillote.", 4.7, "Poissons", 50))
@@ -96,6 +95,7 @@ class SplashActivity: AppCompatActivity() {
         ProduitService.create(Produit(R.drawable.poulet_entier, "Poulet entier", "Poulet fermier entier, parfait pour un rôti ou un poulet au four.", 4.8, "Viandes", 40))
         ProduitService.create( Produit(R.drawable.steak_de_boeuf, "Steak de bœuf", "Steak de bœuf tendre, idéal pour les grillades.", 4.9, "Viandes", 50))
         ProduitService.create( Produit(R.drawable.cotelettes_dagneau, "Côtelettes d'agneau", "Côtelettes d'agneau savoureuses, idéales pour un barbecue.", 4.7, "Viandes", 45))
+        ProduitService.create(Produit(R.drawable.poires,"Poires", "Poires juteuses et sucrées, parfaites en dessert.", 4.7, "Fruits", 55))
         ProduitService.create( Produit(R.drawable.filet_de_porc, "Filet de porc", "Filet de porc maigre, parfait pour les plats rôtis.", 4.6, "Viandes", 40))
         ProduitService.create( Produit(R.drawable.escalopes_de_dinde, "Escalopes de dinde", "Escalopes de dinde tendres et légères, parfaites pour les sautés.", 4.5, "Viandes", 50))
         ProduitService.create( Produit(R.drawable.saucisses_de_toulouse, "Saucisses de Toulouse", "Saucisses de Toulouse traditionnelles, idéales pour un cassoulet.", 4.6, "Viandes", 60))
@@ -124,7 +124,7 @@ class SplashActivity: AppCompatActivity() {
         ProduitService.create( Produit(R.drawable.muffins, "Muffins", "Muffins aux fruits frais, parfaits pour un goûter rapide.", 4.8, "Pâtisseries", 50))
         ProduitService.create( Produit(R.drawable.jus_dorange, "Jus d'orange", "Jus d'orange frais, riche en vitamine C.", 4.8, "Boissons", 50))
         ProduitService.create( Produit(R.drawable.jus_de_pomme, "Jus de pomme", "Jus de pomme frais, légèrement sucré et rafraîchissant.", 4.8, "Boissons", 50))
-        ProduitService.create( Produit(R.drawable.limonade, "Limonade", "Limonade artisanale, sucrée et bien citronnée.", 4.7, "Boissons", 55))
+        ProduitService.create( Produit(R.drawable.limonade, "PEPSI", "Limonade artisanale, sucrée et bien citronnée.", 4.7, "Boissons", 55))
         ProduitService.create( Produit(R.drawable.vin_rouge, "Vin rouge", "Vin rouge sec, parfait pour accompagner les repas.", 4.9, "Boissons", 40))
         ProduitService.create( Produit(R.drawable.vin_blanc, "Vin blanc", "Vin blanc sec, léger et fruité.", 4.8, "Boissons", 50))
         ProduitService.create( Produit(R.drawable.curcuma, "Curcuma", "Curcuma en poudre, idéal pour donner de la couleur et du goût à vos plats.", 4.8, "Épices", 50))
@@ -190,7 +190,7 @@ class SplashActivity: AppCompatActivity() {
 
 
         CategoryService.create(Category(R.drawable.net, "nettoyage"))
-        CategoryService.create(Category(R.drawable.embellissement, "Embellissement"))
+        CategoryService.create(Category(R.drawable.embellissement, "Cosmétiques"))
         CategoryService.create(Category(R.drawable.fruits, "Fruits"))
         CategoryService.create(Category(R.drawable.legumes, "Légumes"))
         CategoryService.create(Category(R.drawable.poisson, "Poissons"))
