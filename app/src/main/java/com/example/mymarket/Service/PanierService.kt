@@ -43,7 +43,6 @@ object PanierService: IDAO<Produit> {
 
         fun findPosition(p:Produit):Int{
             return listPanier.indexOfFirst { it.nomP ==p.nomP }
-
         }
 
 
