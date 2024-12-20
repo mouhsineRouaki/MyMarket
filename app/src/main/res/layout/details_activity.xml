@@ -19,6 +19,7 @@
             android:layout_marginTop="40dp"
             app:title="">
 
+
             <ImageButton
                 android:id="@+id/retour"
                 android:layout_width="40dp"
@@ -27,7 +28,18 @@
                 android:background="@color/appbg"
                 android:layoutDirection="ltr"
                 android:src="@drawable/baseline_arrow_back_24"/>
+
         </androidx.appcompat.widget.Toolbar>
+        <TextView
+            android:id="@+id/nomDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="DARI Couscous Moyen 1KG x 12U"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:textColor="@color/titleColor"
+            android:layout_gravity="center"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,7 +48,9 @@
         android:gravity="center">
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_border_image"
+            android:layout_gravity="center">
         <ImageView
             android:id="@+id/imageDetails"
             android:layout_width="match_parent"
@@ -57,15 +71,7 @@
                 android:visibility="gone"/>
         </FrameLayout>
 
-        <TextView
-            android:id="@+id/nomDetails"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="DARI Couscous Moyen 1KG x 12U"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            android:textColor="@color/titleColor" />
+
         <TextView
             android:id="@+id/descriptionDetails"
             android:layout_width="wrap_content"
@@ -88,10 +94,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:textStyle="bold"
             android:text="13.72 dh"
-            android:textSize="24sp"
-            android:textColor="@color/titleColor" />
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/titleColor"
+            android:background="@drawable/stroke"
+            android:padding="5dp"/>
         <Button
             android:id="@+id/add_to_cart_button"
             android:layout_width="250dp"
