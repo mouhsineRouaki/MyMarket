@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment
 import com.example.mymarket.DATA.Notification
 import com.example.mymarket.DATA.Produit
 import com.example.mymarket.R
+import com.example.mymarket.Service.CommandesService
 import com.example.mymarket.Service.NotificationService
 import com.example.mymarket.Service.PanierService
 import com.example.mymarket.Service.ProduitService
@@ -76,6 +77,8 @@ class ProfilFragment : Fragment() {
             builder.setMessage("do you want to Loug Out")
             builder.setPositiveButton("OK") { dialog, which ->
                 utilisateurService.Clear()
+                CommandesService.Clear()
+                PanierService.Clear()
                 startActivity(Intent(requireContext(), SplashActivity::class.java))
             }
             builder.setNegativeButton("Annuler",null)

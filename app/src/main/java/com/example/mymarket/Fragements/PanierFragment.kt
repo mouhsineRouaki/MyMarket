@@ -40,23 +40,7 @@ class PanierFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val clear = view.findViewById<ImageButton>(R.id.clear)
-        clear.setOnClickListener {
-            val builder = AlertDialog.Builder(requireContext())
-            builder.setTitle("Confirmation de vider panier")
-            builder.setMessage("do you want to vider panier")
-            builder.setPositiveButton("OK") { dialog, which ->
-                val list = PanierService.findAll()
-                if(list.isEmpty()){
-                    Toast.makeText(requireContext(), "Panier Deja Vide", Toast.LENGTH_SHORT).show()
-                }else {
-                    PanierService.Clear()
-                    adapter.notifyDataSetChanged()
-                    NotificationService.create(Notification(R.drawable.clear, "le Panier et vider"))
-                }
-            }
-            builder.setNegativeButton("Annuler",null)
-            builder.show()
-        }
+
 
         val recyclerView: RecyclerView = view.findViewById(R.id.RecyclePanier)
         val id = arguments?.getInt("id")
@@ -82,6 +66,23 @@ class PanierFragment : Fragment() {
             } else {
                 Toast.makeText(requireContext(), "Panier vide, commande refusée.", Toast.LENGTH_SHORT).show()
             }
+        }
+        clear.setOnClickListener {
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setTitle("Confirmation de vider panier")
+            builder.setMessage("do you want to vider panier")
+            builder.setPositiveButton("OK") { dialog, which ->
+                if(listtt.isEmpty()){
+                    Toast.makeText(requireContext(), "Panier Deja Vide", Toast.LENGTH_SHORT).show()
+                }else {
+                    PanierService.Clear()
+                    adapter.notifyDataSetChanged()
+                    updateTotal()
+                    NotificationService.create(Notification(R.drawable.clear, "le Panier et vider"))
+                }
+            }
+            builder.setNegativeButton("Annuler",null)
+            builder.show()
         }
 
         if (PanierService.findAll().isNotEmpty() && id != null) {

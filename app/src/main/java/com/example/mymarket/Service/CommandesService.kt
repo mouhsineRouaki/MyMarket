@@ -27,6 +27,9 @@ object CommandesService: IDAO<Commandes> {
     override fun findById(id: Int):Commandes? {
         return produitCommande.find {it.Num == id}
     }
+    fun Clear() {
+        produitCommande.clear()
+    }
 
     override fun findAll(): MutableList<Commandes> {
         return produitCommande.toMutableList()

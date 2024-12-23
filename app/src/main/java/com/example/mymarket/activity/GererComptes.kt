@@ -2,6 +2,7 @@ package com.example.mymarket.activity
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.View
 import com.example.mymarket.R
 
 import android.widget.TextView
@@ -15,6 +16,7 @@ class GererComptes: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
         setContentView(R.layout.layout_comptes)
         supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, WelcomeFragment()).commit()
     }

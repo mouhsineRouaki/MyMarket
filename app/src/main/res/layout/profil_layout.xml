@@ -196,7 +196,7 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/lougout"
+                android:src="@drawable/lougouut"
                 android:contentDescription="Icon" />
 
             <TextView
@@ -205,7 +205,7 @@
                 android:layout_marginStart="16dp"
                 android:text="@string/logout"
                 android:textSize="16sp"
-                android:textColor="@android:color/black" />
+                android:textColor="@color/titleColor" />
         </LinearLayout>
 
 

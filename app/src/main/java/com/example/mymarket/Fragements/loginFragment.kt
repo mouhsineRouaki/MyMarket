@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.mymarket.DATA.utilisateur
@@ -31,7 +32,19 @@ class loginFragment : Fragment() {
         val email = view.findViewById<EditText>(R.id.email)
         val password = view.findViewById<EditText>(R.id.password)
         val btnLogin = view.findViewById<Button>(R.id.buttonLogin)
+        val btnsignup = view.findViewById<TextView>(R.id.signup)
         val retour = view.findViewById<ImageButton>(R.id.retour)
+        btnsignup.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .setCustomAnimations(
+                    R.anim.enter_animations,
+                    R.anim.aucun,
+                    R.anim.pop_enter_animations,
+                    R.anim.pop_sortie_animations
+                )
+                .replace(R.id.fragmentContainer, Inscriptionfragment())
+                .commit()
+        }
         btnLogin.setOnClickListener {
             val emailInput = email.text.toString().trim()
             val passwordInput = password.text.toString().trim()

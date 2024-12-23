@@ -16,7 +16,7 @@ import com.example.mymarket.Service.utilisateurService
 
 class Inscriptionfragment : Fragment() {
 
-    private lateinit var villesList: List<villeType>
+    private lateinit var villesList: MutableList<villeType>
     private lateinit var selectedVille: villeType
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,10 +38,11 @@ class Inscriptionfragment : Fragment() {
         val villeSpinner = view.findViewById<Spinner>(R.id.ville)
         val linear = view.findViewById<LinearLayout>(R.id.fragment_container2)
 
-        villesList = listOf(
-            villeType.Safi, villeType.CasaBlanca,
-            villeType.Tanger, villeType.Agadir
-        )
+        val villestypes = VilleService.findAll().toMutableList()
+        villesList = mutableListOf()
+        for(e in villestypes){
+            villesList.add(e.ville)
+        }
 
         val adapter = object : ArrayAdapter<villeType>(
             requireContext(), android.R.layout.simple_spinner_item, villesList
