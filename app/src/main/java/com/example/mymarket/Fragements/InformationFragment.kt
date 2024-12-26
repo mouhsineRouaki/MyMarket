@@ -146,9 +146,13 @@ class InformationFragment : Fragment() {
             if (villee != null) {
                 val u = utilisateur(nom, prenom, date, genre, email, password, imageSelected, villee)
                 utilisateurService.updateCompte(user,u)
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, ProfilFragment())
+                    .commit()
             }else{
                 Toast.makeText(requireContext(), "Ville null", Toast.LENGTH_SHORT).show()
             }
+
         }
         TextButton.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)

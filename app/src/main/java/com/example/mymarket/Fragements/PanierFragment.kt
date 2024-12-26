@@ -57,7 +57,15 @@ class PanierFragment : Fragment() {
         val listtt = mutableListOf<Produit>()
         listtt.addAll(PanierService.findAll())
 
-        val total = list.sumOf { it.prix * it.quantitePanier } - 0.29
+        var total =0.0
+        val service = PanierService.findAll()
+        for (e in service) {
+            total += if (e.Promo <= 0) {
+                e.prix * e.quantitePanier
+            } else {
+                (e.prix * (1 - e.Promo / 100.0)) * e.quantitePanier
+            }
+        }
 
         btnCommande.setOnClickListener {
             if (listtt.isNotEmpty()) {
@@ -66,23 +74,6 @@ class PanierFragment : Fragment() {
             } else {
                 Toast.makeText(requireContext(), "Panier vide, commande refusée.", Toast.LENGTH_SHORT).show()
             }
-        }
-        clear.setOnClickListener {
-            val builder = AlertDialog.Builder(requireContext())
-            builder.setTitle("Confirmation de vider panier")
-            builder.setMessage("do you want to vider panier")
-            builder.setPositiveButton("OK") { dialog, which ->
-                if(listtt.isEmpty()){
-                    Toast.makeText(requireContext(), "Panier Deja Vide", Toast.LENGTH_SHORT).show()
-                }else {
-                    PanierService.Clear()
-                    adapter.notifyDataSetChanged()
-                    updateTotal()
-                    NotificationService.create(Notification(R.drawable.clear, "le Panier et vider"))
-                }
-            }
-            builder.setNegativeButton("Annuler",null)
-            builder.show()
         }
 
         if (PanierService.findAll().isNotEmpty() && id != null) {
@@ -116,27 +107,42 @@ class PanierFragment : Fragment() {
                 Toast.makeText(requireContext(), getString(R.string.order_cancelled_city_empty), Toast.LENGTH_SHORT).show()
             }
         }
+        clear.setOnClickListener {
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setTitle("Confirmation de vider panier")
+            builder.setMessage("do you want to vider panier")
+            builder.setPositiveButton("OK") { dialog, which ->
+                val list = PanierService.findAll().toMutableList()
+                if(list.isEmpty()){
+                    Toast.makeText(requireContext(), "Panier Deja Vide", Toast.LENGTH_SHORT).show()
+                }else {
+                    PanierService.Clear()
+                    updateTotal()
+                    adapter.notifyDataSetChanged()
+                    NotificationService.create(Notification(R.drawable.clear, "le Panier et vider"))
+                }
+            }
+            builder.setNegativeButton("Annuler",null)
+            builder.show()
+        }
 
         recyclerView.adapter = adapter
         updateTotal()
     }
 
-    fun NotifyAdapter() {
-        adapter.notifyDataSetChanged()
-    }
 
     @SuppressLint("DefaultLocale")
     fun updateTotal() {
-        var total = 0.0
+        var totall = 0.0
         val service = PanierService.findAll()
         for (e in service) {
-            total += if (e.Promo <= 0) {
+            totall += if (e.Promo <= 0) {
                 e.prix * e.quantitePanier + 0.29
             } else {
                 (e.prix * (1 - e.Promo / 100.0)) * e.quantitePanier + 0.29
             }
         }
 
-        totalPanier.text = String.format("%.2f", total)
+        totalPanier.text = String.format("%.2f", totall)
     }
 }

@@ -201,6 +201,33 @@ class SplashActivity: AppCompatActivity() {
         CategoryService.create(Category(R.drawable.cereables, "Céréales"))
 
 
+        villeTypeService.create(villeType.Safi)
+        villeTypeService.create(villeType.CasaBlanca)
+        villeTypeService.create(villeType.Agadir)
+        villeTypeService.create(villeType.Tanger)
+        villeTypeService.create(villeType.Marrakech)
+        villeTypeService.create(villeType.Rabat)
+        villeTypeService.create(villeType.Fes)
+        villeTypeService.create(villeType.Meknes)
+        villeTypeService.create(villeType.Oujda)
+        villeTypeService.create(villeType.Nador)
+        villeTypeService.create(villeType.Tetouan)
+        villeTypeService.create(villeType.Kenitra)
+        villeTypeService.create(villeType.Laayoune)
+        villeTypeService.create(villeType.Essaouira)
+        villeTypeService.create(villeType.ElJadida)
+        villeTypeService.create(villeType.Mohammedia)
+        villeTypeService.create(villeType.Settat)
+        villeTypeService.create(villeType.Taza)
+        villeTypeService.create(villeType.Khouribga)
+        villeTypeService.create(villeType.BeniMellal)
+        villeTypeService.create(villeType.Guelmim)
+        villeTypeService.create(villeType.Dakhla)
+        villeTypeService.create(villeType.Zagora)
+        villeTypeService.create(villeType.KsarElKebir)
+
+
+
         Handler(Looper.getMainLooper()).postDelayed({
             val image = findViewById<ImageView>(R.id.logo)
             image.setImageResource(R.drawable.logo)

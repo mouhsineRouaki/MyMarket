@@ -318,7 +318,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="lougout" />
+                            <entry key="color" value="ff0009" />
+                            <entry key="outputName" value="lougouut" />
                             <entry key="sourceFile" value="C:\Users\poste\AndroidStudioProjects\MyMarket" />
                           </map>
                         </option>

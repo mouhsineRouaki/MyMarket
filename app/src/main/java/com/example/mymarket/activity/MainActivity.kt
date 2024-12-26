@@ -48,6 +48,12 @@ class MainActivity : AppCompatActivity() {
     fun loadFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
+            .setCustomAnimations(
+                R.anim.enter_animations,
+                R.anim.aucun,
+                R.anim.pop_enter_animations,
+                R.anim.pop_sortie_animations
+            )
             .commit()
     }
 }

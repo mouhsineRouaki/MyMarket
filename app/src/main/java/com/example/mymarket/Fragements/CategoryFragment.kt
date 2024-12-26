@@ -49,6 +49,7 @@ class CategoryFragment : Fragment() {
 
         categoryAdapter = adapterCategory(categoryList) { category ->
             CategoryService.ChangeSelect(category)
+            CategoryService.ChangeSelectAr(category)
             filterProduits()
             updateProduitRecyclerView(recyclerViewProduit)
         }

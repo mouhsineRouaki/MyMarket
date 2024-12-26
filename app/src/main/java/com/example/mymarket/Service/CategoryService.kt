@@ -54,5 +54,20 @@ object CategoryService: IDAO<Category> {
             false
         }
     }
+    fun ChangeSelectAr(p: Category): Boolean {
+        val index = listPanierAr.indexOfFirst { it.nom ==p.nom }
+        return if(index!=-1){
+            p.Select = !p.Select
+            for(e in listPanierAr){
+                if(e.nom != p.nom) {
+                    e.Select = false
+                }
+            }
+            listPanierAr[index]=p
+            true
+        }else {
+            false
+        }
+    }
 
 }
