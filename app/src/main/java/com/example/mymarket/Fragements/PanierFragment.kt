@@ -2,6 +2,8 @@ package com.example.mymarket.Fragements
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,6 +31,7 @@ class PanierFragment : Fragment() {
     lateinit var totalPanier: TextView
     lateinit var adapter: adapterPanier
     lateinit var produit: Produit
+    var listtt = mutableListOf<Produit>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,17 +50,21 @@ class PanierFragment : Fragment() {
         totalPanier = view.findViewById(R.id.Total)
         val btnCommande: Button = view.findViewById(R.id.btnCommander)
 
-        recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        recyclerView.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
         val list = PanierService.findAll()
         adapter = adapterPanier(list, this, true) { produit ->
-            Toast.makeText(requireContext(), "${produit.nomP} ajouté au panier !", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                requireContext(),
+                "${produit.nomP} ajouté au panier !",
+                Toast.LENGTH_SHORT
+            ).show()
         }
 
-        val listtt = mutableListOf<Produit>()
         listtt.addAll(PanierService.findAll())
 
-        var total =0.0
+        var total = 0.0
         val service = PanierService.findAll()
         for (e in service) {
             total += if (e.Promo <= 0) {
@@ -66,13 +73,18 @@ class PanierFragment : Fragment() {
                 (e.prix * (1 - e.Promo / 100.0)) * e.quantitePanier
             }
         }
+        startAutoRefresh()
 
         btnCommande.setOnClickListener {
             if (listtt.isNotEmpty()) {
                 val bottomSheetFragment = bottomLayoutFragement()
                 bottomSheetFragment.show(parentFragmentManager, bottomSheetFragment.tag)
             } else {
-                Toast.makeText(requireContext(), "Panier vide, commande refusée.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    "Panier vide, commande refusée.",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
 
@@ -101,10 +113,20 @@ class PanierFragment : Fragment() {
             if (ville != null) {
                 CommandesService.create(Commandes(total, listtt, ville))
                 val c = CommandesService.findlast()
-                NotificationService.create(Notification(R.drawable.commande,getString(R.string.order_added, c.Num.toString())))
-                Toast.makeText(requireContext(), getString(R.string.catAdd), Toast.LENGTH_SHORT).show()
+                NotificationService.create(
+                    Notification(
+                        R.drawable.commande,
+                        getString(R.string.order_added, c.Num.toString())
+                    )
+                )
+                Toast.makeText(requireContext(), getString(R.string.catAdd), Toast.LENGTH_SHORT)
+                    .show()
             } else {
-                Toast.makeText(requireContext(), getString(R.string.order_cancelled_city_empty), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.order_cancelled_city_empty),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
         clear.setOnClickListener {
@@ -112,17 +134,16 @@ class PanierFragment : Fragment() {
             builder.setTitle("Confirmation de vider panier")
             builder.setMessage("do you want to vider panier")
             builder.setPositiveButton("OK") { dialog, which ->
-                val list = PanierService.findAll().toMutableList()
-                if(list.isEmpty()){
+                if (listtt.isEmpty()) {
                     Toast.makeText(requireContext(), "Panier Deja Vide", Toast.LENGTH_SHORT).show()
-                }else {
+                } else {
                     PanierService.Clear()
                     updateTotal()
                     adapter.notifyDataSetChanged()
                     NotificationService.create(Notification(R.drawable.clear, "le Panier et vider"))
                 }
             }
-            builder.setNegativeButton("Annuler",null)
+            builder.setNegativeButton("Annuler", null)
             builder.show()
         }
 
@@ -144,5 +165,14 @@ class PanierFragment : Fragment() {
         }
 
         totalPanier.text = String.format("%.2f", totall)
+    }
+
+    fun startAutoRefresh() {
+        Handler(Looper.getMainLooper()).postDelayed(object : Runnable {
+            override fun run() {
+                listtt = PanierService.findAll()
+                Handler(Looper.getMainLooper()).postDelayed(this, 10L)
+            }
+        }, 10L)
     }
 }

@@ -1,5 +1,6 @@
 package com.example.mymarket.DATA
 
+import android.os.CountDownTimer
 import android.os.Handler
 import android.os.Looper
 import com.example.mymarket.R
@@ -8,7 +9,7 @@ import com.example.mymarket.Service.PanierService
 import java.text.SimpleDateFormat
 import java.util.Date
 
-class Commandes(val Num:Int = incrementer(), val dateCmd : String, var status : String, var prixTotal : Double, var TotalCategory : Int, val ListProduits:MutableList<Produit>, val ville: ville) {
+class Commandes(val Num:Int = incrementer(), val dateCmd : String, var status : String, var prixTotal : Double, var TotalCategory : Int, val ListProduits:MutableList<Produit>, val ville: ville, var stringTime :String="",var showNotificationEnAttente:Boolean=true,var showNotificationLivre:Boolean=true,var showNotificationWorker:Boolean=true) {
     var totalprix = 0.0
     var totalcat = 0
     var list: Double = PanierService.findAll().sumOf { it.prix }
@@ -21,6 +22,26 @@ class Commandes(val Num:Int = incrementer(), val dateCmd : String, var status : 
             cmp += 1
             return cmp
         }
+    }
+    fun startTimer(timeInMillis: Long,) {
+        val currentTimer = object : CountDownTimer(timeInMillis+10_000, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                stringTime = convertMillisToTime(millisUntilFinished)
+            }
+
+            override fun onFinish() {
+                stringTime = "Livraison terminée!"
+            }
+        }
+        currentTimer?.start()
+    }
+    fun convertMillisToTime(millis: Long): String {
+        val totalSeconds = millis / 1000
+        val hours = totalSeconds / 3600
+        val minutes = (totalSeconds % 3600) / 60
+        val seconds = totalSeconds % 60
+
+        return String.format("%02dH :%02dM :%02dS", hours, minutes, seconds)
     }
 
     constructor(prixTotal: Double, ListProduits: MutableList<Produit>, ville: ville) : this(
@@ -53,6 +74,7 @@ class Commandes(val Num:Int = incrementer(), val dateCmd : String, var status : 
             }
         }
     }
+
 
 }
 

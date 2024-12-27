@@ -100,7 +100,7 @@
                 android:id="@+id/buttonLogin"
                 android:layout_width="182sp"
                 android:layout_height="54sp"
-                android:text="LOGIN"
+                android:text="@string/login"
                 android:textStyle="bold"
                 android:textColor="@color/Buttontext"
                 android:backgroundTint="#006a42" />

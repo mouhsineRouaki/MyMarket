@@ -22,6 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:maxLines="2"
+            android:gravity="center"
             android:text="Nom du produit"
             android:textColor="@color/titleColor"
             android:textSize="18sp"
@@ -33,6 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textStyle="italic"
+            android:gravity="center"
             android:maxLines="1"
             android:text="Prix : 0.00 DH"
             android:textColor="@color/titleColor"
@@ -45,6 +47,7 @@
             android:layout_marginTop="7dp"
             android:text="Prix : 0.00 DH"
             android:textStyle="bold"
+            android:gravity="center"
             android:textColor="@color/titleColor"
             android:textSize="16sp" />
 

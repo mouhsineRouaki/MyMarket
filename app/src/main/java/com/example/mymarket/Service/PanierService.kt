@@ -40,8 +40,8 @@ object PanierService: IDAO<Produit> {
             listPanier.clear()
         }
 
-        fun findPosition(p:Produit):Int{
-            return listPanier.indexOfFirst { it.nomP ==p.nomP }
+        fun findPosition(p:String):Produit?{
+            return listPanier.find{ it.nomP == p }
         }
 
 

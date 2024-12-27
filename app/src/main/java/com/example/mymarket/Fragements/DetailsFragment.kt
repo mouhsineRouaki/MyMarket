@@ -72,6 +72,11 @@ class DetailsFragment: Fragment() {
             val produit= Produit(image,nomP.toString(),description.toString(),prix,category.toString(),quantite)
             addToCartButton.setOnClickListener {
                 val p = PanierService.findAll().map { it.nomP }
+                val produitFind= PanierService.findPosition(nomP)
+                if (produit.quantite == 0) {
+                    Toast.makeText(requireContext(), "${getString(R.string.StockInsifut)} ${nomP}", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
                 if(!p.contains(nomP)) {
                     PanierService.create(produit)
                     NotificationService.create(Notification(produit.image,"le ${produit.nomP} ${getString(R.string.added_to_cart)}"))

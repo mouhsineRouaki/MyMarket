@@ -22,14 +22,32 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:gravity="center"
-        android:textColor="@color/titleColor"/>
+        android:textColor="@color/titleColor" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/bottom_sheet_subtitle"
         android:layout_marginTop="16dp"
-        android:textColor="@color/titleColor"/>
+        android:textColor="@color/titleColor" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:id="@+id/timeHours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginEnd="8dp" />
+    </LinearLayout>
 
     <Spinner
         android:id="@+id/addressInput"

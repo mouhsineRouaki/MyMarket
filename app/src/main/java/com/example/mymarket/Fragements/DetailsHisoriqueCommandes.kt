@@ -1,6 +1,9 @@
 package com.example.mymarket.Fragements
 
 import android.os.Bundle
+import android.os.CountDownTimer
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,11 +13,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mymarket.R
 import com.example.mymarket.Service.CommandesService
+import com.example.mymarket.Service.PanierService
 import com.example.mymarket.adapters.adapterCommandes
 import com.example.mymarket.adapters.adapterPanier
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class DetailsHisoriqueCommandes: BottomSheetDialogFragment() {
+    lateinit var time:TextView
+    var currentTimer: CountDownTimer? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,10 +35,17 @@ class DetailsHisoriqueCommandes: BottomSheetDialogFragment() {
         val date = view.findViewById<TextView>(R.id.Time_commande)
         val totalCat = view.findViewById<TextView>(R.id.Total_category)
         val status = view.findViewById<TextView>(R.id.status)
+        time = view.findViewById<TextView>(R.id.time)
         val data = arguments?.getInt("num")
         if (data != null) {
             val commandeFinded = CommandesService.findById(data)
             if (commandeFinded != null) {
+                Handler(Looper.getMainLooper()).postDelayed(object : Runnable {
+                    override fun run() {
+                        time.text = commandeFinded.stringTime
+                        Handler(Looper.getMainLooper()).postDelayed(this, 0)
+                    }
+                }, 0)
                 total.text = String.format("%.2f DH", commandeFinded.prixTotal)
                 date.text = "${commandeFinded.dateCmd} "
                 totalCat.text = "${commandeFinded.TotalCategory} "
@@ -59,4 +72,5 @@ class DetailsHisoriqueCommandes: BottomSheetDialogFragment() {
             )
         }
     }
+
 }

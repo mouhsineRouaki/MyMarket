@@ -71,7 +71,7 @@
                     android:id="@+id/description_produit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Vendu à l’unité"
+                    android:text="@string/lunite"
                     android:textColor="#757575"
                     android:textSize="14sp"
                     android:layout_marginTop="4dp" />
@@ -175,7 +175,7 @@
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Total : "
+                        android:text="@string/total"
                         android:textColor="@color/titleColor"
                         android:textSize="16sp"
                         android:textStyle="bold" />

@@ -4,66 +4,69 @@
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:fitsSystemWindows="true">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="4dp"
-    android:gravity="center_horizontal"
-    android:background="@drawable/bg">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="120dp"
-        android:fontFamily="sans-serif"
-        android:text="Go Shopping From Home"
-        android:textColor="@color/white"
-        android:textSize="58sp"
-        android:textStyle="bold"
-        android:lineSpacingExtra="10dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:fontFamily="sans-serif"
-        android:gravity="center"
-        android:text="ヅ"
-        android:textColor="@color/white"
-        android:textSize="58sp"
-        android:textStyle="bold"
-        android:lineSpacingExtra="10dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_gravity="bottom"
-        android:gravity="center"
-        android:layout_height="match_parent">
-    <Button
-        android:layout_marginTop="150dp"
-        android:layout_marginHorizontal="10sp"
-        android:id="@+id/tologin"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:text="LOGIN"
-        android:textColor="@color/white"
-        android:backgroundTint="#006A42"
-        android:textStyle="bold"/>
+        android:padding="4dp"
+        android:gravity="center_horizontal"
+        android:background="@drawable/bg">
 
-    <Button
-        android:layout_marginTop="20sp"
-        android:layout_marginHorizontal="10sp"
-        android:id="@+id/tosignup"
-        android:layout_marginBottom="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:text="Signup"
-        android:textColor="#006A42"
-        android:backgroundTint="@color/white"
-        android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="120dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/go_shopping_from_home"
+            android:textColor="@color/white"
+            android:textSize="58sp"
+            android:textStyle="bold"
+            android:lineSpacingExtra="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="ヅ"
+            android:textColor="@color/white"
+            android:textSize="58sp"
+            android:textStyle="bold"
+            android:lineSpacingExtra="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:layout_height="match_parent">
+
+            <Button
+                android:layout_marginTop="150dp"
+                android:layout_marginHorizontal="10sp"
+                android:id="@+id/tologin"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:text="@string/login"
+                android:textColor="@color/white"
+                android:backgroundTint="#006A42"
+                android:textStyle="bold"/>
+
+            <Button
+                android:layout_marginTop="20sp"
+                android:layout_marginHorizontal="10sp"
+                android:id="@+id/tosignup"
+                android:layout_marginBottom="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:text="@string/signup"
+                android:textColor="#006A42"
+                android:backgroundTint="@color/white"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
     </LinearLayout>
-
-</LinearLayout>
-    </FrameLayout>
+</FrameLayout>

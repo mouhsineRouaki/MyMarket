@@ -24,4 +24,8 @@ object NotificationService : IDAO<Notification> {
     override fun findAll(): MutableList<Notification> {
         return listPanier.toMutableList()
     }
+    fun Clear(){
+        listPanier.clear()
+    }
+
 }

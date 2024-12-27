@@ -6,6 +6,7 @@ import com.example.mymarket.interfaces.IDAO
 object CommandesService: IDAO<Commandes> {
     private val produitCommande= mutableListOf<Commandes>()
     override fun create(p:Commandes): Boolean {
+        p.startTimer(p.ville.timeLaivrison)
         return produitCommande.add(p)
     }
 

@@ -83,7 +83,7 @@ class adapterCartProduit2(
                 }
                 if(!p.contains(produit.nomP)) {
                     PanierService.create(produit)
-                    NotificationService.create(Notification(produit.image,"le ${produit.nomP} ${holder.itemView.context.getString(R.string.added_to_cart)}"))
+                    NotificationService.create(Notification(produit.image," ${produit.nomP} ${holder.itemView.context.getString(R.string.added_to_cart)}"))
                     Toast.makeText(it.context, "${produit.nomP} ${holder.itemView.context.getString(R.string.ajouterAuPanier)}", Toast.LENGTH_SHORT).show()
                 }else{
                     Toast.makeText(it.context, "${produit.nomP} ${holder.itemView.context.getString(R.string.product_already_in_cart)}", Toast.LENGTH_SHORT).show()

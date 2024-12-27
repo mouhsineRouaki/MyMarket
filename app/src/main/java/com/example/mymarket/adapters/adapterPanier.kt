@@ -61,16 +61,16 @@ class adapterPanier(
             holder.btnRemove.visibility = View.VISIBLE
         }else{
             holder.btnRemove.visibility = View.GONE
-            holder.desc.text = "Quantite : ${produit.quantitePanier}"
+            holder.desc.text = "${holder.itemView.context.getString(R.string.quantite)} : ${produit.quantitePanier}"
         }
 
         holder.productImage.setImageResource(produit.image)
         holder.productName.text = produit.nomP.uppercase()
-        holder.productPrice.text = "Prix : ${produit.prix} DH"
+        holder.productPrice.text = "${holder.itemView.context.getString(R.string.prix)} : ${produit.prix} ${holder.itemView.context.getString(R.string.DH)}"
         holder.textQuantite.text = "${produit.quantitePanier}"
 
         val prixReduit = produit.prix * (1 - produit.Promo / 100.0)
-        holder.productReduit.text = String.format("%.2f DH", prixReduit)
+        holder.productReduit.text = String.format("%.2f ${holder.itemView.context.getString(R.string.DH)}", prixReduit)
 
         if (produit.Promo <= 0) {
             holder.reduction.visibility = View.GONE
@@ -89,7 +89,7 @@ class adapterPanier(
                 updateTotalPrix(holder, produit)
                 fragment.updateTotal()
             } else {
-                Toast.makeText(it.context, "Stock insuffisant pour ${produit.nomP}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(it.context, "${holder.itemView.context.getString(R.string.StockInsifut)} ${produit.nomP}", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -102,14 +102,14 @@ class adapterPanier(
 
             } else {
                 val dialog = AlertDialog.Builder(it.context)
-                dialog.setMessage("Voulez-vous supprimer ${produit.nomP} du panier ?")
-                dialog.setPositiveButton("OK") { _, _ ->
+                dialog.setMessage("${holder.itemView.context.getString(R.string.remove_from_cart, produit.nomP)}")
+                dialog.setPositiveButton("${holder.itemView.context.getString(R.string.ok)}") { _, _ ->
                     PanierService.deleteByPosition(position)
                     fragment.updateTotal()
                     notifyItemRemoved(position)
-                    NotificationService.create(Notification(produit.image,"le ${produit.nomP} est supprimer dans votre Pannier"))
+                    NotificationService.create(Notification(produit.image,"${holder.itemView.context.getString(R.string.product_removed, produit.nomP)}"))
                 }
-                dialog.setNegativeButton("Annuler", null)
+                dialog.setNegativeButton("${holder.itemView.context.getString(R.string.cancel)}", null)
                 dialog.create().show()
             }
         }
@@ -119,7 +119,7 @@ class adapterPanier(
             notifyItemRemoved(position)
             notifyDataSetChanged()
             fragment.updateTotal()
-            NotificationService.create(Notification(produit.image,"le ${produit.nomP} est supprimer dans votre Pannier"))
+            NotificationService.create(Notification(produit.image,"${holder.itemView.context.getString(R.string.product_removed, produit.nomP)}"))
         }
         updateTotalPrix(holder, produit)
     }

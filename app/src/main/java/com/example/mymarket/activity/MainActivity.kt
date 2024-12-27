@@ -10,6 +10,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.example.mymarket.Fragements.CategoryFragment
 import com.example.mymarket.Fragements.CommandeFragment
 import com.example.mymarket.Fragements.HomeFragement
@@ -48,6 +49,7 @@ class MainActivity : AppCompatActivity() {
     fun loadFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
             .setCustomAnimations(
                 R.anim.enter_animations,
                 R.anim.aucun,
