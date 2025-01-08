@@ -112,7 +112,10 @@ class adapterCommandes(
 
         }
         val workManager = WorkManager.getInstance(holder.itemView.context)
-        val workRequest = PeriodicWorkRequest.Builder(CommandesRemenmber::class.java,commande.ville.timeLaivrison, TimeUnit.MINUTES).build()
+        val workRequest = PeriodicWorkRequest
+            .Builder(CommandesRemenmber::class.java,commande.ville.timeLaivrison, TimeUnit.MINUTES)
+            .setInitialDelay(commande.ville.timeLaivrison, TimeUnit.MINUTES)
+            .build()
         if (commande.showNotificationWorker) {
             workManager.enqueue(workRequest)
             commande.showNotificationWorker = false
