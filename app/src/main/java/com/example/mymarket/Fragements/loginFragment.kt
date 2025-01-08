@@ -20,10 +20,7 @@ import com.example.mymarket.Service.utilisateurService
 import com.example.mymarket.activity.MainActivity
 
 class loginFragment : Fragment() {
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.login_activity, container, false)
     }
     @SuppressLint("SuspiciousIndentation")

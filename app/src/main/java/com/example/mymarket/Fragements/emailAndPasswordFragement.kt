@@ -17,9 +17,7 @@ import com.example.mymarket.Service.utilisateurService
 
 class emailAndPasswordFragement : Fragment() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.email_password_layout, container, false)
     }
 

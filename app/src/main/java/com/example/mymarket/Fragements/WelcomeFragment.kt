@@ -17,10 +17,7 @@ import com.example.mymarket.Service.VilleService
 import com.example.mymarket.Service.villeTypeService
 
 class WelcomeFragment : Fragment() {
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.layout_comptes, container, false)
     }
 
@@ -31,7 +28,6 @@ class WelcomeFragment : Fragment() {
         val btnInscription = view.findViewById<TextView>(R.id.tosignup)
 
         btnLogin.setOnClickListener {
-
             parentFragmentManager.beginTransaction()
                 .setCustomAnimations(
                     R.anim.enter_animations,
@@ -44,7 +40,6 @@ class WelcomeFragment : Fragment() {
         }
 
         btnInscription.setOnClickListener {
-
             parentFragmentManager.beginTransaction()
                 .setCustomAnimations(
                     R.anim.enter_animations,

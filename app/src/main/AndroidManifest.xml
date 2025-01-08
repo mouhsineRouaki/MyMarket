@@ -33,12 +33,6 @@
             android:name=".activity.MainActivity"
             android:exported="true">
         </activity>
-        <service
-            android:name=".GestionDeNotification.CommandeEnCoursJobService"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
-        <service
-            android:name=".GestionDeNotification.CommandesLivreJobService"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
     </application>
 
 </manifest>

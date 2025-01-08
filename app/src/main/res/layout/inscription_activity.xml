@@ -45,12 +45,19 @@
         android:layout_weight="6">
 
         <LinearLayout
+            android:id="@+id/frame2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/drawable_login"
             android:backgroundTint="@color/white"
             android:gravity="center"
             android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/frame0"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -152,6 +159,7 @@
                 android:backgroundTint="@color/buttoncolor"
                 android:text="@string/next"
                 android:textStyle="bold"/>
+            </LinearLayout>
         </LinearLayout>
     </FrameLayout>
 </LinearLayout>

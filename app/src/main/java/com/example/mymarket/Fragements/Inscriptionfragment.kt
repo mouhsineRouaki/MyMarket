@@ -36,7 +36,7 @@ class Inscriptionfragment : Fragment() {
         val checkBoxConditions = view.findViewById<CheckBox>(R.id.condition)
         val buttonInscription = view.findViewById<Button>(R.id.buttonInscription)
         val villeSpinner = view.findViewById<Spinner>(R.id.ville)
-        val linear = view.findViewById<LinearLayout>(R.id.fragment_container2)
+        val linear = view.findViewById<LinearLayout>(R.id.frame0)
 
         val villestypes = VilleService.findAll().toMutableList()
         villesList = mutableListOf()
